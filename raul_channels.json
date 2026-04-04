@@ -237,7 +237,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_50397dcb",
@@ -987,7 +987,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_9eaa9688",
@@ -1127,7 +1127,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "V2",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_341fab83",
@@ -1637,7 +1637,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_353da57d",
@@ -1647,7 +1647,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_ec93ef03",
@@ -1657,7 +1657,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_142b7921",
@@ -1667,7 +1667,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_e80d6d9b",
@@ -1677,7 +1677,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_52598351",
@@ -1687,7 +1687,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_c299b0a5",
@@ -1697,7 +1697,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_82dfca07",
@@ -1707,7 +1707,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_cbe2590f",
@@ -1717,7 +1717,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_e8730c33",
@@ -1727,7 +1727,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_98f57aaf",
@@ -1737,7 +1737,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_2978dd9e",
@@ -1747,7 +1747,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_0e240002",
@@ -1757,7 +1757,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_87dbd3f5",
@@ -1767,7 +1767,7 @@
     "logo": "",
     "tvg_id": "",
     "variant": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "id": "raul_975439ad",
@@ -2067,6 +2067,6 @@
     "logo": "https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png",
     "tvg_id": "PT | DAZN 1",
     "variant": "",
-    "enabled": true
+    "enabled": false
   }
 ]
