@@ -2058,5 +2058,15 @@
     "tvg_id": "",
     "variant": "",
     "enabled": true
+  },
+  {
+    "id": "raul_94d76377",
+    "name": "ELEVEN DAZN 1 --> SPORT TV",
+    "hash": "7ac2d74ef6df9d15012992d7e0e635a95f58c652",
+    "group": "PORTUGAL",
+    "logo": "https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png",
+    "tvg_id": "PT | DAZN 1",
+    "variant": "",
+    "enabled": true
   }
 ]
