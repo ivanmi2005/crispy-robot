@@ -769,8 +769,6 @@ acestream://9dfd7e896ad0ff817eb71e3096f0cfa11d43169b
 acestream://03e84ed0a25083a25b93354ea1d72e65527a0d14
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TV5Monde Europe   2 --> RAUL V5
 acestream://c447f161c245f61ece19f0b5ae399fa6ccc19fbd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", DIEMA SPORT 2 1080p  2 --> RAUL
-acestream://16b31564951bce4db5d2d33f759bcdb2f266649d
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> RAUL V3
 acestream://16589aeca0df65612bd7bcd4e55c0a63f5750de2
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> RAUL V3
@@ -913,8 +911,6 @@ acestream://e10b56ced7bd970fcd5adeddf71d23a6b983da68
 acestream://7a0fdfcf39cb9599c5d2d797100718789da60dbd
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ ACCION FHD --> RAUL
 acestream://102bcb79ca391e37ac1fc9ee77dc53440d0a59ce
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", MIXED TV (solo eventos) --> RAUL
-acestream://eb25ebc41fc51710b098f860b33b3229d11921b3
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass --> RAUL
 acestream://108aebe20efc826e56f3a1cb01117a124a6b89ad
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass FHD --> RAUL
@@ -941,8 +937,6 @@ acestream://648b6c7d1b1800b6d224f22e26694f4d59ad217d
 acestream://fbc9b6650b886ba0b25c0b9468b625aa6d4a2042
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX 4 SD --> RAUL
 acestream://93953cc10405f53e1d4ea2c30f1aad25e28a59f0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", MIXED TV 2 --> RAUL V2
-acestream://aa6faf8d1fca70d1e79ca0a6647ac15fcecea2f6
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO FHD --> RAUL
 acestream://a5f2161b0cabe910dc866b5abc6efe5d8f41fd7f
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO 1 FHD --> RAUL
@@ -1043,34 +1037,6 @@ acestream://12ea555d431dbe51fc8e4ca745aec09fe22a4865
 acestream://7f50e06f715720e944cce35fa90b6b7a8db04b2e
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Ziggo Sport 4 --> RAUL
 acestream://36dfc36084b2138d3451c4700b462ac1094d693d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://350b2044f1c9e87e18d8fbda1bcc456c22cf9296
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://e38b33c56332de27ff25df223cdf488b1ec6051f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://016d48fb89bb9505ab3f883db1bfb3a7c0a3eccc
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://8442b5c7c99e5af57c2c40c1e28153072968988a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://aca05dc506242324c1727525d0535ceda24f8dea
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports FHD --> RAUL
-acestream://bc99becb2a74f8f455d6dbaa3bd85c6c7e938a6c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://77fd6e894eba1957177c0f8faa48ff851b3ffbd5
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://65d49691687add6a93692a757817bac4f204ed1f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://2b0acad014567bbbe0664904af8c001754283eb1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://2743fd284cad79cd23afc31848091b28d5929020
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://99da47072cf6d0d9323479791026c48961889557
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://9e04108345f4ca8cd33e418b91002d5b0ccd2690
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://94adcdc5a9de993dd11c6d648275cfeb2be6715b
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Okko Sports HD --> RAUL
-acestream://78637dab85e7948057165ad0c80b3db475dd9c3d
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 4K --> RAUL
 acestream://678a1e93fbfbd499c329886bfdda780e73ac1786
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS 2 FHD --> RAUL
