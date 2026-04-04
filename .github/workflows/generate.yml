@@ -1,0 +1,44 @@
+name: Generar listas M3U
+
+on:
+  # Al hacer push (solo si cambian estos ficheros)
+  push:
+    paths:
+      - "raul_channels.json"
+      - "config.json"
+      - "generate_m3u.py"
+  # Cada 2 horas (para recoger cambios de las fuentes IPFS)
+  schedule:
+    - cron: "0 */2 * * *"
+  # Ejecución manual desde GitHub Actions
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Necesario para publicar en gh-pages
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Generar listas M3U
+        run: python generate_m3u.py
+
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          commit_message: "M3U actualizado — ${{ github.run_id }}"
+          # Permite acceso CORS desde cualquier app
+          enable_jekyll: false

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ipfs.io)",
+      "Bash(pip install:*)",
+      "Bash(python -c \":*)",
+      "Bash(curl -s http://localhost:5000/api/settings)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
+      "Bash(curl -s http://localhost:5000/api/publish/worker/script)"
+    ]
+  }
+}

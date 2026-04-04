@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3U Manager</title>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<style>
+:root {
+  --bg:#0f0f13; --surface:#1a1a24; --surface2:#22222f; --surface3:#2a2a3a;
+  --border:#2e2e3e; --accent:#6c63ff; --accent2:#ff6584; --green:#43d9a2;
+  --yellow:#ffd166; --text:#e0e0f0; --muted:#7a7a9a; --danger:#ff4d6d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+
+/* Sidebar */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:20px 12px;display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.logo{font-size:1.2rem;font-weight:700;color:var(--accent);margin-bottom:16px;padding:0 8px;display:flex;align-items:center;gap:8px}
+.nav-grp{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.1em;padding:10px 10px 4px;text-transform:uppercase}
+.nav-item{padding:9px 12px;border-radius:7px;cursor:pointer;color:var(--muted);font-size:.88rem;transition:all .15s;display:flex;align-items:center;gap:9px;user-select:none}
+.nav-item:hover{background:var(--surface2);color:var(--text)}
+.nav-item.active{background:rgba(108,99,255,.18);color:var(--accent);font-weight:500}
+.nav-badge{margin-left:auto;background:var(--accent);color:#fff;border-radius:10px;padding:1px 7px;font-size:.72rem;font-weight:700}
+.nav-badge.red{background:var(--danger)}
+.nav-sep{height:1px;background:var(--border);margin:6px 0}
+
+/* Main */
+.main{padding:28px 32px;overflow-y:auto;min-height:100vh}
+h2{font-size:1.15rem;margin-bottom:20px;font-weight:600}
+.page{display:none}.page.active{display:block}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.card-title{font-size:.95rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card-title .sub{font-size:.78rem;color:var(--muted);font-weight:400}
+
+/* Tabs */
+.tabs{display:flex;gap:3px;background:var(--surface);border-radius:9px;padding:3px;width:fit-content;margin-bottom:18px}
+.tab{padding:7px 18px;border-radius:6px;cursor:pointer;font-size:.87rem;color:var(--muted);transition:all .15s;white-space:nowrap}
+.tab.active{background:var(--accent);color:#fff}
+
+/* Forms */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.form-row.single{grid-template-columns:1fr}
+.form-row.triple{grid-template-columns:1fr 1fr 1fr}
+.form-row.quad{grid-template-columns:1fr 1fr 1fr 1fr}
+label{font-size:.8rem;color:var(--muted);display:block;margin-bottom:4px}
+input,select,textarea{width:100%;padding:8px 11px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:.88rem;outline:none;transition:border .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:80px;font-family:monospace;font-size:.8rem}
+select option{background:var(--surface)}
+
+/* Buttons */
+.btn{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-size:.85rem;font-weight:500;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#7c74ff}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-danger{background:transparent;color:var(--danger);border:1px solid transparent;padding:5px 9px;font-size:.8rem}
+.btn-danger:hover{background:rgba(255,77,109,.12);border-color:var(--danger)}
+.btn-sm{padding:5px 10px;font-size:.8rem}
+.btn-green{background:var(--green);color:#111}
+.btn-green:hover{background:#5af0b5}
+.btn-yellow{background:var(--yellow);color:#111}
+.btn-yellow:hover{background:#ffe08a}
+.btn-icon{padding:5px 8px;font-size:.82rem}
+
+/* Badges */
+.badge{padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.badge-ace{background:rgba(108,99,255,.2);color:var(--accent)}
+.badge-iptv{background:rgba(255,101,132,.2);color:var(--accent2)}
+.badge-raul{background:rgba(67,217,162,.2);color:var(--green)}
+.badge-src{background:rgba(255,209,102,.2);color:var(--yellow)}
+.badge-dup{background:rgba(255,77,109,.2);color:var(--danger)}
+
+/* Toggle */
+.toggle{position:relative;width:38px;height:20px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:20px;cursor:pointer;transition:.2s}
+.toggle-slider:before{content:"";position:absolute;width:14px;height:14px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+input:checked+.toggle-slider{background:var(--accent)}
+input:checked+.toggle-slider:before{transform:translateX(18px)}
+
+/* Source items */
+.source-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface2);border-radius:8px;margin-bottom:8px}
+.source-info{flex:1;min-width:0}
+.source-name{font-size:.9rem;font-weight:500}
+.source-url{font-size:.73rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+
+/* Channel table */
+.ch-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.ch-table th{text-align:left;padding:7px 10px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.ch-table td{padding:8px 10px;border-bottom:1px solid rgba(46,46,62,.5);vertical-align:middle}
+.ch-table tr:hover td{background:rgba(255,255,255,.02)}
+.ch-hash{font-family:monospace;font-size:.76rem;color:var(--muted)}
+.ch-logo{width:26px;height:26px;object-fit:contain;border-radius:3px;background:var(--bg)}
+
+/* Stats */
+.stats-bar{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 18px;flex:1;min-width:110px}
+.stat-val{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:.76rem;color:var(--muted);margin-top:2px}
+
+/* Download cards */
+.dl-links{display:flex;gap:12px;flex-wrap:wrap}
+.dl-card{flex:1;min-width:180px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.dl-card .dl-title{font-size:.9rem;font-weight:600;margin-bottom:5px}
+.dl-card .dl-desc{font-size:.75rem;color:var(--muted);margin-bottom:12px}
+.url-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:monospace;font-size:.77rem;color:var(--green);margin-bottom:9px;word-break:break-all;text-align:left;cursor:pointer}
+.url-box:hover{border-color:var(--green)}
+
+/* Alerts */
+.alert{padding:9px 13px;border-radius:7px;font-size:.85rem;margin-bottom:10px}
+.alert-success{background:rgba(67,217,162,.1);border:1px solid rgba(67,217,162,.3);color:var(--green)}
+.alert-error{background:rgba(255,77,109,.1);border:1px solid rgba(255,77,109,.3);color:var(--danger)}
+.alert-warn{background:rgba(255,209,102,.1);border:1px solid rgba(255,209,102,.3);color:var(--yellow)}
+
+/* Preview */
+.preview-group{margin-bottom:14px}
+.preview-group-title{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.preview-count{color:var(--muted);font-weight:400;font-size:.76rem}
+.preview-ch{font-size:.82rem;padding:3px 8px;border-radius:4px}
+.preview-ch:hover{background:var(--surface2)}
+
+/* ── ORDENAR page ───────────────────────────────────── */
+.order-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.order-toolbar select{width:auto;min-width:160px}
+.cat-section{margin-bottom:12px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.cat-header{background:var(--surface2);padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;font-weight:600;font-size:.9rem}
+.cat-header:hover{background:var(--surface3)}
+.cat-count{font-size:.76rem;color:var(--muted);font-weight:400}
+.cat-chevron{margin-left:auto;transition:transform .2s;font-size:.8rem}
+.cat-body{padding:6px 8px;display:none}
+.cat-body.open{display:block}
+.sort-item{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--surface2);border-radius:6px;margin-bottom:4px;cursor:default;border:1px solid transparent;transition:background .1s}
+.sort-item:hover{background:var(--surface3)}
+.sort-item.sortable-ghost{opacity:.4;background:rgba(108,99,255,.15);border:1px dashed var(--accent)}
+.sort-item.sortable-chosen{background:var(--surface3);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.drag-handle{cursor:grab;color:var(--muted);font-size:1.1rem;padding:0 4px;flex-shrink:0}
+.drag-handle:active{cursor:grabbing}
+.sort-name{flex:1;font-size:.87rem;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sort-variant{font-size:.75rem;color:var(--muted)}
+.sort-move-select{padding:3px 6px;font-size:.77rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);cursor:pointer;max-width:140px}
+.save-fab{position:fixed;bottom:28px;right:32px;z-index:50;box-shadow:0 4px 20px rgba(108,99,255,.5)}
+
+/* ── DUPLICADOS page ────────────────────────────────── */
+.dup-group{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.dup-hash{font-family:monospace;font-size:.78rem;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.dup-item{display:flex;align-items:center;gap:10px;padding:6px 10px;background:var(--surface2);border-radius:6px;margin-bottom:6px;font-size:.85rem}
+.dup-item-name{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vs-match{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.vs-match:last-child{border-bottom:none}
+.vs-side{background:var(--surface2);border-radius:6px;padding:10px 12px;font-size:.83rem}
+.vs-side-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;font-weight:600}
+.vs-side.raul-side .vs-side-label{color:var(--green)}
+.vs-side.src-side .vs-side-label{color:var(--yellow)}
+
+/* ── MODAL ──────────────────────────────────────────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:560px;max-width:96vw;max-height:90vh;display:flex;flex-direction:column}
+.modal.wide{width:760px}
+.modal-title{font-size:1rem;font-weight:600;margin-bottom:16px;flex-shrink:0}
+.modal-body{overflow-y:auto;flex:1}
+.modal-footer{margin-top:14px;display:flex;justify-content:flex-end;gap:8px;flex-shrink:0}
+
+/* Hash picker */
+.picker-search{margin-bottom:10px}
+.picker-results{max-height:380px;overflow-y:auto}
+.picker-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:7px;cursor:pointer;font-size:.85rem;border:1px solid transparent;margin-bottom:3px}
+.picker-item:hover{background:var(--surface2);border-color:var(--accent)}
+.picker-item-name{flex:1;min-width:0}
+.picker-item-hash{font-family:monospace;font-size:.73rem;color:var(--muted)}
+.picker-empty{color:var(--muted);font-size:.87rem;text-align:center;padding:24px}
+
+/* Checkbox */
+.ch-checkbox{width:15px;height:15px;cursor:pointer;accent-color:var(--accent)}
+
+/* Misc */
+.spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flex-gap{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.muted{color:var(--muted)}
+.small{font-size:.82rem}
+.mono{font-family:monospace}
+code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83rem;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ══ SIDEBAR ══════════════════════════════════════════ -->
+<aside class="sidebar">
+  <div class="logo">&#9654; M3U Manager</div>
+  <div class="nav-grp">General</div>
+  <div class="nav-item active" data-page="dashboard" onclick="navTo('dashboard',this)">&#9632; Dashboard</div>
+  <div class="nav-item" data-page="sources" onclick="navTo('sources',this)">&#9670; Fuentes IPFS</div>
+
+  <div class="nav-grp">Canales RAUL</div>
+  <div class="nav-item" data-page="raul" onclick="navTo('raul',this)">&#8801; Lista / Añadir</div>
+  <div class="nav-item" data-page="ordenar" onclick="navTo('ordenar',this)">&#9776; Ordenar y Mover</div>
+  <div class="nav-item" data-page="duplicados" onclick="navTo('duplicados',this)">&#9670; Duplicados <span class="nav-badge red" id="dup-badge" style="display:none">!</span></div>
+
+  <div class="nav-grp">Lista Final</div>
+  <div class="nav-item" data-page="preview" onclick="navTo('preview',this)">&#128065; Preview</div>
+  <div class="nav-item" data-page="export" onclick="navTo('export',this)">&#8659; Exportar</div>
+
+  <div class="nav-sep"></div>
+  <div class="nav-grp">Publicar</div>
+  <div class="nav-item" data-page="publicar" onclick="navTo('publicar',this)">&#9729; Publicar en la nube</div>
+  <div class="nav-item" data-page="ajustes" onclick="navTo('ajustes',this)">&#9881; Ajustes</div>
+</aside>
+
+<!-- ══ MAIN ══════════════════════════════════════════════ -->
+<main class="main">
+
+<!-- ─── DASHBOARD ──────────────────────────────────────── -->
+<div class="page active" id="page-dashboard">
+  <h2>Dashboard</h2>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-val" id="s-total">…</div><div class="stat-label">Canales totales</div></div>
+    <div class="stat"><div class="stat-val" id="s-groups">…</div><div class="stat-label">Grupos</div></div>
+    <div class="stat"><div class="stat-val" id="s-raul">…</div><div class="stat-label">RAUL activos</div></div>
+    <div class="stat"><div class="stat-val" id="s-src">…</div><div class="stat-label">Fuentes activas</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">&#9654; Descargar lista fusionada</div>
+    <div class="dl-links">
+      <div class="dl-card">
+        <div class="dl-title">acestream://</div>
+        <div class="dl-desc">Acestream Player, IPTV fuera de OTT</div>
+        <div class="url-box" onclick="copyText(this.textContent)">http://localhost:5000/m3u?format=acestream</div>
+        <a href="/m3u?format=acestream" class="btn btn-primary btn-sm" download="lista_acestream.m3u">Descargar</a>
+        <button class="btn btn-secondary btn-sm" onclick="copyText('http://localhost:5000/m3u?format=acestream')">Copiar URL</button>
+      </div>
+      <div class="dl-card">
+        <div class="dl-title">IPTV 127.0.0.1</div>
+        <div class="dl-desc">OTT Navigator, VLC, Kodi…</div>
+        <div class="url-box" onclick="copyText(this.textContent)">http://localhost:5000/m3u?format=iptv</div>
+        <a href="/m3u?format=iptv" class="btn btn-primary btn-sm" download="lista_iptv.m3u">Descargar</a>
+        <button class="btn btn-secondary btn-sm" onclick="copyText('http://localhost:5000/m3u?format=iptv')">Copiar URL</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">&#9201; Cache IPFS <span class="sub">(30 min)</span></div>
+    <button class="btn btn-secondary" onclick="clearCache()">Limpiar cache y recargar fuentes</button>
+  </div>
+</div>
+
+<!-- ─── FUENTES IPFS ────────────────────────────────────── -->
+<div class="page" id="page-sources">
+  <h2>Fuentes IPFS</h2>
+  <div class="alert alert-warn" style="margin-bottom:16px">Activa sólo <b>un formato por proveedor</b> (acestream <b>O</b> iptv, no los dos — producen duplicados en el M3U).</div>
+  <div id="sources-list"></div>
+</div>
+
+<!-- ─── CANALES RAUL ────────────────────────────────────── -->
+<div class="page" id="page-raul">
+  <h2>Canales RAUL</h2>
+  <div class="tabs">
+    <div class="tab active" onclick="raulTab('list',this)">Lista</div>
+    <div class="tab" onclick="raulTab('add',this)">+ Añadir</div>
+    <div class="tab" onclick="raulTab('bulk',this)">Pegar Discord</div>
+  </div>
+
+  <!-- Lista -->
+  <div id="rt-list">
+    <div id="raul-alert"></div>
+    <div class="flex-gap" style="margin-bottom:12px">
+      <input id="raul-search" placeholder="&#128269; Buscar por nombre, hash o grupo…" style="max-width:320px" oninput="filterRaulTable()">
+      <select id="raul-filter-group" onchange="filterRaulTable()" style="width:auto;min-width:140px">
+        <option value="">Todos los grupos</option>
+      </select>
+      <span class="muted small" id="raul-count"></span>
+    </div>
+    <table class="ch-table" id="raul-table">
+      <thead><tr>
+        <th><input type="checkbox" class="ch-checkbox" id="chk-all" onchange="toggleAllChk(this.checked)"></th>
+        <th></th><th>Nombre</th><th>Hash</th><th>Grupo</th><th>Var.</th><th>On/Off</th><th></th>
+      </tr></thead>
+      <tbody id="raul-tbody"></tbody>
+    </table>
+    <div class="flex-gap" style="margin-top:10px" id="bulk-actions" style="display:none">
+      <span class="muted small" id="selected-count"></span>
+      <button class="btn btn-secondary btn-sm" onclick="bulkChangeGroup()">Mover grupo seleccionados</button>
+      <button class="btn btn-danger btn-sm" onclick="bulkDelete()">Eliminar seleccionados</button>
+    </div>
+  </div>
+
+  <!-- Añadir -->
+  <div id="rt-add" style="display:none">
+    <div class="card">
+      <div class="card-title">Nuevo canal RAUL</div>
+      <div id="add-alert"></div>
+      <div class="form-row">
+        <div>
+          <label>Hash acestream * (40 hex)</label>
+          <div class="flex-gap" style="gap:6px">
+            <input id="add-hash" placeholder="31c19ffb…" style="flex:1">
+            <button class="btn btn-secondary btn-sm" onclick="openPicker()">&#128269; Buscar</button>
+          </div>
+        </div>
+        <div><label>Nombre *</label><input id="add-name" placeholder="M. Liga"></div>
+      </div>
+      <div class="form-row triple">
+        <div>
+          <label>Grupo</label>
+          <select id="add-group">
+            <option>1RFEF</option><option>COPA DEL REY</option><option>DAZN</option>
+            <option>DEPORTES</option><option>EUROSPORT</option><option>EVENTOS</option>
+            <option>FORMULA 1</option><option>FUTBOL INT</option><option>HYPERMOTION</option>
+            <option selected>LA LIGA</option><option>LIGA DE CAMPEONES</option>
+            <option>LIGA ENDESA</option><option>MOTOR</option><option>MOVISTAR</option>
+            <option>MOVISTAR DEPORTES</option><option>NBA</option><option>SPORT TV</option>
+            <option>TDT</option><option>TENNIS</option><option>OTROS</option>
+            <option value="">Personalizado…</option>
+          </select>
+        </div>
+        <div><label>Grupo personalizado</label><input id="add-group-custom" placeholder="(vacío = usar el de arriba)"></div>
+        <div><label>Variante</label><input id="add-variant" placeholder="V1"></div>
+      </div>
+      <div class="form-row">
+        <div><label>Logo URL</label><input id="add-logo" placeholder="https://…"></div>
+        <div><label>tvg-id (EPG)</label><input id="add-tvgid"></div>
+      </div>
+      <button class="btn btn-primary" onclick="addRaul()">Guardar canal</button>
+    </div>
+  </div>
+
+  <!-- Bulk Discord -->
+  <div id="rt-bulk" style="display:none">
+    <div class="card">
+      <div class="card-title">Pegar lista de Discord</div>
+      <p class="small muted" style="margin-bottom:12px">Pega el texto tal cual. El sistema detecta automáticamente los hashes de 40 chars.<br>Formato: <code>Nombre del canal</code> → línea siguiente = hash.</p>
+      <div id="bulk-alert"></div>
+      <div class="form-row single"><div><label>Texto del Discord</label>
+        <textarea id="bulk-text" rows="9" placeholder="🇪🇸M. Liga 🇻 4️⃣&#10;31c19ffb3472c289c5bbbbc174449c8ed0d19e38&#10;&#10;🇪🇸Fox Sports 2 1080p 🇻1️⃣&#10;c42d05ff84d2c6524f303992d3e4b35345bc21ad"></textarea>
+      </div></div>
+      <div class="form-row">
+        <div><label>Grupo por defecto</label>
+          <select id="bulk-group">
+            <option>1RFEF</option><option>COPA DEL REY</option><option>DAZN</option>
+            <option>DEPORTES</option><option>EUROSPORT</option><option>EVENTOS</option>
+            <option>FORMULA 1</option><option>FUTBOL INT</option><option>HYPERMOTION</option>
+            <option>LA LIGA</option><option>LIGA DE CAMPEONES</option><option>LIGA ENDESA</option>
+            <option>MOTOR</option><option>MOVISTAR</option><option>MOVISTAR DEPORTES</option>
+            <option>NBA</option><option>SPORT TV</option><option>TDT</option><option>TENNIS</option>
+            <option selected>OTROS</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="bulkAdd()">Procesar y añadir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ORDENAR Y MOVER ─────────────────────────────────── -->
+<div class="page" id="page-ordenar">
+  <h2>Ordenar canales y mover entre grupos</h2>
+  <div class="order-toolbar">
+    <div class="flex-gap">
+      <span class="small muted">Filtrar por grupo:</span>
+      <select id="order-filter" onchange="renderOrderView()" style="min-width:160px">
+        <option value="">Todos los grupos</option>
+      </select>
+    </div>
+    <button class="btn btn-secondary btn-sm" onclick="expandAll()">Expandir todo</button>
+    <button class="btn btn-secondary btn-sm" onclick="collapseAll()">Colapsar todo</button>
+    <span class="muted small" id="order-info"></span>
+  </div>
+
+  <div id="order-categories"></div>
+  <div style="height:70px"></div><!-- space for FAB -->
+
+  <button class="btn btn-green save-fab" id="save-order-btn" onclick="saveOrder()" style="display:none">
+    &#128190; Guardar orden
+  </button>
+</div>
+
+<!-- ─── DUPLICADOS ──────────────────────────────────────── -->
+<div class="page" id="page-duplicados">
+  <h2>Buscador de duplicados</h2>
+  <div class="tabs">
+    <div class="tab active" onclick="dupTab('raul',this)">En RAUL</div>
+    <div class="tab" onclick="dupTab('vs',this)">RAUL vs Fuentes IPFS</div>
+  </div>
+
+  <!-- Duplicados en RAUL -->
+  <div id="dt-raul">
+    <div class="flex-gap" style="margin-bottom:14px">
+      <button class="btn btn-secondary" onclick="loadDupRaul()">&#8635; Buscar duplicados</button>
+      <span class="muted small" id="dup-raul-info"></span>
+    </div>
+    <div id="dup-raul-results"><p class="muted small">Pulsa "Buscar duplicados" para analizar.</p></div>
+  </div>
+
+  <!-- RAUL vs Fuentes -->
+  <div id="dt-vs" style="display:none">
+    <div class="flex-gap" style="margin-bottom:14px">
+      <button class="btn btn-secondary" onclick="loadDupVs()">&#8635; Comparar con fuentes IPFS</button>
+      <span class="muted small" id="dup-vs-info"></span>
+    </div>
+    <div class="alert alert-warn" style="margin-bottom:12px">
+      Estos canales están en RAUL Y también en las fuentes IPFS. Puedes eliminarlos de RAUL (ya están cubiertos) o mantenerlos (si tienes un nombre o grupo personalizado diferente).
+    </div>
+    <div id="dup-vs-results"><p class="muted small">Pulsa "Comparar con fuentes IPFS" para analizar.</p></div>
+  </div>
+</div>
+
+<!-- ─── PREVIEW ─────────────────────────────────────────── -->
+<div class="page" id="page-preview">
+  <h2>Preview lista fusionada</h2>
+  <div class="flex-gap" style="margin-bottom:16px">
+    <button class="btn btn-secondary" onclick="loadPreview()">&#8635; Actualizar</button>
+    <input id="preview-search" placeholder="Buscar canal…" style="max-width:240px" oninput="filterPreview()">
+  </div>
+  <div id="preview-content"><p class="muted small">Pulsa "Actualizar" para cargar la lista fusionada.</p></div>
+</div>
+
+<!-- ─── EXPORTAR ────────────────────────────────────────── -->
+<div class="page" id="page-export">
+  <h2>Exportar</h2>
+  <div class="dl-links" style="margin-bottom:16px">
+    <div class="dl-card">
+      <div class="dl-title">acestream://</div>
+      <div class="dl-desc">Acestream Player, apps fuera de OTT</div>
+      <div class="url-box" onclick="copyText(this.textContent)">http://localhost:5000/m3u?format=acestream</div>
+      <a href="/m3u?format=acestream" class="btn btn-primary btn-sm" download>Descargar .m3u</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-title">IPTV (127.0.0.1:6878)</div>
+      <div class="dl-desc">OTT Navigator, VLC, Kodi…</div>
+      <div class="url-box" onclick="copyText(this.textContent)">http://localhost:5000/m3u?format=iptv</div>
+      <a href="/m3u?format=iptv" class="btn btn-primary btn-sm" download>Descargar .m3u</a>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(108,99,255,.4)">
+    <div class="card-title">URL permanente gratis → Cloudflare Worker</div>
+    <p class="small muted" style="margin-bottom:10px">Para un link fijo en internet ve a la pestaña "Cloudflare Worker" y sigue las instrucciones. URL permanente del tipo <code>https://m3u-manager.TU_USUARIO.workers.dev/m3u?format=acestream</code></p>
+    <button class="btn btn-secondary" onclick="navTo('worker',document.querySelector('[data-page=worker]'))">Ir a Cloudflare Worker →</button>
+  </div>
+</div>
+
+<!-- ─── PUBLICAR EN LA NUBE ─────────────────────────────── -->
+<div class="page" id="page-publicar">
+  <h2>Publicar en la nube</h2>
+
+  <!-- Arquitectura explicada -->
+  <div class="card" style="border-color:rgba(108,99,255,.35)">
+    <div class="card-title">&#9889; Cómo funciona (todo gratis)</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:6px">
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:1.4rem">&#128196;</div>
+        <div style="font-weight:600;font-size:.88rem;margin:4px 0">GitHub</div>
+        <div class="small muted">Almacena tus canales RAUL<br>y el código</div>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:1.4rem">&#9881;</div>
+        <div style="font-weight:600;font-size:.88rem;margin:4px 0">GitHub Actions</div>
+        <div class="small muted">Genera las listas cada 2h<br>y en cada push</div>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:1.4rem">&#9729;</div>
+        <div style="font-weight:600;font-size:.88rem;margin:4px 0">Cloudflare Worker</div>
+        <div class="small muted">URL permanente, tiempo real,<br>sin límite práctico</div>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:8px">
+      Tú editas canales localmente → <b>Publicar en GitHub</b> → GitHub Actions genera las listas automáticamente
+      → el Worker sirve siempre la versión más reciente. Sin servidores, sin costes.
+    </p>
+  </div>
+
+  <!-- PASO 1: GitHub -->
+  <div class="card">
+    <div class="card-title">
+      <span id="gh-step-icon" style="font-size:1.1rem">1️⃣</span> GitHub — subir canales
+      <span id="gh-status-badge" class="badge" style="margin-left:auto;display:none"></span>
+    </div>
+
+    <div id="gh-not-configured" class="alert alert-warn" style="margin-bottom:12px;display:none">
+      Configura GitHub en <b>Ajustes</b> primero (usuario, repo y token).
+    </div>
+
+    <div id="gh-configured-panel">
+      <p class="small muted" style="margin-bottom:12px">
+        Sube <code>raul_channels.json</code> y <code>config.json</code> a tu repo de GitHub.
+        Esto activa automáticamente GitHub Actions, que generará las listas M3U y las publicará en GitHub Pages.
+      </p>
+      <div class="flex-gap">
+        <button class="btn btn-primary" id="btn-push-gh" onclick="publishGitHub()">
+          &#8679; Publicar en GitHub
+        </button>
+        <button class="btn btn-secondary btn-sm" onclick="checkGHStatus()">&#8635; Ver estado Actions</button>
+        <span class="muted small" id="gh-push-result"></span>
+      </div>
+
+      <div id="gh-actions-status" style="margin-top:14px;display:none">
+        <div class="small muted" style="margin-bottom:6px">Últimas ejecuciones de GitHub Actions:</div>
+        <div id="gh-runs-list"></div>
+      </div>
+
+      <div id="gh-pages-urls" style="margin-top:14px;display:none">
+        <div class="small muted" style="margin-bottom:6px">URLs de GitHub Pages (disponibles ~1 min después del push):</div>
+        <div class="url-box" id="gh-url-ace" onclick="copyText(this.textContent)"></div>
+        <div class="url-box" id="gh-url-iptv" onclick="copyText(this.textContent)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASO 2: Cloudflare Worker -->
+  <div class="card">
+    <div class="card-title">2️⃣ Cloudflare Worker — URL permanente</div>
+    <p class="small muted" style="margin-bottom:12px">
+      El Worker sirve las listas en tiempo real (descarga fuentes IPFS al momento + lee tus canales RAUL desde GitHub).
+      <b>Una vez desplegado, nunca más hay que tocarlo</b> — se actualiza solo cuando haces push a GitHub.
+    </p>
+
+    <div id="cf-not-configured" class="alert alert-warn" style="margin-bottom:12px;display:none">
+      Configura Cloudflare en <b>Ajustes</b> para desplegar automáticamente. O copia el script manualmente.
+    </div>
+
+    <div class="flex-gap" style="margin-bottom:12px">
+      <button class="btn btn-green" id="btn-deploy-cf" onclick="deployWorker()">
+        &#9729; Desplegar Worker automáticamente
+      </button>
+      <button class="btn btn-secondary" onclick="copyWorkerScript()">Copiar script (manual)</button>
+      <span class="muted small" id="cf-deploy-result"></span>
+    </div>
+
+    <div id="cf-worker-urls" style="display:none">
+      <div class="small muted" style="margin-bottom:6px">Tu URL permanente:</div>
+      <div class="url-box" id="cf-url-ace" onclick="copyText(this.textContent)"></div>
+      <div class="url-box" id="cf-url-iptv" onclick="copyText(this.textContent)"></div>
+    </div>
+
+    <details style="margin-top:12px">
+      <summary class="small muted" style="cursor:pointer">Instrucciones manuales (si no quieres usar la API)</summary>
+      <ol class="small muted" style="padding-left:18px;line-height:2.2;margin-top:8px">
+        <li>Ve a <b>cloudflare.com</b> → <b>Workers &amp; Pages</b> → <b>Create</b> → <b>Worker</b></li>
+        <li>Nombre: <code>m3u-manager</code> → Deploy → Edit code</li>
+        <li>Pega el script copiado con el botón de arriba → Save &amp; Deploy</li>
+        <li>Tu URL: <code>https://m3u-manager.TU_USUARIO.workers.dev/m3u?format=acestream</code></li>
+      </ol>
+    </details>
+  </div>
+
+  <!-- Setup inicial GitHub -->
+  <div class="card">
+    <div class="card-title">&#128640; Primera vez — Configuración inicial GitHub</div>
+    <ol class="small muted" style="padding-left:18px;line-height:2.2">
+      <li>Crea un repo en <b>github.com</b> (puede ser privado). Nombre: <code>m3u-manager</code></li>
+      <li>Ve a <b>Settings → Pages</b> → Source: <b>Deploy from a branch</b> → branch: <b>gh-pages</b></li>
+      <li>Crea un <b>Personal Access Token</b>: <b>Settings → Developer settings → Fine-grained tokens</b>
+        <br>Permisos: <i>Contents: Read and Write</i>, <i>Actions: Read</i></li>
+      <li>Pon el token en <b>Ajustes</b> de esta app</li>
+      <li>Haz el primer push desde aquí → Actions se activa automáticamente</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ─── AJUSTES ──────────────────────────────────────────── -->
+<div class="page" id="page-ajustes">
+  <h2>Ajustes</h2>
+
+  <div class="card">
+    <div class="card-title">&#128196; GitHub</div>
+    <div id="ajustes-alert-gh"></div>
+    <div class="form-row triple">
+      <div><label>Usuario / Organización *</label><input id="cfg-gh-owner" placeholder="tu-usuario-github"></div>
+      <div><label>Nombre del repositorio *</label><input id="cfg-gh-repo" placeholder="m3u-manager"></div>
+      <div><label>Branch</label><input id="cfg-gh-branch" placeholder="main" value="main"></div>
+    </div>
+    <div class="form-row single">
+      <div>
+        <label>Personal Access Token * <span class="muted small">(Fine-grained, permisos: Contents Write + Actions Read)</span></label>
+        <input id="cfg-gh-token" type="password" placeholder="github_pat_…  (vacío = no cambiar)">
+      </div>
+    </div>
+    <div class="flex-gap">
+      <button class="btn btn-primary" onclick="saveSettings('gh')">Guardar GitHub</button>
+      <span id="cfg-gh-token-status" class="small muted"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">&#9729; Cloudflare Workers</div>
+    <div id="ajustes-alert-cf"></div>
+    <div class="form-row">
+      <div>
+        <label>Account ID <span class="muted small">(cloudflare.com → lado derecho de la pantalla principal)</span></label>
+        <input id="cfg-cf-account" placeholder="a1b2c3d4e5f6…">
+      </div>
+      <div><label>Nombre del Worker</label><input id="cfg-cf-worker" placeholder="m3u-manager"></div>
+    </div>
+    <div class="form-row single">
+      <div>
+        <label>API Token * <span class="muted small">(My Profile → API Tokens → Create Token → Edit Workers)</span></label>
+        <input id="cfg-cf-token" type="password" placeholder="(vacío = no cambiar)">
+      </div>
+    </div>
+    <div class="flex-gap">
+      <button class="btn btn-primary" onclick="saveSettings('cf')">Guardar Cloudflare</button>
+      <span id="cfg-cf-token-status" class="small muted"></span>
+    </div>
+  </div>
+</div>
+
+</main><!-- /main -->
+</div><!-- /layout -->
+
+<!-- ══ MODALS ════════════════════════════════════════════ -->
+
+<!-- Edit modal -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal">
+    <div class="modal-title">Editar canal RAUL</div>
+    <input type="hidden" id="edit-id">
+    <div class="modal-body">
+      <div class="form-row">
+        <div><label>Nombre</label><input id="edit-name"></div>
+        <div><label>Hash</label><input id="edit-hash"></div>
+      </div>
+      <div class="form-row triple">
+        <div><label>Grupo</label>
+          <select id="edit-group">
+            <option>1RFEF</option><option>COPA DEL REY</option><option>DAZN</option>
+            <option>DEPORTES</option><option>EUROSPORT</option><option>EVENTOS</option>
+            <option>FORMULA 1</option><option>FUTBOL INT</option><option>HYPERMOTION</option>
+            <option>LA LIGA</option><option>LIGA DE CAMPEONES</option><option>LIGA ENDESA</option>
+            <option>MOTOR</option><option>MOVISTAR</option><option>MOVISTAR DEPORTES</option>
+            <option>NBA</option><option>SPORT TV</option><option>TDT</option>
+            <option>TENNIS</option><option>OTROS</option>
+          </select>
+        </div>
+        <div><label>Variante</label><input id="edit-variant"></div>
+        <div><label>Logo URL</label><input id="edit-logo"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('edit-modal')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hash picker modal -->
+<div class="modal-overlay" id="picker-modal">
+  <div class="modal wide">
+    <div class="modal-title">Buscar canal en fuentes IPFS</div>
+    <div class="modal-body">
+      <input id="picker-q" class="picker-search" placeholder="Buscar por nombre, hash o grupo…" oninput="filterPicker()">
+      <div class="picker-results" id="picker-results">
+        <div class="picker-empty"><div class="spin"></div><br>Cargando canales…</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('picker-modal')">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bulk group change modal -->
+<div class="modal-overlay" id="bulkgrp-modal">
+  <div class="modal" style="width:360px">
+    <div class="modal-title">Mover a grupo</div>
+    <div class="modal-body">
+      <label>Selecciona el grupo de destino</label>
+      <select id="bulkgrp-select" style="margin-top:6px">
+        <option>1RFEF</option><option>COPA DEL REY</option><option>DAZN</option>
+        <option>DEPORTES</option><option>EUROSPORT</option><option>EVENTOS</option>
+        <option>FORMULA 1</option><option>FUTBOL INT</option><option>HYPERMOTION</option>
+        <option>LA LIGA</option><option>LIGA DE CAMPEONES</option><option>LIGA ENDESA</option>
+        <option>MOTOR</option><option>MOVISTAR</option><option>MOVISTAR DEPORTES</option>
+        <option>NBA</option><option>SPORT TV</option><option>TDT</option>
+        <option>TENNIS</option><option>OTROS</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('bulkgrp-modal')">Cancelar</button>
+      <button class="btn btn-primary" onclick="confirmBulkGroup()">Mover</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══ CONSTANTS ════════════════════════════════════════════
+const GROUPS = ['1RFEF','COPA DEL REY','DAZN','DEPORTES','EUROSPORT','EVENTOS',
+  'FORMULA 1','FUTBOL INT','HYPERMOTION','LA LIGA','LIGA DE CAMPEONES','LIGA ENDESA',
+  'MOTOR','MOVISTAR','MOVISTAR DEPORTES','NBA','SPORT TV','TDT','TENNIS','OTROS'];
+
+// ══ NAVIGATION ═══════════════════════════════════════════
+function navTo(page, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  if (typeof el === 'string') el = document.querySelector(`[data-page="${el}"]`);
+  if (el) el.classList.add('active');
+  if (page === 'dashboard') loadDashboard();
+  if (page === 'sources') loadSources();
+  if (page === 'raul') { loadRaul(); }
+  if (page === 'ordenar') loadOrderView();
+  if (page === 'duplicados') { /* wait for user to click */ }
+  if (page === 'preview') { /* wait for user to click */ }
+  if (page === 'publicar') { loadSettings().then(updatePublishPage); }
+  if (page === 'ajustes') loadSettings();
+}
+
+// ══ HELPERS ══════════════════════════════════════════════
+function copyText(t) {
+  if (!t || !t.trim()) return;
+  navigator.clipboard.writeText(t.trim());
+  toast('Copiado');
+}
+function toast(msg, type='ok') {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  const bg = type==='ok' ? 'var(--accent)' : type==='err' ? 'var(--danger)' : 'var(--green)';
+  t.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:${bg};color:#fff;padding:9px 20px;border-radius:8px;font-size:.87rem;z-index:999;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.4)`;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2400);
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+async function api(url, opts={}) {
+  const r = await fetch(url, opts);
+  return r.json();
+}
+
+// ══ DASHBOARD ════════════════════════════════════════════
+async function loadDashboard() {
+  const [preview, raul, cfg] = await Promise.all([
+    api('/api/preview'), api('/api/raul'), api('/api/config')
+  ]);
+  document.getElementById('s-total').textContent = preview.total;
+  document.getElementById('s-groups').textContent = preview.groups.length;
+  document.getElementById('s-raul').textContent = raul.filter(c=>c.enabled).length;
+  document.getElementById('s-src').textContent = cfg.sources.filter(s=>s.enabled).length;
+}
+async function clearCache() {
+  await api('/api/cache/clear', {method:'POST'});
+  toast('Cache limpiada');
+  loadDashboard();
+}
+
+// ══ SOURCES ══════════════════════════════════════════════
+async function loadSources() {
+  const cfg = await api('/api/config');
+  document.getElementById('sources-list').innerHTML = cfg.sources.map(s => `
+    <div class="source-item">
+      <div class="source-info">
+        <div class="source-name">${s.name} <span class="badge ${s.format==='acestream'?'badge-ace':'badge-iptv'}">${s.format}</span></div>
+        <div class="source-url" title="${s.url}">${s.url}</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" ${s.enabled?'checked':''} onchange="toggleSource('${s.id}',this)">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>`).join('');
+}
+async function toggleSource(id, el) {
+  const d = await api(`/api/config/source/${id}/toggle`, {method:'POST'});
+  if (!d.ok) el.checked = !el.checked;
+}
+
+// ══ RAUL — LIST ══════════════════════════════════════════
+let raulData = [];
+
+async function loadRaul() {
+  raulData = await api('/api/raul');
+  populateGroupFilter('raul-filter-group');
+  renderRaulTable(raulData);
+}
+
+function populateGroupFilter(selectId) {
+  const groups = [...new Set(raulData.map(c=>c.group))].sort();
+  const sel = document.getElementById(selectId);
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">Todos los grupos</option>' +
+    groups.map(g=>`<option${g===cur?'selected':''}>${g}</option>`).join('');
+}
+
+function filterRaulTable() {
+  const q = document.getElementById('raul-search').value.toLowerCase();
+  const grp = document.getElementById('raul-filter-group').value;
+  const filtered = raulData.filter(c => {
+    if (grp && c.group !== grp) return false;
+    if (q) return c.name.toLowerCase().includes(q) ||
+      c.hash.includes(q) || c.group.toLowerCase().includes(q);
+    return true;
+  });
+  renderRaulTable(filtered);
+}
+
+function renderRaulTable(channels) {
+  document.getElementById('raul-count').textContent = `${channels.length} canales`;
+  document.getElementById('raul-tbody').innerHTML = channels.map(ch => `
+    <tr id="row-${ch.id}">
+      <td><input type="checkbox" class="ch-checkbox row-chk" data-id="${ch.id}" onchange="updateBulkBar()"></td>
+      <td>${ch.logo?`<img class="ch-logo" src="${ch.logo}" onerror="this.style.display='none'">`:'<span style="width:26px;display:inline-block"></span>'}</td>
+      <td style="max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${ch.name}">${ch.name}</td>
+      <td class="ch-hash">${ch.hash.substring(0,12)}…</td>
+      <td><span class="badge badge-raul">${ch.group}</span></td>
+      <td class="muted small">${ch.variant||''}</td>
+      <td><label class="toggle"><input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleRaul('${ch.id}',this.checked)"><span class="toggle-slider"></span></label></td>
+      <td style="display:flex;gap:4px;align-items:center">
+        <button class="btn btn-secondary btn-sm btn-icon" onclick="openEdit(${JSON.stringify(ch).replace(/"/g,'&quot;')})">✏</button>
+        <button class="btn btn-danger btn-icon" onclick="deleteRaul('${ch.id}')">✕</button>
+      </td>
+    </tr>`).join('');
+}
+
+function updateBulkBar() {
+  const checked = document.querySelectorAll('.row-chk:checked');
+  const bar = document.getElementById('bulk-actions');
+  document.getElementById('selected-count').textContent = `${checked.length} seleccionados`;
+  bar.style.display = checked.length > 0 ? 'flex' : 'none';
+}
+function toggleAllChk(v) {
+  document.querySelectorAll('.row-chk').forEach(c=>c.checked=v);
+  updateBulkBar();
+}
+function getCheckedIds() {
+  return [...document.querySelectorAll('.row-chk:checked')].map(c=>c.dataset.id);
+}
+
+async function deleteRaul(id) {
+  if (!confirm('¿Eliminar este canal?')) return;
+  await api(`/api/raul/${id}`, {method:'DELETE'});
+  toast('Eliminado', 'ok');
+  loadRaul();
+}
+async function toggleRaul(id, enabled) {
+  await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({enabled})});
+}
+
+// Bulk actions
+async function bulkDelete() {
+  const ids = getCheckedIds();
+  if (!ids.length) return;
+  if (!confirm(`¿Eliminar ${ids.length} canales?`)) return;
+  await api('/api/raul/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids})});
+  toast(`${ids.length} canales eliminados`);
+  loadRaul();
+}
+let pendingBulkIds = [];
+function bulkChangeGroup() {
+  pendingBulkIds = getCheckedIds();
+  if (!pendingBulkIds.length) return;
+  document.getElementById('bulkgrp-modal').classList.add('open');
+}
+async function confirmBulkGroup() {
+  const group = document.getElementById('bulkgrp-select').value;
+  for (const id of pendingBulkIds) {
+    await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group})});
+  }
+  closeModal('bulkgrp-modal');
+  toast(`${pendingBulkIds.length} canales movidos a ${group}`);
+  pendingBulkIds = [];
+  loadRaul();
+}
+
+function raulTab(name, el) {
+  ['list','add','bulk'].forEach(t => {
+    document.getElementById('rt-'+t).style.display = t===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tabs .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  if (name === 'list') loadRaul();
+}
+
+// Edit modal
+function openEdit(ch) {
+  ['id','name','hash','variant','logo'].forEach(f => {
+    document.getElementById('edit-'+f).value = ch[f]||'';
+  });
+  const sel = document.getElementById('edit-group');
+  sel.value = ch.group;
+  if (!sel.value) sel.value = 'OTROS';
+  document.getElementById('edit-modal').classList.add('open');
+}
+async function saveEdit() {
+  const id = document.getElementById('edit-id').value;
+  const data = {
+    name: document.getElementById('edit-name').value,
+    hash: document.getElementById('edit-hash').value,
+    group: document.getElementById('edit-group').value,
+    variant: document.getElementById('edit-variant').value,
+    logo: document.getElementById('edit-logo').value,
+  };
+  await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+  closeModal('edit-modal');
+  toast('Guardado');
+  loadRaul();
+}
+
+// Add form
+async function addRaul() {
+  const group = document.getElementById('add-group-custom').value.trim() || document.getElementById('add-group').value;
+  const data = {
+    name: document.getElementById('add-name').value.trim(),
+    hash: document.getElementById('add-hash').value.trim(),
+    group, variant: document.getElementById('add-variant').value.trim(),
+    logo: document.getElementById('add-logo').value.trim(),
+    tvg_id: document.getElementById('add-tvgid').value.trim(),
+  };
+  const alertEl = document.getElementById('add-alert');
+  const r = await fetch('/api/raul', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+  if (r.ok) {
+    alertEl.innerHTML = '<div class="alert alert-success">Canal guardado.</div>';
+    ['add-name','add-hash','add-variant','add-logo','add-tvgid','add-group-custom'].forEach(id=>document.getElementById(id).value='');
+    setTimeout(()=>alertEl.innerHTML='', 3000);
+  } else {
+    const err = await r.json();
+    alertEl.innerHTML = `<div class="alert alert-error">${err.error}</div>`;
+  }
+}
+
+// Bulk Discord paste
+async function bulkAdd() {
+  const text = document.getElementById('bulk-text').value;
+  const group = document.getElementById('bulk-group').value;
+  const d = await api('/api/raul/bulk', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text, group})});
+  const alertEl = document.getElementById('bulk-alert');
+  alertEl.innerHTML = `<div class="alert alert-success">Añadidos <b>${d.added}</b> canales nuevos.</div>`;
+  setTimeout(()=>alertEl.innerHTML='', 4000);
+  if (d.added > 0) document.getElementById('bulk-text').value = '';
+}
+
+// ══ HASH PICKER ══════════════════════════════════════════
+let pickerData = [];
+async function openPicker() {
+  document.getElementById('picker-modal').classList.add('open');
+  document.getElementById('picker-q').value = '';
+  document.getElementById('picker-results').innerHTML = '<div class="picker-empty"><div class="spin"></div><br>Cargando fuentes IPFS…</div>';
+  pickerData = await api('/api/sources/channels');
+  filterPicker();
+}
+function filterPicker() {
+  const q = document.getElementById('picker-q').value.toLowerCase();
+  const results = q
+    ? pickerData.filter(e => e.name.toLowerCase().includes(q) || e.hash.includes(q) || (e.group||'').toLowerCase().includes(q))
+    : pickerData.slice(0, 120);
+  const el = document.getElementById('picker-results');
+  if (!results.length) { el.innerHTML = '<div class="picker-empty">Sin resultados</div>'; return; }
+  el.innerHTML = results.map(e => `
+    <div class="picker-item" onclick="pickChannel(${JSON.stringify(e).replace(/"/g,'&quot;')})">
+      ${e.tvg_logo ? `<img style="width:24px;height:24px;object-fit:contain;border-radius:3px" src="${e.tvg_logo}" onerror="this.style.display='none'">` : ''}
+      <div class="picker-item-name">
+        <div style="font-size:.85rem">${e.name}</div>
+        <div style="font-size:.72rem;color:var(--muted)">${e.group||''} · ${e.source_name}</div>
+      </div>
+      <div class="picker-item-hash">${e.hash.substring(0,12)}…</div>
+    </div>`).join('');
+}
+function pickChannel(e) {
+  document.getElementById('add-hash').value = e.hash;
+  document.getElementById('add-name').value = e.name;
+  if (e.tvg_logo) document.getElementById('add-logo').value = e.tvg_logo;
+  if (e.tvg_id) document.getElementById('add-tvgid').value = e.tvg_id;
+  const sel = document.getElementById('add-group');
+  const grp = GROUPS.find(g => g === e.group);
+  if (grp) sel.value = grp;
+  closeModal('picker-modal');
+  raulTab('add', document.querySelectorAll('.tabs .tab')[1]);
+  toast('Canal seleccionado');
+}
+
+// ══ ORDENAR Y MOVER ══════════════════════════════════════
+let orderData = [];
+let sortables = [];
+let orderDirty = false;
+
+async function loadOrderView() {
+  orderData = await api('/api/raul');
+  populateOrderFilter();
+  renderOrderView();
+}
+
+function populateOrderFilter() {
+  const groups = [...new Set(orderData.map(c=>c.group))].sort();
+  const sel = document.getElementById('order-filter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">Todos los grupos</option>' +
+    groups.map(g=>`<option${g===cur?' selected':''}>${g}</option>`).join('');
+}
+
+function renderOrderView() {
+  // Destroy old sortables
+  sortables.forEach(s=>s.destroy());
+  sortables = [];
+  orderDirty = false;
+  document.getElementById('save-order-btn').style.display = 'none';
+
+  const filterGrp = document.getElementById('order-filter').value;
+  const filtered = filterGrp
+    ? orderData.filter(c=>c.group===filterGrp)
+    : orderData;
+
+  // Group channels by category
+  const byGroup = {};
+  filtered.forEach(ch => {
+    (byGroup[ch.group] = byGroup[ch.group]||[]).push(ch);
+  });
+
+  const container = document.getElementById('order-categories');
+  container.innerHTML = '';
+  document.getElementById('order-info').textContent = `${filtered.length} canales, ${Object.keys(byGroup).length} grupos`;
+
+  for (const [group, channels] of Object.entries(byGroup)) {
+    const sec = document.createElement('div');
+    sec.className = 'cat-section';
+    sec.dataset.group = group;
+    sec.innerHTML = `
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>${group}</span>
+        <span class="cat-count">${channels.length} canales</span>
+        <span class="cat-chevron">▶</span>
+      </div>
+      <div class="cat-body" id="catbody-${group.replace(/\s/g,'_')}">
+        <div class="sort-list" id="sortlist-${group.replace(/\s/g,'_')}">
+          ${channels.map(ch => renderSortItem(ch)).join('')}
+        </div>
+      </div>`;
+    container.appendChild(sec);
+
+    // Init Sortable
+    const listEl = sec.querySelector('.sort-list');
+    const s = Sortable.create(listEl, {
+      group: 'channels',
+      handle: '.drag-handle',
+      animation: 120,
+      ghostClass: 'sortable-ghost',
+      chosenClass: 'sortable-chosen',
+      onEnd(evt) {
+        // If item moved to different list, update its group badge visually
+        const itemEl = evt.item;
+        const newGroupId = evt.to.closest('.cat-section').dataset.group;
+        itemEl.querySelector('.sort-group-badge').textContent = newGroupId;
+        itemEl.dataset.group = newGroupId;
+        markDirty();
+      }
+    });
+    sortables.push(s);
+  }
+}
+
+function renderSortItem(ch) {
+  const moveOpts = GROUPS.map(g=>`<option value="${g}"${g===ch.group?'selected':''}>${g}</option>`).join('');
+  return `
+    <div class="sort-item" data-id="${ch.id}" data-group="${ch.group}">
+      <span class="drag-handle" title="Arrastrar para reordenar">⋮⋮</span>
+      <label class="toggle" title="Activar/desactivar">
+        <input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleRaul('${ch.id}',this.checked)">
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="sort-name" title="${ch.name}">${ch.name}</span>
+      <span class="sort-variant muted">${ch.variant||''}</span>
+      <span class="badge badge-raul sort-group-badge" style="flex-shrink:0">${ch.group}</span>
+      <select class="sort-move-select" title="Mover a grupo" onchange="moveToGroup('${ch.id}',this)">
+        ${moveOpts}
+      </select>
+    </div>`;
+}
+
+function toggleCat(headerEl) {
+  const body = headerEl.nextElementSibling;
+  const chevron = headerEl.querySelector('.cat-chevron');
+  body.classList.toggle('open');
+  chevron.textContent = body.classList.contains('open') ? '▼' : '▶';
+}
+function expandAll() {
+  document.querySelectorAll('.cat-body').forEach(b=>b.classList.add('open'));
+  document.querySelectorAll('.cat-chevron').forEach(c=>c.textContent='▼');
+}
+function collapseAll() {
+  document.querySelectorAll('.cat-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.cat-chevron').forEach(c=>c.textContent='▶');
+}
+
+function moveToGroup(id, selectEl) {
+  const newGroup = selectEl.value;
+  const item = selectEl.closest('.sort-item');
+  item.dataset.group = newGroup;
+  item.querySelector('.sort-group-badge').textContent = newGroup;
+
+  // Move DOM element to the correct category list
+  const targetListId = `sortlist-${newGroup.replace(/\s/g,'_')}`;
+  let targetList = document.getElementById(targetListId);
+  if (targetList) {
+    targetList.appendChild(item);
+    // Open that category
+    const body = targetList.closest('.cat-body');
+    if (body && !body.classList.contains('open')) {
+      body.classList.add('open');
+      body.previousElementSibling.querySelector('.cat-chevron').textContent = '▼';
+    }
+    // Update category counts
+    updateCatCounts();
+  }
+  markDirty();
+}
+
+function updateCatCounts() {
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const count = sec.querySelectorAll('.sort-item').length;
+    sec.querySelector('.cat-count').textContent = `${count} canales`;
+  });
+}
+
+function markDirty() {
+  if (!orderDirty) {
+    orderDirty = true;
+    document.getElementById('save-order-btn').style.display = '';
+  }
+}
+
+async function saveOrder() {
+  // Collect ordered IDs and new groups from DOM
+  const updates = [];
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const newGroup = sec.dataset.group;
+    sec.querySelectorAll('.sort-item').forEach(item => {
+      updates.push({ id: item.dataset.id, group: item.dataset.group });
+    });
+  });
+
+  // Build new order array
+  const order = updates.map(u=>u.id);
+
+  // Apply group changes
+  const groupChanges = updates.filter(u => {
+    const orig = orderData.find(c=>c.id===u.id);
+    return orig && orig.group !== u.group;
+  });
+
+  // Save order first
+  await api('/api/raul/reorder', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({order})});
+
+  // Save group changes
+  for (const u of groupChanges) {
+    await api(`/api/raul/${u.id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group: u.group})});
+  }
+
+  orderDirty = false;
+  document.getElementById('save-order-btn').style.display = 'none';
+  toast(`Orden guardado · ${groupChanges.length} grupos cambiados`, 'ok');
+  orderData = await api('/api/raul');
+  populateOrderFilter();
+}
+
+// ══ DUPLICADOS ═══════════════════════════════════════════
+function dupTab(name, el) {
+  document.getElementById('dt-raul').style.display = name==='raul' ? 'block' : 'none';
+  document.getElementById('dt-vs').style.display = name==='vs' ? 'block' : 'none';
+  document.querySelectorAll('#page-duplicados .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+async function loadDupRaul() {
+  const infoEl = document.getElementById('dup-raul-info');
+  const resEl = document.getElementById('dup-raul-results');
+  infoEl.textContent = 'Buscando…';
+  resEl.innerHTML = '<div class="spin"></div>';
+
+  const d = await api('/api/raul/duplicates');
+  infoEl.textContent = `${d.total} hash${d.total!==1?'es':''} duplicados`;
+  document.getElementById('dup-badge').style.display = d.total > 0 ? '' : 'none';
+  document.getElementById('dup-badge').textContent = d.total;
+
+  if (!d.duplicates.length) {
+    resEl.innerHTML = '<div class="alert alert-success">No hay duplicados en RAUL.</div>';
+    return;
+  }
+  resEl.innerHTML = d.duplicates.map(group => `
+    <div class="dup-group">
+      <div class="dup-hash">
+        <span class="badge badge-dup">DUPLICADO</span>
+        <code>${group.hash}</code>
+        <span class="muted small">${group.channels.length} entradas</span>
+        <button class="btn btn-secondary btn-sm" style="margin-left:auto" onclick="keepOne('${group.hash}','${group.channels[0].id}')">Mantener solo el primero</button>
+      </div>
+      ${group.channels.map((ch,i) => `
+        <div class="dup-item">
+          <span class="muted small">#${i+1}</span>
+          <span class="dup-item-name">${ch.name}</span>
+          <span class="badge badge-raul">${ch.group}</span>
+          <span class="muted small">${ch.variant||'–'}</span>
+          <button class="btn btn-secondary btn-sm" onclick="keepOne('${group.hash}','${ch.id}')">Mantener este</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteSingle('${ch.id}')">Eliminar</button>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+async function keepOne(hash, keepId) {
+  const d = await api('/api/raul/duplicates');
+  const group = d.duplicates.find(g=>g.hash===hash);
+  if (!group) return;
+  const toDelete = group.channels.filter(c=>c.id!==keepId).map(c=>c.id);
+  if (toDelete.length) {
+    await api('/api/raul/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids:toDelete})});
+    toast(`${toDelete.length} duplicados eliminados`);
+    loadDupRaul();
+  }
+}
+async function deleteSingle(id) {
+  await api(`/api/raul/${id}`, {method:'DELETE'});
+  toast('Eliminado');
+  loadDupRaul();
+}
+
+async function loadDupVs() {
+  const infoEl = document.getElementById('dup-vs-info');
+  const resEl = document.getElementById('dup-vs-results');
+  infoEl.textContent = 'Comparando… (requiere descargar fuentes)';
+  resEl.innerHTML = '<div class="spin"></div>';
+
+  const d = await api('/api/raul/duplicates/vs-sources');
+  infoEl.textContent = `${d.total} canal${d.total!==1?'es':''} en RAUL también presentes en fuentes IPFS`;
+
+  if (!d.matches.length) {
+    resEl.innerHTML = '<div class="alert alert-success">Ningún canal RAUL está duplicado en las fuentes IPFS.</div>';
+    return;
+  }
+  resEl.innerHTML = d.matches.map(m => `
+    <div class="dup-group">
+      <div class="dup-hash"><code>${m.raul.hash.substring(0,20)}…</code></div>
+      <div class="vs-match">
+        <div class="vs-side raul-side">
+          <div class="vs-side-label">RAUL</div>
+          <b>${m.raul.name}</b><br>
+          <span class="badge badge-raul">${m.raul.group}</span>
+          ${m.raul.variant ? `<span class="muted small">${m.raul.variant}</span>` : ''}
+        </div>
+        <div class="vs-side src-side">
+          <div class="vs-side-label">Fuente: ${m.source.source_name}</div>
+          <b>${m.source.name}</b><br>
+          <span class="badge badge-src">${m.source.group||'–'}</span>
+        </div>
+      </div>
+      <div class="flex-gap" style="margin-top:10px;justify-content:flex-end">
+        <button class="btn btn-danger btn-sm" onclick="deleteSingleVs('${m.raul.id}',this)">Eliminar de RAUL</button>
+        <button class="btn btn-secondary btn-sm" onclick="this.closest('.dup-group').style.opacity='.4'">Mantener en RAUL</button>
+      </div>
+    </div>`).join('');
+}
+
+async function deleteSingleVs(id, btn) {
+  await api(`/api/raul/${id}`, {method:'DELETE'});
+  btn.closest('.dup-group').remove();
+  toast('Eliminado de RAUL');
+}
+
+// ══ PREVIEW ══════════════════════════════════════════════
+let previewData = null;
+async function loadPreview() {
+  const el = document.getElementById('preview-content');
+  el.innerHTML = '<div class="spin"></div> Cargando…';
+  previewData = await api('/api/preview');
+  renderPreview(previewData.groups);
+}
+function filterPreview() {
+  if (!previewData) return;
+  const q = document.getElementById('preview-search').value.toLowerCase();
+  if (!q) { renderPreview(previewData.groups); return; }
+  const filtered = previewData.groups.map(g => ({
+    name: g.name,
+    channels: g.channels.filter(c=>c.name.toLowerCase().includes(q)||c.hash.includes(q))
+  })).filter(g=>g.channels.length);
+  renderPreview(filtered);
+}
+function renderPreview(groups) {
+  const total = groups.reduce((s,g)=>s+g.channels.length, 0);
+  document.getElementById('preview-content').innerHTML =
+    `<p class="muted small" style="margin-bottom:14px"><b style="color:var(--text)">${total}</b> canales en <b style="color:var(--text)">${groups.length}</b> grupos</p>` +
+    groups.map(g=>`
+      <div class="preview-group">
+        <div class="preview-group-title">${g.name} <span class="preview-count">(${g.channels.length})</span></div>
+        ${g.channels.map(ch=>`<div class="preview-ch" title="${ch.hash}">${ch.name}</div>`).join('')}
+      </div>`).join('');
+}
+
+// ══ AJUSTES ══════════════════════════════════════════════
+let _settings = null;
+
+async function loadSettings() {
+  _settings = await api('/api/settings');
+  // GitHub
+  document.getElementById('cfg-gh-owner').value  = _settings.github.owner  || '';
+  document.getElementById('cfg-gh-repo').value   = _settings.github.repo   || '';
+  document.getElementById('cfg-gh-branch').value = _settings.github.branch || 'main';
+  document.getElementById('cfg-gh-token-status').textContent =
+    _settings.github.token_set ? '🔑 Token guardado' : '⚠ Sin token';
+  // Cloudflare
+  document.getElementById('cfg-cf-account').value = _settings.cloudflare.account_id  || '';
+  document.getElementById('cfg-cf-worker').value  = _settings.cloudflare.worker_name || 'm3u-manager';
+  document.getElementById('cfg-cf-token-status').textContent =
+    _settings.cloudflare.token_set ? '🔑 Token guardado' : '⚠ Sin token';
+  // Update publish page state
+  updatePublishPage();
+}
+
+async function saveSettings(section) {
+  const body = {};
+  if (section === 'gh') {
+    body.github = {
+      owner:  document.getElementById('cfg-gh-owner').value.trim(),
+      repo:   document.getElementById('cfg-gh-repo').value.trim(),
+      branch: document.getElementById('cfg-gh-branch').value.trim() || 'main',
+      token:  document.getElementById('cfg-gh-token').value.trim(),
+    };
+  } else {
+    body.cloudflare = {
+      account_id:  document.getElementById('cfg-cf-account').value.trim(),
+      worker_name: document.getElementById('cfg-cf-worker').value.trim() || 'm3u-manager',
+      api_token:   document.getElementById('cfg-cf-token').value.trim(),
+    };
+  }
+  const r = await api('/api/settings', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  if (r.ok) {
+    toast('Ajustes guardados');
+    // Clear token fields
+    document.getElementById(section === 'gh' ? 'cfg-gh-token' : 'cfg-cf-token').value = '';
+    await loadSettings();
+  }
+}
+
+// ══ PUBLICAR ═════════════════════════════════════════════
+function updatePublishPage() {
+  if (!_settings) return;
+  const ghOk = _settings.github.owner && _settings.github.repo && _settings.github.token_set;
+  const cfOk = _settings.cloudflare.account_id && _settings.cloudflare.token_set;
+
+  // GitHub panel
+  document.getElementById('gh-not-configured').style.display = ghOk ? 'none' : '';
+  document.getElementById('gh-configured-panel').style.opacity = ghOk ? '1' : '.5';
+
+  if (ghOk) {
+    const o = _settings.github.owner;
+    const repo = _settings.github.repo;
+    const ace = `https://${o}.github.io/${repo}/lista_acestream.m3u`;
+    const iptv = `https://${o}.github.io/${repo}/lista_iptv.m3u`;
+    document.getElementById('gh-url-ace').textContent  = ace;
+    document.getElementById('gh-url-iptv').textContent = iptv;
+    document.getElementById('gh-pages-urls').style.display = '';
+  }
+
+  // Cloudflare panel
+  document.getElementById('cf-not-configured').style.display = cfOk ? 'none' : '';
+  if (cfOk || (_settings.github.owner)) {
+    const o = (_settings.github.owner || 'TU_USUARIO').toLowerCase();
+    const w = _settings.cloudflare.worker_name || 'm3u-manager';
+    document.getElementById('cf-url-ace').textContent  = `https://${w}.${o}.workers.dev/m3u?format=acestream`;
+    document.getElementById('cf-url-iptv').textContent = `https://${w}.${o}.workers.dev/m3u?format=iptv`;
+  }
+}
+
+async function publishGitHub() {
+  const btn = document.getElementById('btn-push-gh');
+  const res = document.getElementById('gh-push-result');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spin"></div> Publicando…';
+  res.textContent = '';
+  const d = await api('/api/publish/github', {method:'POST'});
+  btn.disabled = false;
+  btn.innerHTML = '&#8679; Publicar en GitHub';
+  if (d.ok) {
+    res.textContent = '✓ ' + d.message;
+    toast('Publicado en GitHub. Actions en marcha…', 'ok');
+    document.getElementById('gh-pages-urls').style.display = '';
+    setTimeout(checkGHStatus, 4000);
+  } else {
+    res.textContent = '✗ ' + (d.error || 'Error');
+    toast(d.error || 'Error al publicar', 'err');
+  }
+}
+
+async function checkGHStatus() {
+  const d = await api('/api/publish/github/status');
+  if (d.error || !d.runs?.length) return;
+  const statusBox = document.getElementById('gh-actions-status');
+  const list = document.getElementById('gh-runs-list');
+  statusBox.style.display = '';
+  const statusIcon = s => s === 'completed' ? '✓' : s === 'in_progress' ? '⏳' : s === 'queued' ? '🕐' : '○';
+  const conclusionColor = c => c === 'success' ? 'var(--green)' : c === 'failure' ? 'var(--danger)' : 'var(--yellow)';
+  list.innerHTML = d.runs.map(run => `
+    <div class="dup-item" style="margin-bottom:5px">
+      <span>${statusIcon(run.status)}</span>
+      <span class="dup-item-name">${run.name}</span>
+      <span class="small muted">${new Date(run.updated_at).toLocaleTimeString('es-ES')}</span>
+      ${run.conclusion ? `<span class="badge" style="background:${conclusionColor(run.conclusion)}22;color:${conclusionColor(run.conclusion)}">${run.conclusion}</span>` : `<span class="badge badge-src">${run.status}</span>`}
+      <a href="${run.html_url}" target="_blank" class="btn btn-secondary btn-sm" style="text-decoration:none">Ver</a>
+    </div>`).join('');
+}
+
+async function deployWorker() {
+  const btn = document.getElementById('btn-deploy-cf');
+  const res = document.getElementById('cf-deploy-result');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spin"></div> Desplegando…';
+  res.textContent = '';
+  const d = await api('/api/publish/worker', {method:'POST'});
+  btn.disabled = false;
+  btn.innerHTML = '&#9729; Desplegar Worker automáticamente';
+  if (d.ok) {
+    res.textContent = '✓ ' + d.message;
+    document.getElementById('cf-worker-urls').style.display = '';
+    toast('Worker desplegado correctamente', 'ok');
+  } else {
+    res.textContent = '✗ ' + (d.error || 'Error');
+    toast(d.error || 'Error al desplegar', 'err');
+  }
+}
+
+async function copyWorkerScript() {
+  const r = await fetch('/api/publish/worker/script');
+  const text = await r.text();
+  navigator.clipboard.writeText(text);
+  toast('Script copiado');
+}
+
+// ══ CLOUDFLARE WORKER CODE GENERATOR (legacy) ════════════
+async function generateWorkerCode() {
+  const [cfg, raul] = await Promise.all([api('/api/config'), api('/api/raul')]);
+  const sources = cfg.sources.filter(s=>s.enabled);
+  const raulEnabled = raul.filter(c=>c.enabled);
+
+  const code = `// M3U Manager — Cloudflare Worker
+// Generado: ${new Date().toLocaleString('es-ES')}
+
+const EPG_URL = "${cfg.epg_url}";
+const CACHE_TTL = 1800;
+
+const SOURCES = ${JSON.stringify(sources.map(s=>({id:s.id,name:s.name,url:s.url,format:s.format})), null, 2)};
+
+const RAUL_CHANNELS = ${JSON.stringify(raulEnabled.map(c=>({name:c.name,hash:c.hash,group:c.group,logo:c.logo||'',tvg_id:c.tvg_id||'',variant:c.variant||''})), null, 2)};
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    if (url.pathname === '/m3u') {
+      const fmt = url.searchParams.get('format') || 'acestream';
+      const entries = await getMergedEntries(ctx);
+      return new Response(buildM3U(entries, fmt), {
+        headers: { 'Content-Type': 'application/x-mpegurl', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=900' }
+      });
+    }
+    return new Response('M3U Manager. Usa /m3u?format=acestream o /m3u?format=iptv', { headers: { 'Content-Type': 'text/plain' } });
+  }
+};
+
+async function getMergedEntries(ctx) {
+  const seen = new Set(); const all = [];
+  const results = await Promise.allSettled(SOURCES.map(s => fetchSource(s, ctx)));
+  for (const r of results) {
+    if (r.status === 'fulfilled' && r.value) {
+      for (const e of parseM3U(r.value)) {
+        if (!seen.has(e.hash)) { seen.add(e.hash); all.push(e); }
+      }
+    }
+  }
+  for (const ch of RAUL_CHANNELS) {
+    const entry = { hash:ch.hash, name:\`\${ch.name} --> RAUL \${ch.variant}\`.trim(), tvg_logo:ch.logo, tvg_id:ch.tvg_id, group:ch.group };
+    if (!seen.has(entry.hash)) { seen.add(entry.hash); all.push(entry); }
+  }
+  return all;
+}
+
+async function fetchSource(source, ctx) {
+  const key = new Request('https://cache.m3u/' + source.id);
+  const cache = caches.default;
+  let r = await cache.match(key);
+  if (r) return r.text();
+  r = await fetch(source.url, { cf: { cacheTtl: CACHE_TTL } });
+  if (!r.ok) return null;
+  const text = await r.text();
+  ctx.waitUntil(cache.put(key, new Response(text, { headers: { 'Cache-Control': \`public, max-age=\${CACHE_TTL}\` } })));
+  return text;
+}
+
+function parseM3U(text) {
+  const entries = []; const lines = text.split('\\n'); let i = 0;
+  while (i < lines.length) {
+    const line = lines[i].trim();
+    if (line.startsWith('#EXTINF')) {
+      let j = i + 1;
+      while (j < lines.length && (!lines[j].trim() || lines[j].trim().startsWith('#EXTVLC'))) j++;
+      if (j < lines.length) {
+        const u = lines[j].trim(); let hash = null;
+        if (u.startsWith('acestream://')) hash = u.slice(12);
+        else { const m = u.match(/[?&]id=([0-9a-fA-F]+)/); if (m) hash = m[1]; }
+        if (hash) {
+          entries.push({
+            hash, name: (line.match(/,\\s*(.+)$/) || [])[1]?.trim() || '',
+            tvg_logo: (line.match(/tvg-logo="([^"]*)"/) || [])[1] || '',
+            tvg_id: (line.match(/tvg-id="([^"]*)"/) || [])[1] || '',
+            group: (line.match(/group-title="([^"]*)"/) || [])[1] || '',
+          });
+        }
+        i = j + 1; continue;
+      }
+    }
+    i++;
+  }
+  return entries;
+}
+
+function buildM3U(entries, fmt) {
+  const lines = [\`#EXTM3U url-tvg="\${EPG_URL}" refresh="3600"\`, '#EXTVLCOPT:network-caching=1000', ''];
+  for (const e of entries) {
+    lines.push(\`#EXTINF:-1 tvg-logo="\${e.tvg_logo}" tvg-id="\${e.tvg_id}" group-title="\${e.group}", \${e.name}\`);
+    lines.push(fmt === 'iptv' ? \`http://127.0.0.1:6878/ace/getstream?id=\${e.hash}\` : \`acestream://\${e.hash}\`);
+  }
+  return lines.join('\\n');
+}`;
+  document.getElementById('worker-code').value = code;
+}
+
+// ══ INIT ═════════════════════════════════════════════════
+loadDashboard();
+loadSources();
+loadRaul();
+loadSettings();
+// Check for duplicates silently
+api('/api/raul/duplicates').then(d => {
+  if (d.total > 0) {
+    document.getElementById('dup-badge').style.display = '';
+    document.getElementById('dup-badge').textContent = d.total;
+  }
+});
+</script>
+</body>
+</html>

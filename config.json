@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {
+      "id": "newera_ace",
+      "name": "NEW ERA (acestream)",
+      "provider": "NEW ERA",
+      "format": "acestream",
+      "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u",
+      "enabled": true
+    },
+    {
+      "id": "newera_iptv",
+      "name": "NEW ERA (IPTV 127.0.0.1)",
+      "provider": "NEW ERA",
+      "format": "iptv",
+      "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u",
+      "enabled": false
+    },
+    {
+      "id": "elcano_ace",
+      "name": "ELCANOTOP (acestream)",
+      "provider": "ELCANOTOP",
+      "format": "acestream",
+      "url": "https://ipfs.io/ipns/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
+      "enabled": true
+    },
+    {
+      "id": "elcano_iptv",
+      "name": "ELCANOTOP (IPTV local)",
+      "provider": "ELCANOTOP",
+      "format": "iptv",
+      "url": "https://ipfs.io/ipns/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes.m3u",
+      "enabled": false
+    }
+  ],
+  "epg_url": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
+  "cache_minutes": 30
+}

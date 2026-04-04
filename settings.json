@@ -1,0 +1,13 @@
+{
+  "github": {
+    "token": "",
+    "owner": "ivanmi2005",
+    "repo": "m3u-manager",
+    "branch": "main"
+  },
+  "cloudflare": {
+    "api_token": "",
+    "account_id": "",
+    "worker_name": "m3u-manager"
+  }
+}
