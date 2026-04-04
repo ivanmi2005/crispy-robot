@@ -583,26 +583,30 @@ const SOURCES = {sources_json};
 const RAUL_URL = "{raul_raw_url}";
 const CACHE_TTL = 1800; // 30 min
 
-export default {{
-  async fetch(request, env, ctx) {{
-    const url = new URL(request.url);
-    if (url.pathname === "/m3u") {{
-      const fmt = url.searchParams.get("format") || "acestream";
-      const entries = await getMergedEntries(ctx);
-      return new Response(buildM3U(entries, fmt), {{
-        headers: {{
-          "Content-Type": "application/x-mpegurl",
-          "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "public, max-age=900",
-        }},
-      }});
-    }}
-    return new Response(
-      "M3U Manager Worker\\nUsa /m3u?format=acestream o /m3u?format=iptv",
-      {{ headers: {{ "Content-Type": "text/plain" }} }}
-    );
-  }},
-}};
+addEventListener("fetch", event => {{
+  event.respondWith(handleRequest(event));
+}});
+
+async function handleRequest(event) {{
+  const request = event.request;
+  const ctx = {{ waitUntil: p => event.waitUntil(p) }};
+  const url = new URL(request.url);
+  if (url.pathname === "/m3u") {{
+    const fmt = url.searchParams.get("format") || "acestream";
+    const entries = await getMergedEntries(ctx);
+    return new Response(buildM3U(entries, fmt), {{
+      headers: {{
+        "Content-Type": "application/x-mpegurl",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=900",
+      }},
+    }});
+  }}
+  return new Response(
+    "M3U Manager Worker\\nUsa /m3u?format=acestream o /m3u?format=iptv",
+    {{ headers: {{ "Content-Type": "text/plain" }} }}
+  );
+}}
 
 async function getMergedEntries(ctx) {{
   const seen = new Set();
@@ -713,6 +717,24 @@ function buildM3U(entries, fmt) {{
   return lines.join("\\n");
 }}
 """
+
+
+@app.route("/api/publish/github/trigger", methods=["POST"])
+def api_github_trigger():
+    """Dispara el workflow de GitHub Actions manualmente (workflow_dispatch)."""
+    s = load_settings()
+    gh = s.get("github", {})
+    token  = gh.get("token", "")
+    owner  = gh.get("owner", "")
+    repo   = gh.get("repo", "")
+    branch = gh.get("branch", "main")
+    if not all([token, owner, repo]):
+        return jsonify({"error": "Configura GitHub en Ajustes primero."}), 400
+    url = f"https://api.github.com/repos/{owner}/{repo}/actions/workflows/generate.yml/dispatches"
+    r = requests.post(url, headers=_gh_headers(token), json={"ref": branch}, timeout=10)
+    if r.status_code == 204:
+        return jsonify({"ok": True, "message": "Workflow disparado. Tardará ~1 min en completarse."})
+    return jsonify({"error": r.json().get("message", "Error al disparar el workflow")}), r.status_code
 
 
 @app.route("/api/publish/worker", methods=["POST"])

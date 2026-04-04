@@ -494,7 +494,8 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
         <button class="btn btn-primary" id="btn-push-gh" onclick="publishGitHub()">
           &#8679; Publicar en GitHub
         </button>
-        <button class="btn btn-secondary btn-sm" onclick="checkGHStatus()">&#8635; Ver estado Actions</button>
+        <button class="btn btn-secondary btn-sm" onclick="triggerWorkflow()" title="Dispara GitHub Actions sin subir cambios">&#9654; Forzar regeneración</button>
+        <button class="btn btn-secondary btn-sm" onclick="checkGHStatus()">&#8635; Ver estado</button>
         <span class="muted small" id="gh-push-result"></span>
       </div>
 
@@ -1393,6 +1394,16 @@ async function checkGHStatus() {
       ${run.conclusion ? `<span class="badge" style="background:${conclusionColor(run.conclusion)}22;color:${conclusionColor(run.conclusion)}">${run.conclusion}</span>` : `<span class="badge badge-src">${run.status}</span>`}
       <a href="${run.html_url}" target="_blank" class="btn btn-secondary btn-sm" style="text-decoration:none">Ver</a>
     </div>`).join('');
+}
+
+async function triggerWorkflow() {
+  const d = await api('/api/publish/github/trigger', {method:'POST'});
+  if (d.ok) {
+    toast(d.message, 'ok');
+    setTimeout(checkGHStatus, 3000);
+  } else {
+    toast(d.error || 'Error al disparar el workflow', 'err');
+  }
 }
 
 async function deployWorker() {
