@@ -248,7 +248,7 @@ acestream://d1596a3988b84a4d2711fd380eb8a53256ad74ae
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LA LIGA 1 FHD --> NEW ERA VI
 acestream://71cb5e2567a8b39f5bdc4fa791992781b052f0bc
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LA LIGA 1 --> ELCANO
-acestream://cc108ae39f92c48f6c946763047bd1c9b7b7d889
+acestream://4e6d9cf7d177366045d33cd8311d8b1d7f4bed1f
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LA LIGA 1 --> ELCANO
 acestream://e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LA LIGA 1 --> NEW LOOP
@@ -276,11 +276,11 @@ acestream://14b6cd8769cd485f2cffdca64be9698d9bfeac58
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
 acestream://0febfb5cac3384f487d55c559bbfc877db2d0357
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
-acestream://4b528d10eaad747ddf52251206177573ee3e9f74
+acestream://c9321006921967d6258df6945f1d598a5c0cbf1e
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
 acestream://00c9bc9c5d7d87680a5a6bed349edfa775a89947
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
-acestream://c9321006921967d6258df6945f1d598a5c0cbf1e
+acestream://4b528d10eaad747ddf52251206177573ee3e9f74
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> SPORT TV
 acestream://31c19ffb3472c289c5bbbbc174449c8ed0d19e38
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Tc97zSb/liga2.png" tvg-id="M+ LaLiga 2 HD" group-title="LA LIGA", M+ LALIGA 2 FHD --> NEW ERA
@@ -412,17 +412,19 @@ acestream://af393f93814d03160d48d2730759593b7bea5b47
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
 acestream://6e031aed136bf97d8667fcd5fc49c73256928281
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
+acestream://2f3cfd199a49819cbd129689a840dc3d23ab93aa
+#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
 acestream://c6a824a81b36f6c3529826477caf2ad94b45776d
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
-acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
-#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
 acestream://3b50a1dca0977e3761d016edd79314ab797f74f6
+#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES --> ELCANO
+acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
 acestream://bfa01c11c5c6b7a616a516de4f2c769a89d26b25
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
-acestream://f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0
-#EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
 acestream://890901fa742b19d8808cf49f19db2d3016437c56
+#EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
+acestream://f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 HD --> SPORT TV
 acestream://3afe1af18f8ff78e9946856911b00c67477052b5
 #EXTINF:-1 tvg-logo="https://i.ibb.co/jDg5qWD/deportes3.png" tvg-id="M+ Deportes 3" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 3 --> ELCANO
@@ -459,6 +461,8 @@ acestream://8e1e515d21634315f1ef72f8ae21e76e4cf886b1
 acestream://0e5d8c9724fa9163f49096b70484e315251eb785
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS --> ELCANO
 acestream://ad5ca6e24f87f47a9c3c5bc10c7e8e5af46767fc
+#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS --> ELCANO
+acestream://476b6f6583517bd75c15c4663bf45fab7c8da9cf
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS --> ELCANO
 acestream://4ee16a7f854219fa2974ef1468e6b2f8574189dd
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS --> ELCANO
@@ -659,8 +663,6 @@ acestream://42fe2ce3ef6b92653a74d85b6e98c2ba0abee707
 acestream://f6d68cfa8694f814983f2a5757f4e0c4964b880c
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Sky Sports LaLiga HD --> NEW ERA
 acestream://2fab80a8445e31cb98169c0907600e1545ea8557
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", SKY Sports LaLiga SD ** --> ELCANO
-acestream://a9bddffdff085cdc18b34218d5dc1093b88e3c0a
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", SKY Sports LaLiga FHDp ** --> ELCANO
 acestream://e9975d38aaa4475ac0b1fa0faa541bbadd85a662
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", SuperTennis HD --> NEW LOOP
