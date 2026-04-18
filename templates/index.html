@@ -71,7 +71,7 @@ select option{background:var(--surface)}
 .badge{padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:600;white-space:nowrap}
 .badge-ace{background:rgba(108,99,255,.2);color:var(--accent)}
 .badge-iptv{background:rgba(255,101,132,.2);color:var(--accent2)}
-.badge-raul{background:rgba(67,217,162,.2);color:var(--green)}
+.badge-turco{background:rgba(67,217,162,.2);color:var(--green)}
 .badge-src{background:rgba(255,209,102,.2);color:var(--yellow)}
 .badge-dup{background:rgba(255,77,109,.2);color:var(--danger)}
 
@@ -154,7 +154,7 @@ input:checked+.toggle-slider:before{transform:translateX(18px)}
 .vs-match:last-child{border-bottom:none}
 .vs-side{background:var(--surface2);border-radius:6px;padding:10px 12px;font-size:.83rem}
 .vs-side-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;font-weight:600}
-.vs-side.raul-side .vs-side-label{color:var(--green)}
+.vs-side.turco-side .vs-side-label{color:var(--green)}
 .vs-side.src-side .vs-side-label{color:var(--yellow)}
 
 /* ── MODAL ──────────────────────────────────────────── */
@@ -198,8 +198,8 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
   <div class="nav-item active" data-page="dashboard" onclick="navTo('dashboard',this)">&#9632; Dashboard</div>
   <div class="nav-item" data-page="sources" onclick="navTo('sources',this)">&#9670; Fuentes IPFS</div>
 
-  <div class="nav-grp">Canales RAUL</div>
-  <div class="nav-item" data-page="raul" onclick="navTo('raul',this)">&#8801; Lista / Añadir</div>
+  <div class="nav-grp">Canales TURCO</div>
+  <div class="nav-item" data-page="turco" onclick="navTo('turco',this)">&#8801; Lista / Añadir</div>
   <div class="nav-item" data-page="ordenar" onclick="navTo('ordenar',this)">&#9776; Ordenar y Mover</div>
   <div class="nav-item" data-page="duplicados" onclick="navTo('duplicados',this)">&#9670; Duplicados <span class="nav-badge red" id="dup-badge" style="display:none">!</span></div>
 
@@ -222,7 +222,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
   <div class="stats-bar">
     <div class="stat"><div class="stat-val" id="s-total">…</div><div class="stat-label">Canales totales</div></div>
     <div class="stat"><div class="stat-val" id="s-groups">…</div><div class="stat-label">Grupos</div></div>
-    <div class="stat"><div class="stat-val" id="s-raul">…</div><div class="stat-label">RAUL activos</div></div>
+    <div class="stat"><div class="stat-val" id="s-turco">…</div><div class="stat-label">TURCO activos</div></div>
     <div class="stat"><div class="stat-val" id="s-src">…</div><div class="stat-label">Fuentes activas</div></div>
   </div>
   <div class="card">
@@ -257,31 +257,32 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
   <div id="sources-list"></div>
 </div>
 
-<!-- ─── CANALES RAUL ────────────────────────────────────── -->
-<div class="page" id="page-raul">
-  <h2>Canales RAUL</h2>
+<!-- ─── CANALES TURCO ────────────────────────────────────── -->
+<div class="page" id="page-turco">
+  <h2>Canales TURCO</h2>
   <div class="tabs">
-    <div class="tab active" onclick="raulTab('list',this)">Lista</div>
-    <div class="tab" onclick="raulTab('add',this)">+ Añadir</div>
-    <div class="tab" onclick="raulTab('bulk',this)">Pegar Discord</div>
+    <div class="tab active" onclick="turcoTab('list',this)">Lista</div>
+    <div class="tab" onclick="turcoTab('add',this)">+ Añadir</div>
+    <div class="tab" onclick="turcoTab('bulk',this)">Pegar Discord</div>
+    <div class="tab" onclick="turcoTab('upload',this)">&#8679; Subir M3U</div>
   </div>
 
   <!-- Lista -->
-  <div id="rt-list">
-    <div id="raul-alert"></div>
+  <div id="tt-list">
+    <div id="turco-alert"></div>
     <div class="flex-gap" style="margin-bottom:12px">
-      <input id="raul-search" placeholder="&#128269; Buscar por nombre, hash o grupo…" style="max-width:320px" oninput="filterRaulTable()">
-      <select id="raul-filter-group" onchange="filterRaulTable()" style="width:auto;min-width:140px">
+      <input id="turco-search" placeholder="&#128269; Buscar por nombre, hash o grupo…" style="max-width:320px" oninput="filterTurcoTable()">
+      <select id="turco-filter-group" onchange="filterTurcoTable()" style="width:auto;min-width:140px">
         <option value="">Todos los grupos</option>
       </select>
-      <span class="muted small" id="raul-count"></span>
+      <span class="muted small" id="turco-count"></span>
     </div>
-    <table class="ch-table" id="raul-table">
+    <table class="ch-table" id="turco-table">
       <thead><tr>
         <th><input type="checkbox" class="ch-checkbox" id="chk-all" onchange="toggleAllChk(this.checked)"></th>
         <th></th><th>Nombre</th><th>Hash</th><th>Grupo</th><th>Var.</th><th>On/Off</th><th></th>
       </tr></thead>
-      <tbody id="raul-tbody"></tbody>
+      <tbody id="turco-tbody"></tbody>
     </table>
     <div class="flex-gap" style="margin-top:10px" id="bulk-actions" style="display:none">
       <span class="muted small" id="selected-count"></span>
@@ -291,9 +292,9 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
   </div>
 
   <!-- Añadir -->
-  <div id="rt-add" style="display:none">
+  <div id="tt-add" style="display:none">
     <div class="card">
-      <div class="card-title">Nuevo canal RAUL</div>
+      <div class="card-title">Nuevo canal TURCO</div>
       <div id="add-alert"></div>
       <div class="form-row">
         <div>
@@ -326,12 +327,12 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
         <div><label>Logo URL</label><input id="add-logo" placeholder="https://…"></div>
         <div><label>tvg-id (EPG)</label><input id="add-tvgid"></div>
       </div>
-      <button class="btn btn-primary" onclick="addRaul()">Guardar canal</button>
+      <button class="btn btn-primary" onclick="addTurco()">Guardar canal</button>
     </div>
   </div>
 
   <!-- Bulk Discord -->
-  <div id="rt-bulk" style="display:none">
+  <div id="tt-bulk" style="display:none">
     <div class="card">
       <div class="card-title">Pegar lista de Discord</div>
       <p class="small muted" style="margin-bottom:12px">Pega el texto tal cual. El sistema detecta automáticamente los hashes de 40 chars.<br>Formato: <code>Nombre del canal</code> → línea siguiente = hash.</p>
@@ -353,6 +354,26 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
         </div>
       </div>
       <button class="btn btn-primary" onclick="bulkAdd()">Procesar y añadir</button>
+    </div>
+  </div>
+
+  <!-- Subir M3U -->
+  <div id="tt-upload" style="display:none">
+    <div class="card">
+      <div class="card-title">&#8679; Subir archivo M3U / M3U8</div>
+      <p class="small muted" style="margin-bottom:4px">Sube un archivo M3U o M3U8 para <b>reemplazar completamente</b> la lista TURCO actual.</p>
+      <p class="small muted" style="margin-bottom:14px">Los hashes se importan tal cual del archivo. Todos los canales importados quedan activos por defecto — puedes desactivar los que no quieras desde la pestaña Lista.</p>
+      <div id="upload-alert"></div>
+      <div class="form-row single">
+        <div>
+          <label>Archivo .m3u / .m3u8</label>
+          <input type="file" id="upload-file" accept=".m3u,.m3u8,application/x-mpegurl,audio/x-mpegurl" style="padding:10px 11px;cursor:pointer">
+        </div>
+      </div>
+      <div class="flex-gap" style="margin-top:12px">
+        <button class="btn btn-primary" onclick="uploadM3U()">&#8679; Subir y reemplazar lista</button>
+        <span class="muted small" id="upload-info"></span>
+      </div>
     </div>
   </div>
 </div>
@@ -384,27 +405,27 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
 <div class="page" id="page-duplicados">
   <h2>Buscador de duplicados</h2>
   <div class="tabs">
-    <div class="tab active" onclick="dupTab('raul',this)">En RAUL</div>
-    <div class="tab" onclick="dupTab('vs',this)">RAUL vs Fuentes IPFS</div>
+    <div class="tab active" onclick="dupTab('turco',this)">En TURCO</div>
+    <div class="tab" onclick="dupTab('vs',this)">TURCO vs Fuentes IPFS</div>
   </div>
 
-  <!-- Duplicados en RAUL -->
-  <div id="dt-raul">
+  <!-- Duplicados en TURCO -->
+  <div id="dt-turco">
     <div class="flex-gap" style="margin-bottom:14px">
-      <button class="btn btn-secondary" onclick="loadDupRaul()">&#8635; Buscar duplicados</button>
-      <span class="muted small" id="dup-raul-info"></span>
+      <button class="btn btn-secondary" onclick="loadDupTurco()">&#8635; Buscar duplicados</button>
+      <span class="muted small" id="dup-turco-info"></span>
     </div>
-    <div id="dup-raul-results"><p class="muted small">Pulsa "Buscar duplicados" para analizar.</p></div>
+    <div id="dup-turco-results"><p class="muted small">Pulsa "Buscar duplicados" para analizar.</p></div>
   </div>
 
-  <!-- RAUL vs Fuentes -->
+  <!-- TURCO vs Fuentes -->
   <div id="dt-vs" style="display:none">
     <div class="flex-gap" style="margin-bottom:14px">
       <button class="btn btn-secondary" onclick="loadDupVs()">&#8635; Comparar con fuentes IPFS</button>
       <span class="muted small" id="dup-vs-info"></span>
     </div>
     <div class="alert alert-warn" style="margin-bottom:12px">
-      Estos canales están en RAUL Y también en las fuentes IPFS. Puedes eliminarlos de RAUL (ya están cubiertos) o mantenerlos (si tienes un nombre o grupo personalizado diferente).
+      Estos canales están en TURCO Y también en las fuentes IPFS. Puedes eliminarlos de TURCO (ya están cubiertos) o mantenerlos (si tienes un nombre o grupo personalizado diferente).
     </div>
     <div id="dup-vs-results"><p class="muted small">Pulsa "Comparar con fuentes IPFS" para analizar.</p></div>
   </div>
@@ -455,7 +476,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
       <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center">
         <div style="font-size:1.4rem">&#128196;</div>
         <div style="font-weight:600;font-size:.88rem;margin:4px 0">GitHub</div>
-        <div class="small muted">Almacena tus canales RAUL<br>y el código</div>
+        <div class="small muted">Almacena tus canales TURCO<br>y el código</div>
       </div>
       <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center">
         <div style="font-size:1.4rem">&#9881;</div>
@@ -487,7 +508,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
 
     <div id="gh-configured-panel">
       <p class="small muted" style="margin-bottom:12px">
-        Sube <code>raul_channels.json</code> y <code>config.json</code> a tu repo de GitHub.
+        Sube <code>turco_channels.json</code> y <code>config.json</code> a tu repo de GitHub.
         Esto activa automáticamente GitHub Actions, que generará las listas M3U y las publicará en GitHub Pages.
       </p>
       <div class="flex-gap">
@@ -516,7 +537,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
   <div class="card">
     <div class="card-title">2️⃣ Cloudflare Worker — URL permanente</div>
     <p class="small muted" style="margin-bottom:12px">
-      El Worker sirve las listas en tiempo real (descarga fuentes IPFS al momento + lee tus canales RAUL desde GitHub).
+      El Worker sirve las listas en tiempo real (descarga fuentes IPFS al momento + lee tus canales TURCO desde GitHub).
       <b>Una vez desplegado, nunca más hay que tocarlo</b> — se actualiza solo cuando haces push a GitHub.
     </p>
 
@@ -618,7 +639,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.83r
 <!-- Edit modal -->
 <div class="modal-overlay" id="edit-modal">
   <div class="modal">
-    <div class="modal-title">Editar canal RAUL</div>
+    <div class="modal-title">Editar canal TURCO</div>
     <input type="hidden" id="edit-id">
     <div class="modal-body">
       <div class="form-row">
@@ -702,7 +723,7 @@ function navTo(page, el) {
   if (el) el.classList.add('active');
   if (page === 'dashboard') loadDashboard();
   if (page === 'sources') loadSources();
-  if (page === 'raul') { loadRaul(); }
+  if (page === 'turco') { loadTurco(); }
   if (page === 'ordenar') loadOrderView();
   if (page === 'duplicados') { /* wait for user to click */ }
   if (page === 'preview') { /* wait for user to click */ }
@@ -732,12 +753,12 @@ async function api(url, opts={}) {
 
 // ══ DASHBOARD ════════════════════════════════════════════
 async function loadDashboard() {
-  const [preview, raul, cfg] = await Promise.all([
-    api('/api/preview'), api('/api/raul'), api('/api/config')
+  const [preview, turco, cfg] = await Promise.all([
+    api('/api/preview'), api('/api/turco'), api('/api/config')
   ]);
   document.getElementById('s-total').textContent = preview.total;
   document.getElementById('s-groups').textContent = preview.groups.length;
-  document.getElementById('s-raul').textContent = raul.filter(c=>c.enabled).length;
+  document.getElementById('s-turco').textContent = turco.filter(c=>c.enabled).length;
   document.getElementById('s-src').textContent = cfg.sources.filter(s=>s.enabled).length;
 }
 async function clearCache() {
@@ -766,49 +787,49 @@ async function toggleSource(id, el) {
   if (!d.ok) el.checked = !el.checked;
 }
 
-// ══ RAUL — LIST ══════════════════════════════════════════
-let raulData = [];
+// ══ TURCO — LIST ══════════════════════════════════════════
+let turcoData = [];
 
-async function loadRaul() {
-  raulData = await api('/api/raul');
-  populateGroupFilter('raul-filter-group');
-  renderRaulTable(raulData);
+async function loadTurco() {
+  turcoData = await api('/api/turco');
+  populateGroupFilter('turco-filter-group');
+  renderTurcoTable(turcoData);
 }
 
 function populateGroupFilter(selectId) {
-  const groups = [...new Set(raulData.map(c=>c.group))].sort();
+  const groups = [...new Set(turcoData.map(c=>c.group))].sort();
   const sel = document.getElementById(selectId);
   const cur = sel.value;
   sel.innerHTML = '<option value="">Todos los grupos</option>' +
     groups.map(g=>`<option${g===cur?'selected':''}>${g}</option>`).join('');
 }
 
-function filterRaulTable() {
-  const q = document.getElementById('raul-search').value.toLowerCase();
-  const grp = document.getElementById('raul-filter-group').value;
-  const filtered = raulData.filter(c => {
+function filterTurcoTable() {
+  const q = document.getElementById('turco-search').value.toLowerCase();
+  const grp = document.getElementById('turco-filter-group').value;
+  const filtered = turcoData.filter(c => {
     if (grp && c.group !== grp) return false;
     if (q) return c.name.toLowerCase().includes(q) ||
       c.hash.includes(q) || c.group.toLowerCase().includes(q);
     return true;
   });
-  renderRaulTable(filtered);
+  renderTurcoTable(filtered);
 }
 
-function renderRaulTable(channels) {
-  document.getElementById('raul-count').textContent = `${channels.length} canales`;
-  document.getElementById('raul-tbody').innerHTML = channels.map(ch => `
+function renderTurcoTable(channels) {
+  document.getElementById('turco-count').textContent = `${channels.length} canales`;
+  document.getElementById('turco-tbody').innerHTML = channels.map(ch => `
     <tr id="row-${ch.id}">
       <td><input type="checkbox" class="ch-checkbox row-chk" data-id="${ch.id}" onchange="updateBulkBar()"></td>
       <td>${ch.logo?`<img class="ch-logo" src="${ch.logo}" onerror="this.style.display='none'">`:'<span style="width:26px;display:inline-block"></span>'}</td>
       <td style="max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${ch.name}">${ch.name}</td>
       <td class="ch-hash">${ch.hash.substring(0,12)}…</td>
-      <td><span class="badge badge-raul">${ch.group}</span></td>
+      <td><span class="badge badge-turco">${ch.group}</span></td>
       <td class="muted small">${ch.variant||''}</td>
-      <td><label class="toggle"><input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleRaul('${ch.id}',this.checked)"><span class="toggle-slider"></span></label></td>
+      <td><label class="toggle"><input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleTurco('${ch.id}',this.checked)"><span class="toggle-slider"></span></label></td>
       <td style="display:flex;gap:4px;align-items:center">
         <button class="btn btn-secondary btn-sm btn-icon" onclick="openEdit(${JSON.stringify(ch).replace(/"/g,'&quot;')})">✏</button>
-        <button class="btn btn-danger btn-icon" onclick="deleteRaul('${ch.id}')">✕</button>
+        <button class="btn btn-danger btn-icon" onclick="deleteTurco('${ch.id}')">✕</button>
       </td>
     </tr>`).join('');
 }
@@ -827,14 +848,14 @@ function getCheckedIds() {
   return [...document.querySelectorAll('.row-chk:checked')].map(c=>c.dataset.id);
 }
 
-async function deleteRaul(id) {
+async function deleteTurco(id) {
   if (!confirm('¿Eliminar este canal?')) return;
-  await api(`/api/raul/${id}`, {method:'DELETE'});
+  await api(`/api/turco/${id}`, {method:'DELETE'});
   toast('Eliminado', 'ok');
-  loadRaul();
+  loadTurco();
 }
-async function toggleRaul(id, enabled) {
-  await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({enabled})});
+async function toggleTurco(id, enabled) {
+  await api(`/api/turco/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({enabled})});
 }
 
 // Bulk actions
@@ -842,9 +863,9 @@ async function bulkDelete() {
   const ids = getCheckedIds();
   if (!ids.length) return;
   if (!confirm(`¿Eliminar ${ids.length} canales?`)) return;
-  await api('/api/raul/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids})});
+  await api('/api/turco/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids})});
   toast(`${ids.length} canales eliminados`);
-  loadRaul();
+  loadTurco();
 }
 let pendingBulkIds = [];
 function bulkChangeGroup() {
@@ -855,21 +876,47 @@ function bulkChangeGroup() {
 async function confirmBulkGroup() {
   const group = document.getElementById('bulkgrp-select').value;
   for (const id of pendingBulkIds) {
-    await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group})});
+    await api(`/api/turco/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group})});
   }
   closeModal('bulkgrp-modal');
   toast(`${pendingBulkIds.length} canales movidos a ${group}`);
   pendingBulkIds = [];
-  loadRaul();
+  loadTurco();
 }
 
-function raulTab(name, el) {
-  ['list','add','bulk'].forEach(t => {
-    document.getElementById('rt-'+t).style.display = t===name ? 'block' : 'none';
+function turcoTab(name, el) {
+  ['list','add','bulk','upload'].forEach(t => {
+    document.getElementById('tt-'+t).style.display = t===name ? 'block' : 'none';
   });
   document.querySelectorAll('.tabs .tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
-  if (name === 'list') loadRaul();
+  if (name === 'list') loadTurco();
+}
+
+async function uploadM3U() {
+  const fileInput = document.getElementById('upload-file');
+  const alertEl = document.getElementById('upload-alert');
+  const infoEl = document.getElementById('upload-info');
+  if (!fileInput.files.length) {
+    alertEl.innerHTML = '<div class="alert alert-warn">Selecciona un archivo primero.</div>';
+    return;
+  }
+  const file = fileInput.files[0];
+  if (!confirm(`¿Reemplazar toda la lista TURCO con "${file.name}"?\nEsta acción no se puede deshacer.`)) return;
+  infoEl.textContent = 'Subiendo…';
+  alertEl.innerHTML = '';
+  const form = new FormData();
+  form.append('file', file);
+  const r = await fetch('/api/turco/upload-m3u', {method: 'POST', body: form});
+  const d = await r.json();
+  infoEl.textContent = '';
+  if (r.ok) {
+    alertEl.innerHTML = `<div class="alert alert-success">&#10003; Importados <b>${d.imported}</b> canales. La lista TURCO ha sido reemplazada.</div>`;
+    fileInput.value = '';
+    setTimeout(() => alertEl.innerHTML = '', 5000);
+  } else {
+    alertEl.innerHTML = `<div class="alert alert-error">${d.error}</div>`;
+  }
 }
 
 // Edit modal
@@ -891,14 +938,14 @@ async function saveEdit() {
     variant: document.getElementById('edit-variant').value,
     logo: document.getElementById('edit-logo').value,
   };
-  await api(`/api/raul/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+  await api(`/api/turco/${id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
   closeModal('edit-modal');
   toast('Guardado');
-  loadRaul();
+  loadTurco();
 }
 
 // Add form
-async function addRaul() {
+async function addTurco() {
   const group = document.getElementById('add-group-custom').value.trim() || document.getElementById('add-group').value;
   const data = {
     name: document.getElementById('add-name').value.trim(),
@@ -908,7 +955,7 @@ async function addRaul() {
     tvg_id: document.getElementById('add-tvgid').value.trim(),
   };
   const alertEl = document.getElementById('add-alert');
-  const r = await fetch('/api/raul', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+  const r = await fetch('/api/turco', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
   if (r.ok) {
     alertEl.innerHTML = '<div class="alert alert-success">Canal guardado.</div>';
     ['add-name','add-hash','add-variant','add-logo','add-tvgid','add-group-custom'].forEach(id=>document.getElementById(id).value='');
@@ -923,7 +970,7 @@ async function addRaul() {
 async function bulkAdd() {
   const text = document.getElementById('bulk-text').value;
   const group = document.getElementById('bulk-group').value;
-  const d = await api('/api/raul/bulk', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text, group})});
+  const d = await api('/api/turco/bulk', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text, group})});
   const alertEl = document.getElementById('bulk-alert');
   alertEl.innerHTML = `<div class="alert alert-success">Añadidos <b>${d.added}</b> canales nuevos.</div>`;
   setTimeout(()=>alertEl.innerHTML='', 4000);
@@ -965,7 +1012,7 @@ function pickChannel(e) {
   const grp = GROUPS.find(g => g === e.group);
   if (grp) sel.value = grp;
   closeModal('picker-modal');
-  raulTab('add', document.querySelectorAll('.tabs .tab')[1]);
+  turcoTab('add', document.querySelectorAll('.tabs .tab')[1]);
   toast('Canal seleccionado');
 }
 
@@ -975,7 +1022,7 @@ let sortables = [];
 let orderDirty = false;
 
 async function loadOrderView() {
-  orderData = await api('/api/raul');
+  orderData = await api('/api/turco');
   populateOrderFilter();
   renderOrderView();
 }
@@ -1054,12 +1101,12 @@ function renderSortItem(ch) {
     <div class="sort-item" data-id="${ch.id}" data-group="${ch.group}">
       <span class="drag-handle" title="Arrastrar para reordenar">⋮⋮</span>
       <label class="toggle" title="Activar/desactivar">
-        <input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleRaul('${ch.id}',this.checked)">
+        <input type="checkbox" ${ch.enabled?'checked':''} onchange="toggleTurco('${ch.id}',this.checked)">
         <span class="toggle-slider"></span>
       </label>
       <span class="sort-name" title="${ch.name}">${ch.name}</span>
       <span class="sort-variant muted">${ch.variant||''}</span>
-      <span class="badge badge-raul sort-group-badge" style="flex-shrink:0">${ch.group}</span>
+      <span class="badge badge-turco sort-group-badge" style="flex-shrink:0">${ch.group}</span>
       <select class="sort-move-select" title="Mover a grupo" onchange="moveToGroup('${ch.id}',this)">
         ${moveOpts}
       </select>
@@ -1138,41 +1185,41 @@ async function saveOrder() {
   });
 
   // Save order first
-  await api('/api/raul/reorder', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({order})});
+  await api('/api/turco/reorder', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({order})});
 
   // Save group changes
   for (const u of groupChanges) {
-    await api(`/api/raul/${u.id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group: u.group})});
+    await api(`/api/turco/${u.id}`, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({group: u.group})});
   }
 
   orderDirty = false;
   document.getElementById('save-order-btn').style.display = 'none';
   toast(`Orden guardado · ${groupChanges.length} grupos cambiados`, 'ok');
-  orderData = await api('/api/raul');
+  orderData = await api('/api/turco');
   populateOrderFilter();
 }
 
 // ══ DUPLICADOS ═══════════════════════════════════════════
 function dupTab(name, el) {
-  document.getElementById('dt-raul').style.display = name==='raul' ? 'block' : 'none';
+  document.getElementById('dt-turco').style.display = name==='turco' ? 'block' : 'none';
   document.getElementById('dt-vs').style.display = name==='vs' ? 'block' : 'none';
   document.querySelectorAll('#page-duplicados .tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
 }
 
-async function loadDupRaul() {
-  const infoEl = document.getElementById('dup-raul-info');
-  const resEl = document.getElementById('dup-raul-results');
+async function loadDupTurco() {
+  const infoEl = document.getElementById('dup-turco-info');
+  const resEl = document.getElementById('dup-turco-results');
   infoEl.textContent = 'Buscando…';
   resEl.innerHTML = '<div class="spin"></div>';
 
-  const d = await api('/api/raul/duplicates');
+  const d = await api('/api/turco/duplicates');
   infoEl.textContent = `${d.total} hash${d.total!==1?'es':''} duplicados`;
   document.getElementById('dup-badge').style.display = d.total > 0 ? '' : 'none';
   document.getElementById('dup-badge').textContent = d.total;
 
   if (!d.duplicates.length) {
-    resEl.innerHTML = '<div class="alert alert-success">No hay duplicados en RAUL.</div>';
+    resEl.innerHTML = '<div class="alert alert-success">No hay duplicados en TURCO.</div>';
     return;
   }
   resEl.innerHTML = d.duplicates.map(group => `
@@ -1187,7 +1234,7 @@ async function loadDupRaul() {
         <div class="dup-item">
           <span class="muted small">#${i+1}</span>
           <span class="dup-item-name">${ch.name}</span>
-          <span class="badge badge-raul">${ch.group}</span>
+          <span class="badge badge-turco">${ch.group}</span>
           <span class="muted small">${ch.variant||'–'}</span>
           <button class="btn btn-secondary btn-sm" onclick="keepOne('${group.hash}','${ch.id}')">Mantener este</button>
           <button class="btn btn-danger btn-sm" onclick="deleteSingle('${ch.id}')">Eliminar</button>
@@ -1196,20 +1243,20 @@ async function loadDupRaul() {
 }
 
 async function keepOne(hash, keepId) {
-  const d = await api('/api/raul/duplicates');
+  const d = await api('/api/turco/duplicates');
   const group = d.duplicates.find(g=>g.hash===hash);
   if (!group) return;
   const toDelete = group.channels.filter(c=>c.id!==keepId).map(c=>c.id);
   if (toDelete.length) {
-    await api('/api/raul/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids:toDelete})});
+    await api('/api/turco/batch-delete', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ids:toDelete})});
     toast(`${toDelete.length} duplicados eliminados`);
-    loadDupRaul();
+    loadDupTurco();
   }
 }
 async function deleteSingle(id) {
-  await api(`/api/raul/${id}`, {method:'DELETE'});
+  await api(`/api/turco/${id}`, {method:'DELETE'});
   toast('Eliminado');
-  loadDupRaul();
+  loadDupTurco();
 }
 
 async function loadDupVs() {
@@ -1218,22 +1265,22 @@ async function loadDupVs() {
   infoEl.textContent = 'Comparando… (requiere descargar fuentes)';
   resEl.innerHTML = '<div class="spin"></div>';
 
-  const d = await api('/api/raul/duplicates/vs-sources');
-  infoEl.textContent = `${d.total} canal${d.total!==1?'es':''} en RAUL también presentes en fuentes IPFS`;
+  const d = await api('/api/turco/duplicates/vs-sources');
+  infoEl.textContent = `${d.total} canal${d.total!==1?'es':''} en TURCO también presentes en fuentes IPFS`;
 
   if (!d.matches.length) {
-    resEl.innerHTML = '<div class="alert alert-success">Ningún canal RAUL está duplicado en las fuentes IPFS.</div>';
+    resEl.innerHTML = '<div class="alert alert-success">Ningún canal TURCO está duplicado en las fuentes IPFS.</div>';
     return;
   }
   resEl.innerHTML = d.matches.map(m => `
     <div class="dup-group">
-      <div class="dup-hash"><code>${m.raul.hash.substring(0,20)}…</code></div>
+      <div class="dup-hash"><code>${m.turco.hash.substring(0,20)}…</code></div>
       <div class="vs-match">
-        <div class="vs-side raul-side">
-          <div class="vs-side-label">RAUL</div>
-          <b>${m.raul.name}</b><br>
-          <span class="badge badge-raul">${m.raul.group}</span>
-          ${m.raul.variant ? `<span class="muted small">${m.raul.variant}</span>` : ''}
+        <div class="vs-side turco-side">
+          <div class="vs-side-label">TURCO</div>
+          <b>${m.turco.name}</b><br>
+          <span class="badge badge-turco">${m.turco.group}</span>
+          ${m.turco.variant ? `<span class="muted small">${m.turco.variant}</span>` : ''}
         </div>
         <div class="vs-side src-side">
           <div class="vs-side-label">Fuente: ${m.source.source_name}</div>
@@ -1242,16 +1289,16 @@ async function loadDupVs() {
         </div>
       </div>
       <div class="flex-gap" style="margin-top:10px;justify-content:flex-end">
-        <button class="btn btn-danger btn-sm" onclick="deleteSingleVs('${m.raul.id}',this)">Eliminar de RAUL</button>
-        <button class="btn btn-secondary btn-sm" onclick="this.closest('.dup-group').style.opacity='.4'">Mantener en RAUL</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteSingleVs('${m.turco.id}',this)">Eliminar de TURCO</button>
+        <button class="btn btn-secondary btn-sm" onclick="this.closest('.dup-group').style.opacity='.4'">Mantener en TURCO</button>
       </div>
     </div>`).join('');
 }
 
 async function deleteSingleVs(id, btn) {
-  await api(`/api/raul/${id}`, {method:'DELETE'});
+  await api(`/api/turco/${id}`, {method:'DELETE'});
   btn.closest('.dup-group').remove();
-  toast('Eliminado de RAUL');
+  toast('Eliminado de TURCO');
 }
 
 // ══ PREVIEW ══════════════════════════════════════════════
@@ -1434,9 +1481,9 @@ async function copyWorkerScript() {
 
 // ══ CLOUDFLARE WORKER CODE GENERATOR (legacy) ════════════
 async function generateWorkerCode() {
-  const [cfg, raul] = await Promise.all([api('/api/config'), api('/api/raul')]);
+  const [cfg, turco] = await Promise.all([api('/api/config'), api('/api/turco')]);
   const sources = cfg.sources.filter(s=>s.enabled);
-  const raulEnabled = raul.filter(c=>c.enabled);
+  const turcoEnabled = turco.filter(c=>c.enabled);
 
   const code = `// M3U Manager — Cloudflare Worker
 // Generado: ${new Date().toLocaleString('es-ES')}
@@ -1446,7 +1493,7 @@ const CACHE_TTL = 1800;
 
 const SOURCES = ${JSON.stringify(sources.map(s=>({id:s.id,name:s.name,url:s.url,format:s.format})), null, 2)};
 
-const RAUL_CHANNELS = ${JSON.stringify(raulEnabled.map(c=>({name:c.name,hash:c.hash,group:c.group,logo:c.logo||'',tvg_id:c.tvg_id||'',variant:c.variant||''})), null, 2)};
+const TURCO_CHANNELS = ${JSON.stringify(turcoEnabled.map(c=>({name:c.name,hash:c.hash,group:c.group,logo:c.logo||'',tvg_id:c.tvg_id||'',variant:c.variant||''})), null, 2)};
 
 export default {
   async fetch(request, env, ctx) {
@@ -1472,8 +1519,8 @@ async function getMergedEntries(ctx) {
       }
     }
   }
-  for (const ch of RAUL_CHANNELS) {
-    const entry = { hash:ch.hash, name:\`\${ch.name} --> RAUL \${ch.variant}\`.trim(), tvg_logo:ch.logo, tvg_id:ch.tvg_id, group:ch.group };
+  for (const ch of TURCO_CHANNELS) {
+    const entry = { hash:ch.hash, name:\`\${ch.name} --> TURCO \${ch.variant}\`.trim(), tvg_logo:ch.logo, tvg_id:ch.tvg_id, group:ch.group };
     if (!seen.has(entry.hash)) { seen.add(entry.hash); all.push(entry); }
   }
   return all;
@@ -1532,10 +1579,10 @@ function buildM3U(entries, fmt) {
 // ══ INIT ═════════════════════════════════════════════════
 loadDashboard();
 loadSources();
-loadRaul();
+loadTurco();
 loadSettings();
 // Check for duplicates silently
-api('/api/raul/duplicates').then(d => {
+api('/api/turco/duplicates').then(d => {
   if (d.total > 0) {
     document.getElementById('dup-badge').style.display = '';
     document.getElementById('dup-badge').textContent = d.total;
