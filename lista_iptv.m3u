@@ -4,17 +4,17 @@
 #EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 01 720p *
 http://127.0.0.1:6878/ace/getstream?id=8faa686a99697b99261346e479ead172b1d9d5d2
 #EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 01 **
-http://127.0.0.1:6878/ace/getstream?id=0995b9b77ac6198dd92141369707fb99da09bdb2
-#EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 01 **
 http://127.0.0.1:6878/ace/getstream?id=53962d7fb865aff73b34a3afb2905cd492f60d75
+#EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 01 **
+http://127.0.0.1:6878/ace/getstream?id=0995b9b77ac6198dd92141369707fb99da09bdb2
 #EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 02 **
 http://127.0.0.1:6878/ace/getstream?id=22b702984a0db43fd371c30e2df150b2336551cd
 #EXTINF:-1 tvg-logo="https://www.acb.com/docs/descarga/logos/liga_endesa/JPG/ligaendesa_vertical_positivo.jpg" tvg-id="DAZN Baloncesto" group-title="BALONCESTO", ACB EVENTO 03 **
 http://127.0.0.1:6878/ace/getstream?id=02ec118ee4586d96df9115ffc486be9a499d00d9
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 **
-http://127.0.0.1:6878/ace/getstream?id=9afc89481b721ce6c326c85e47148676077b8e62
-#EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 **
 http://127.0.0.1:6878/ace/getstream?id=7ba1f321f4d0791b7ebd42f41a07c1cd1479e784
+#EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 **
+http://127.0.0.1:6878/ace/getstream?id=9afc89481b721ce6c326c85e47148676077b8e62
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Kz0GXSX/dazn2.png" tvg-id="DAZN 2 HD" group-title="DAZN", DAZN 2 1080p **
 http://127.0.0.1:6878/ace/getstream?id=d60b8c154828cb990b7bb1570764b215bd979e74
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Kz0GXSX/dazn2.png" tvg-id="DAZN 2 HD" group-title="DAZN", DAZN 2 1080p **
@@ -27,8 +27,6 @@ http://127.0.0.1:6878/ace/getstream?id=6bb383508fd46eda68a47b0e21fb5a069d63b0c1
 http://127.0.0.1:6878/ace/getstream?id=0284cadccea27a42a3072ba373b2dd908bf63fc3
 #EXTINF:-1 tvg-logo="https://www.adriaeco.eu/wp-content/uploads/2021/08/DAZN.png" tvg-id="" group-title="DAZN", DAZN Serie A 1080p **
 http://127.0.0.1:6878/ace/getstream?id=54fbbb487c134a36622ed39f60184049190d8674
-#EXTINF:-1 tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" tvg-id="Eurosport 1 HD" group-title="EUROSPORT", Eurosport 1 720p **
-http://127.0.0.1:6878/ace/getstream?id=a7b42f9d65636d1b1d9316d3e91ebe12b192658c
 #EXTINF:-1 tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" tvg-id="Eurosport 1 HD" group-title="EUROSPORT", Eurosport 1 1080p **
 http://127.0.0.1:6878/ace/getstream?id=0db68ab752b50e6bb257eef22d102c1d29cd92ea
 #EXTINF:-1 tvg-logo="https://i.ibb.co/M6h4Qyd/euro2.png" tvg-id="Eurosport 2" group-title="EUROSPORT", Eurosport 2 720p **
@@ -83,8 +81,6 @@ http://127.0.0.1:6878/ace/getstream?id=e9ce6e62ff97f1da7f10fd449a3c8e8ee90b253d
 http://127.0.0.1:6878/ace/getstream?id=799c6b5ee1cf41af077d14e3f9c45a32697eb903
 #EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/424-4244985_file-movistar-golf-svg-logo-movistar-golf-hd.png" tvg-id="M+ Golf HD" group-title="MOVISTAR DEPORTES", M+ Golf 720p *
 http://127.0.0.1:6878/ace/getstream?id=f60535a458b3c114283e2f433379144345beddd6
-#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/424-4244985_file-movistar-golf-svg-logo-movistar-golf-hd.png" tvg-id="M+ Golf HD" group-title="MOVISTAR DEPORTES", M+ Golf 1080p **
-http://127.0.0.1:6878/ace/getstream?id=8121478d3d3e563ad6b98018bc1c0aeb2f6166eb
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 720p *
 http://127.0.0.1:6878/ace/getstream?id=866a8af8faacf8fc9eb997ab5a68b4dfee4edc77
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 720p **
@@ -100,9 +96,9 @@ http://127.0.0.1:6878/ace/getstream?id=5e310dbffed8c941d20ad819cb8ef43c34b07884
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 720p **
 http://127.0.0.1:6878/ace/getstream?id=837883625d40e1eb5566eefaf74811046491f53a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
-http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
-#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
 http://127.0.0.1:6878/ace/getstream?id=b46a524780cf0ac5e533491fe79389d6198acf2c
+#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
+http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p **
 http://127.0.0.1:6878/ace/getstream?id=b7b1c1eeb4be09c63fbc2f319c9760851c274455
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/df/Logo_Primera_RFEF_2021.png/revision/latest?cb=20230620215900&path-prefix=es" tvg-id="Primera Federación" group-title="RFEF TV", RFEF TV 1080p *
@@ -123,373 +119,373 @@ http://127.0.0.1:6878/ace/getstream?id=b0d1489c9f3239349665ad5ab423363f2b02e5ae
 http://127.0.0.1:6878/ace/getstream?id=77cf022557c56cdf8d8115f50e61f846ad72ee05
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 http://127.0.0.1:6878/ace/getstream?id=3b50a1dca0977e3761d016edd79314ab797f74f6
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 1 1080p --> TURCO V2
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 1 1080p --> RAUL V2
 http://127.0.0.1:6878/ace/getstream?id=1b25b195b1b84d4b96830410657718e9e275ad49
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 2 1080p --> TURCO V2
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 2 1080p --> RAUL V2
 http://127.0.0.1:6878/ace/getstream?id=0d780c1fb5fdf2121d9544f1a6892cb1053dd061
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport+ 1080p --> TURCO V2
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport+ 1080p --> RAUL V2
 http://127.0.0.1:6878/ace/getstream?id=abfb5236dee14625fe1b19ee27f3a89fb6767dcb
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. LIGA HDR Test --> TURCO V2
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. LIGA HDR Test --> RAUL V2
 http://127.0.0.1:6878/ace/getstream?id=cdec5a77931bda91a1e400d31b9d9e1e5d35d3fd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=fbf4ebe0dcd9d92d522fad129be22df4924ad39f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=48753fd6987d721df0138b1f70e4dae530d35cd0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Acción --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=91f31550bcfcab2e3e1cb8d0af75777b862f6858
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS 2 1080p --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS 2 1080p --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", RALLY TV --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", RALLY TV --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b6ca8e022947548af61d76660b6b6f799a778d31
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", CUATRO 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", CUATRO 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=72fe18250142433fe1d921fd76d99f3f1d2e2c00
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=f379d93b71731f1bbd0845d1b1e4dc37b5b1fd92
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Liga TV M2  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Liga TV M2  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5c26bf5f96ccae8937c664d924a53166d410ac5d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La SEXTA 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La SEXTA 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bd38dba903a3d627fb053c9d907b1635a52fba3b
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 2 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 2 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=001a809c577ef916a57340151c6112ebcb7a894f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 2 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 2 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9b461120d04b7651990c3b54a0821c60c3b94146
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", CUATRO 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", CUATRO 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=03f24ddb1f1451b308fd0d5f72ec6d353ffd8e41
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", Telecinco 1080p   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", Telecinco 1080p   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3840043b15fd7ac7846004d151ea7b51800fffc0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", NBC Sports 1080p   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", NBC Sports 1080p   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=162ecefc8ce99fc068ef7aefd45412e57eaed439
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN 2 MX 1080  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN 2 MX 1080  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9dfd7e896ad0ff817eb71e3096f0cfa11d43169b
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TV5Monde Europe   2 --> TURCO V5
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TV5Monde Europe   2 --> RAUL V5
 http://127.0.0.1:6878/ace/getstream?id=03e84ed0a25083a25b93354ea1d72e65527a0d14
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TV5Monde Europe   2 --> TURCO V5
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TV5Monde Europe   2 --> RAUL V5
 http://127.0.0.1:6878/ace/getstream?id=c447f161c245f61ece19f0b5ae399fa6ccc19fbd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> TURCO V3
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> RAUL V3
 http://127.0.0.1:6878/ace/getstream?id=16589aeca0df65612bd7bcd4e55c0a63f5750de2
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> TURCO V3
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TV3 CAT --> RAUL V3
 http://127.0.0.1:6878/ace/getstream?id=fd44b9accd1b210f7b06631296fc24bcf31f1cdc
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La Otra 720p   2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La Otra 720p   2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=6556056fa6edcfacb788d9765b5d9a0d8d7829c9
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=f22268a7d4a279feee02243d93a65cca2825c8e1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=95ced66c1268717c19c1e3e020e3b23b0f02e504
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Sky Sport MotoGP 1080p   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Sky Sport MotoGP 1080p   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0c30255a5b56d67fbd253753b86d8afea0ddeb00
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Golf 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Golf 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9bb2a7dc6c6a296609df8cc50e742a78194f7530
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Golf 2  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Golf 2  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ac321484243571f59e077f2a2521e648dc0c7b03
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="1RFEF", RFEF TV 1080p  1 --> TURCO V1080
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="1RFEF", RFEF TV 1080p  1 --> RAUL V1080
 http://127.0.0.1:6878/ace/getstream?id=177796041773be99b489dd3ce86144f243e7355f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="1RFEF", FEF TV 1080p  1 --> TURCO V1080
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="1RFEF", FEF TV 1080p  1 --> RAUL V1080
 http://127.0.0.1:6878/ace/getstream?id=3fbc1b7dc316f19b77e7f7cfc775a0af67adcc7f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", Telecinco 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", Telecinco 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3d376333ee90d6db3d413fc5764ef635882076f5
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 2 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 2 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=01ce89b571b6c89bc19ccaafc913d483ac65c61d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 3  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 3  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e1ccce973c71547a8acda770885cb1c30a9cf3e1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 4  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 4  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9ced16b2055c99bf89c26e678e315e1b01d3734c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga  2 720p   2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga  2 720p   2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 2 1080  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 2 1080  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=51b363b1c4d42724e05240ad068ad219df8042ec
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 2  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 2  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b45cfe568e106a7df65c950805d6f123c989ce84
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 3 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 3 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=7ad14386deef2f45ffe17d30a631dbf79b6a1a87
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 4 720  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M. Liga 4 720  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1bcee22d5476f2eae9dc2cb24e3685152cf285cb
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Estrenos  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Estrenos  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=49d66212748c67bd896fba703585997c6cae5460
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", 24H TV 720p  1 --> TURCO V720
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", 24H TV 720p  1 --> RAUL V720
 http://127.0.0.1:6878/ace/getstream?id=16598735f228c6dff542125d0e308150b50fc715
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Eleven Sports 1 PL 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Eleven Sports 1 PL 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=246d487d1087fbb9dc74c821b0d87ad306f16591
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", SKY SPORTS MAIN EVENT   2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", SKY SPORTS MAIN EVENT   2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e4b259b6dedb674283ab124117ce793360d3a1c0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=88d7cdd80be237ae21314f7f1b6582991498e8ba
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones   4 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones   4 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bb5a8bf7752e978460ee1710e5e8950a5c9e1f99
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones  4 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones  4 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0f0850a62ecdc4f79eec221cbebad01f3e0242bc
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6  4 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6  4 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e1cdfc928b5e62d6f37399f95460a67bd7670f65
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Bein Sports TR 720p 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Bein Sports TR 720p 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1e3451ef86d34c96aabece2ac7bcae70ba9ed767
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", ACB EVENTO 02 720p  2 (DAZN BALONCESTO) --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", ACB EVENTO 02 720p  2 (DAZN BALONCESTO) --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d7e6b6bb1666740a21099fe6ceb0178a14f58e0c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Gol Peru  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Gol Peru  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e5cb8a4284eadd0f8c5905cc7b5a899da7101312
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Liga 1 Max   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Liga 1 Max   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ddca8f4457d66761c1695285959d096e9727accc
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5fa3083a4c9ab1841160c230b79df2a1b449bbb3
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b028202ff335911db3118bceac027df3e8ef6c32
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 4 1080p 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 4 1080p 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=91ac4585368992720ec17ffa5b4389368c6dcac1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA DAZN 720p 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA DAZN 720p 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3bc122425f49648689cb8fd81de33cb19b848d20
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p   2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p   2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=739792a3225e5eb3056f4faa7b1137c7f161f23c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ff03650163b9456d59ed5f262aa3ab2e19831e6d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=21bc11d195f5753c396e390c215952d21541d04d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 720p 2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 720p 2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=54e971e70ed1e79a073a3aae410aed7818799112
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p 2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p 2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=a3e8b1eac4866685ed52eb448b0891d0cb0ed031
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=497e2d0301fc289ccbd43080a580f63b718770e2
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=14bedc2ff054ae16c0fae99cfeb9dcda21ac68a0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3e430d14ef1cf1c147c7b06332081291e05a1431
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5bed693c6a22de55f1061c509bba5e3aeb2ea2aa
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5620c0ce3dcbf14a6375cb2c2d681207f45eb97d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d58f619d860d29cd47720055b9bb842199971da1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e9975d38aaa4475ac0b1fa0faa541bbadd85a662
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+Plus 720p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+Plus 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d23497596720b47b096ec0f850d6d26a19d1a336
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=27d11bbeb3026231d52de16b1fac48da7a099247
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ed6188dcbb491efeb2092c1a6199226c27f61727
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d719181097d256073844390b3e094fbcb1bceaa4
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=895d08633bb22c2573281655cf3ca44de476cc73
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080   1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080   1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=fd53cfa7055fe458d4f5c0ff59a06cd43723be55
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bcf9dc38f92e90a71b87bd54b3bac91b76d09a69
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La 1 720p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La 1 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=02622fa2fab63847d88dc14fd9fa5c2fc35de8a8
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1fddc49dd11ae7bb16f2b94648a9b4f0efc80349
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 5 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 5 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=7b361369a40046ad3011086f9d4ae2982fb4d5aa
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 6 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 6 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e6cd9205e26b3b6680f607030c702e911272524a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 7 1080p 2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 7 1080p 2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=2d549bbcd898b09c4b736e6e3e83e8e8c19fcbda
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 8 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 8 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=f5c100695175ba52099664ddb4c5fc4ae0ebe99a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 720p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ac33342ccf7d40d46174229085461d95000b9137
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=20d4b3586bb822c3618cf8fb665a304869c5e1a5
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 720p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=129c707eb4854171d178a566f36d90b7f2b5e624
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e18b79bce27f6ee8eef9a1fc811bb5f80e4b558c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=342ca6975a4884d81f9fec5c4085a47060bd2028
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Dazn MotoGP 1080p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=c53bdb3be55d12c5188d25085f1bb16911c15cea
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Servus TV --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Servus TV --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=988f4d88d74ec0d2b3584f6c7e067fcbdb501115
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=38e9ae1ee0c96d7c6187c9c4cc60ffccb565bdf7
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3f5b7e2f883fe4b4b973e198d147a513d5c7c32a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", F1TV HD 720p/50fps --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", F1TV HD 720p/50fps --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=e10b56ced7bd970fcd5adeddf71d23a6b983da68
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", F1TV FHD 1080p/50fps --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", F1TV FHD 1080p/50fps --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=7a0fdfcf39cb9599c5d2d797100718789da60dbd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ ACCION FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ ACCION FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=102bcb79ca391e37ac1fc9ee77dc53440d0a59ce
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=108aebe20efc826e56f3a1cb01117a124a6b89ad
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", UFC Fight Pass FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=96537527b2d5e858b2e6c863a00dec304254091d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", S SPORT 1 HD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", S SPORT 1 HD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3f23e772f30c5f127609cbef8aa904219b63caef
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ef2abf419586d9876370be127ad592dbb41b126a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 2 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 2 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=2773b39926d15dd3d9495d94c4050604792d7031
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5d3f582738467aaf213e408601aca5cc13fa9359
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 4 FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 4 FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=37825883ed185365e3194a79207347f6c7bd5ba5
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=4e99e755aa32c4bc043a4bb1cd1de35f9bd94dde
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5b776533534b767a84dfda263825ad10f30a8ec7
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b03f9310155cf3b4eafc1dfba763781abc3ff025
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX SD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX SD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=648b6c7d1b1800b6d224f22e26694f4d59ad217d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX 3 HD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX 3 HD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=fbc9b6650b886ba0b25c0b9468b625aa6d4a2042
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX 4 SD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESSPN MX 4 SD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=93953cc10405f53e1d4ea2c30f1aad25e28a59f0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=a5f2161b0cabe910dc866b5abc6efe5d8f41fd7f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=217e5f172d4c704c5eec739fed672a53521e8f98
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", DAZN LIGA 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", DAZN LIGA 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0e50439e68aa2435b38f0563bb2f2e98f32ff4b1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", DAZN LIGA 1 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", DAZN LIGA 1 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1bb5bf76fb2018d6db9aaa29b1467ecdfabe2884
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+ LIGA FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+ LIGA FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=107c3ce5a5d2527c9f06e4eab87477201791f231
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+ LIGA FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+ LIGA FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=8c30b600cc48899991b452805df48b68d998e61c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=199190e3f28c1de0be34bccf0d3568dc65209b99
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5866e83279307bf919068ae7a0d250e4e424e464
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 4K --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 4K --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=152169ce99e1fd27f2249c18384a121079cdef29
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0f7842f8b6c26571e5a974407b61623e56e6a052
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 10 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 10 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0103373118989085dd0d02667c629ee36d462cb1
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 14 SD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 14 SD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=773ef9e2d2feb4f80ef558b253c72fda8d8e53cf
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 15 SD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 15 SD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=47ce8fe15adfcf4e1749b0c0dee1fc79a3d5ca6d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 16 SD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 16 SD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=348cc65d5cbd5a77da0fe006ce97eff6ad72b9da
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=8ee52f6208e33706171856f99d2ed2dabd317f3a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=70f22be1286ef224b5e4e9451d9a42468152cda4
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION 2 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION 2 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=8a05571c0c8fe53f160fb7d116cdf97243679e86
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION 3 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION 3 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1ba18731a8e18bb4b3a5dfa5bb7b0f05762849a6
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="COPA DEL REY", COPA DEL REY FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="COPA DEL REY", COPA DEL REY FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=28205d7c9776b96a1f479c9082e80bd1e18f5afd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA ENDESA", DAZN BALONCESTO FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=15fe785e2dc9d16a7b0a1c49a9ad5a7ab88ef2b7
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=50a8a13c474848d1efbd5586efdb5b6cdd173fa9
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN ARGENTINA 3 HD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", ESPN ARGENTINA 3 HD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d872a44653bf2ad232d5f8476597754b69e3d56c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Rally Tv  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Rally Tv  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=651dd1e689a9a7d3b0695191dcf44b4d6e7541eb
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", DECASA FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", DECASA FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=155d742120310a0ca80b0c8833d94979aa7f0b08
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 1 4K  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 1 4K  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=6a54f8fb00406c88f68ac3f3aabc7d084f9573d0
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", NFL USA SD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", NFL USA SD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5a71a114fdf460fc90f88b959f83625b964a5d62
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", HYPERMOTION FHD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=edccb6f240ea9d42a0ad89505f9f46fe315aecdb
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", DAZN MOTOGP FHD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", DAZN MOTOGP FHD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=7ae5a9423be4020f3dd38601a6dcb46bef866792
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TENNIS", TENNIS CHANNEL HD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TENNIS", TENNIS CHANNEL HD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3254851ab35da4a1f1a00911aa8f0da9b7ca5be7
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", 24 HORAS HD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", 24 HORAS HD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=cc5ed178702605513cd18b4899c4be954d306cca
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA EVENTOS 1   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA EVENTOS 1   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=540101712b991557b00973af27027812f99b6458
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", VAMOS FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3b2a8b41e7097c16b0468b42d7de0320886fa933
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+GOLF FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+GOLF FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9ed46050217ee6ed8236a64b72d7992f7b3b37f2
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+GOLF 2 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+GOLF 2 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=96e82321c731e41768a806992ee4d3b9b7a0e7d7
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ef9dcc4eaac36a0f608b52a31f8ab237859e071a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 3 FHD   3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 3 FHD   3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=753d4b1f7c4ef43238b5cf23b05572b550a44eee
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 5 FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", DEPORTES 5 FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5913205fb6d6d162a50222709aab6129eb7cf916
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", TOROLE TV FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", TOROLE TV FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=56457cde219abe22cdc3f6c2083a37b0324b3b0c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+LIGA FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+LIGA FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b0260a1261eb3817c353ef0a6862747dee18cdda
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+LIGA FHD  3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", M+LIGA FHD  3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=af468a318ad209b29a042a9080b519c6b40cec79
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 1 FHD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="EUROSPORT", EUROSPORT 1 FHD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bae98f69fbf867550b4f73b4eb176dae84d7f909
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TNT SPORTS HD 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", TNT SPORTS HD 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5ccaf1da1ab3972502f2b35e581d7ab2f9b4965e
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=768cfc32c26c6fc29b5495d88f70ac3d736892c3
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", Hypermotion --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="HYPERMOTION", Hypermotion --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=60952921b847a9c560741b0d8048a2d8ad194a7f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 8 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 8 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=97f8a84212fe6b3d2ab15aadc83c7b5e6af656c9
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 13 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 13 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9c246c5e6a153ba2b765e4b84f4d50e0836b3556
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 Bar HD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 1 Bar HD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=897e73c9d578848f596585314ecb9ae067c0e229
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 2 Bar HD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="DAZN", DAZN 2 Bar HD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=12ea555d431dbe51fc8e4ca745aec09fe22a4865
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Ziggo Sport 3 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Ziggo Sport 3 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=7f50e06f715720e944cce35fa90b6b7a8db04b2e
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Ziggo Sport 4 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Ziggo Sport 4 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=36dfc36084b2138d3451c4700b462ac1094d693d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 4K --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", CAMPEONES 4K --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=678a1e93fbfbd499c329886bfdda780e73ac1786
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS 2 FHD --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+PLUS 2 FHD --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=fbc39d8a9e5d7c9ac6a1438d440104620f54e09c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 720p  1 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 6 720p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bf10192dc72a98ee835a1b7ccac8b27737d02f25
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", BOING Spain  5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", BOING Spain  5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=04dc4964d2bddf41da7da028397ed2a3feeea710
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TELEDEPORTE Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TELEDEPORTE Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=4048be88f84250719e864868e537612f389df48e
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", neox Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", neox Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=5a7c41f2a3d22446cb80dc9c9f9d1f26867bc542
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", NOVA Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", NOVA Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d88f53277cbff8bca0d63d17502d72746b115efe
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", MTV Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", MTV Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9a84a44833e4b8dc39a296584d4f587b7ae3163c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Accion HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Accion HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=2fb689d18a62b52dac5a4a39b013b7d9ba296751
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", ANTENA 3 Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", ANTENA 3 Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ea8e71ca4c755812bb753838a31f5357426f2876
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ COMEDIA HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ COMEDIA HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b5b4cf132f1c655ed2f0aaa759a6012db140740a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Terror HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Terror HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=b331dcd389eaf6d4af356245cc0a02a3c478d3ed
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", CALLE 13 HD Spain  5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", CALLE 13 HD Spain  5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=91d38e143c3495dabf3ddf0497af98a227aeb613
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 1 Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", LA 1 Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=9c079e1bbd01814c107e89187b8c24ba0ac306dd
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Originales HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Originales HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0364449064d322a1bc0f97d568452053810ef8bc
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", BABY TV Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", BABY TV Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d865b49d6ec5844e0bcf8e596ab90a7be8bb28fb
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", AXN Movies Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", AXN Movies Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=6b4acf7cab48967eccea5c3e89b1e945ceab457c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Wéstern HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Wéstern HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=c5d339864350949aa5311a7aca52d4573818c560
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", SkyShowtime 1 Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", SkyShowtime 1 Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=d98f8926ec3c7c403cec32530f2ab7725cf88bcf
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Documentales HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Documentales HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3c1b00267a398093848ded743cfdb547e2232216
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ DRAMA HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ DRAMA HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=fc469b1e22f9a75bf7079995876955b9b293ef7e
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Hits HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Hits HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bb78482832c454dfbb932912d65726619f924873
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", HBO Max Avances Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", HBO Max Avances Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=039719b35e6987a9b5888a8f4b903b3d31d2552d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", SYFY HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", SYFY HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=0abff11099cfe1bb45fac7fd29e996a68a9f1463
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", laSexta HD Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", laSexta HD Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=6fa8e5288e9b91c926134362f7c01320f3eb7ecf
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", Disney Junior Spain 5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", Disney Junior Spain 5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=280a92fe6ab989ff95cc744ab3e22b50e7829bed
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Indie HD Spain  5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Indie HD Spain  5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=205cf36437bf4e0643398f62f212832d4b8e271f
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Romance HD Spain  5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ Romance HD Spain  5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=c8a8710788e86761c4c702ee5cb7164e2a0e2d7a
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ CINE ESPAnOL HD Spain  5 --> TURCO
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR", M+ CINE ESPAnOL HD Spain  5 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=dc044c79fcde8ed69ed4c878643b09f09e7ccb72
