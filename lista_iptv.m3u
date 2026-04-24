@@ -28,9 +28,9 @@ http://127.0.0.1:6878/ace/getstream?id=9e6ef3ee002ce4d62062bcad7eebff4dcb0b82ef
 #EXTINF:-1 tvg-logo="https://www.adriaeco.eu/wp-content/uploads/2021/08/DAZN.png" tvg-id="" group-title="DAZN", DAZN Serie A 1080p *
 http://127.0.0.1:6878/ace/getstream?id=6bb383508fd46eda68a47b0e21fb5a069d63b0c1
 #EXTINF:-1 tvg-logo="https://www.adriaeco.eu/wp-content/uploads/2021/08/DAZN.png" tvg-id="" group-title="DAZN", DAZN Serie A 1080p **
-http://127.0.0.1:6878/ace/getstream?id=54fbbb487c134a36622ed39f60184049190d8674
-#EXTINF:-1 tvg-logo="https://www.adriaeco.eu/wp-content/uploads/2021/08/DAZN.png" tvg-id="" group-title="DAZN", DAZN Serie A 1080p **
 http://127.0.0.1:6878/ace/getstream?id=0284cadccea27a42a3072ba373b2dd908bf63fc3
+#EXTINF:-1 tvg-logo="https://www.adriaeco.eu/wp-content/uploads/2021/08/DAZN.png" tvg-id="" group-title="DAZN", DAZN Serie A 1080p **
+http://127.0.0.1:6878/ace/getstream?id=54fbbb487c134a36622ed39f60184049190d8674
 #EXTINF:-1 tvg-logo="https://i.ibb.co/M6h4Qyd/euro2.png" tvg-id="Eurosport 2" group-title="EUROSPORT", Eurosport 2 **
 http://127.0.0.1:6878/ace/getstream?id=d01d255aaaf2fb91c0a8c98a826b4bd4769d81c1
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CBdGc9f/hypermotion1.png" tvg-id="LaLiga TV Hypermotion HD" group-title="HYPERMOTION", LaLiga TV Hypermotion 720p *
