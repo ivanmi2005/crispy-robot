@@ -42,9 +42,9 @@ http://127.0.0.1:6878/ace/getstream?id=c976c7b37964322752db562b4ad65515509c8d36
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-2-es.png" tvg-id="DAZN LaLiga 2 HD" group-title="LA LIGA", DAZN LaLiga 2 1080p **
 http://127.0.0.1:6878/ace/getstream?id=a231b2fa1f7754433efeb8bb8d69d7b9096dcba8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
-http://127.0.0.1:6878/ace/getstream?id=f863873de9f7b2996dde19a0657dd89835af3007
-#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
 http://127.0.0.1:6878/ace/getstream?id=3ace1463a7cad979c3a4002b245487e9982e9f1a
+#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
+http://127.0.0.1:6878/ace/getstream?id=f863873de9f7b2996dde19a0657dd89835af3007
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 1080p **
 http://127.0.0.1:6878/ace/getstream?id=00c9bc9c5d7d87680a5a6bed349edfa775a89947
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 1080p **
@@ -112,17 +112,15 @@ http://127.0.0.1:6878/ace/getstream?id=0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 720p **
 http://127.0.0.1:6878/ace/getstream?id=837883625d40e1eb5566eefaf74811046491f53a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
-http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
-#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
 http://127.0.0.1:6878/ace/getstream?id=b46a524780cf0ac5e533491fe79389d6198acf2c
+#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
+http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p **
 http://127.0.0.1:6878/ace/getstream?id=b7b1c1eeb4be09c63fbc2f319c9760851c274455
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/df/Logo_Primera_RFEF_2021.png/revision/latest?cb=20230620215900&path-prefix=es" tvg-id="Primera Federación" group-title="RFEF TV", RFEF TV 1080p *
 http://127.0.0.1:6878/ace/getstream?id=7b742628b9f7e82902bdbc1ff92eba1988875cfc
 #EXTINF:-1 tvg-logo="https://img.3cat.cat/multimedia/jpg/1/5/1697802708951.jpg" tvg-id="Esport 3" group-title="DEPORTES", Esport3 1080p **
 http://127.0.0.1:6878/ace/getstream?id=8f59ce96e4c902ba2f5193af07546d7ff17fc3bc
-#EXTINF:-1 tvg-logo="https://brandlogos.net/wp-content/uploads/2023/12/sport_tv1-logo_brandlogos.net_k6b5q-512x512.png" tvg-id="" group-title="DEPORTES", Sport TV1 1080p *
-http://127.0.0.1:6878/ace/getstream?id=e24b30556ad82c782bbfa003b384b85ecea8f647
 #EXTINF:-1 tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/oiu2yn1700902611.png" tvg-id="" group-title="DEPORTES", SPORT TV2 1080p *
 http://127.0.0.1:6878/ace/getstream?id=163eefc5f380fc0713eaafca274d95f2259b94ed
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 720p **
@@ -132,9 +130,9 @@ http://127.0.0.1:6878/ace/getstream?id=b35b3eb8e22365bf3469efd6d1f3b82618a6e18a
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 http://127.0.0.1:6878/ace/getstream?id=3b50a1dca0977e3761d016edd79314ab797f74f6
 #EXTINF:-1 tvg-logo="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1772006365-dazn-motogp-699eaba85423e.jpg" tvg-id="" group-title="MOTOGP", Dazn MotoGP 1080p **
-http://127.0.0.1:6878/ace/getstream?id=342ca6975a4884d81f9fec5c4085a47060bd2028
-#EXTINF:-1 tvg-logo="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1772006365-dazn-motogp-699eaba85423e.jpg" tvg-id="" group-title="MOTOGP", Dazn MotoGP 1080p **
 http://127.0.0.1:6878/ace/getstream?id=c53bdb3be55d12c5188d25085f1bb16911c15cea
+#EXTINF:-1 tvg-logo="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1772006365-dazn-motogp-699eaba85423e.jpg" tvg-id="" group-title="MOTOGP", Dazn MotoGP 1080p **
+http://127.0.0.1:6878/ace/getstream?id=342ca6975a4884d81f9fec5c4085a47060bd2028
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Disney Junior *
 http://127.0.0.1:6878/ace/getstream?id=a722bc25dfa16d1112fde83cb79501b9756586d1
 #EXTINF:-1 tvg-logo="https://www.cope.es/files/microformat_image/uploads/2024/07/06/66893112b37ba.jpeg" tvg-id="" group-title="OTROS", Onetoro TV 1080p *
