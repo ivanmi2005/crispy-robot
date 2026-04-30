@@ -13,6 +13,8 @@ acestream://22b702984a0db43fd371c30e2df150b2336551cd
 acestream://02ec118ee4586d96df9115ffc486be9a499d00d9
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 1080p *
 acestream://dddff67edfa7061f643ec5ae0be110169850363d
+#EXTINF:-1 tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" tvg-id="Eurosport 1 HD" group-title="EUROSPORT", Eurosport 1 1080p *
+acestream://48a589dbeab3544662fafd79888aada7d834cfe9
 #EXTINF:-1 tvg-logo="https://i.ibb.co/M6h4Qyd/euro2.png" tvg-id="Eurosport 2" group-title="EUROSPORT", Eurosport 2 **
 acestream://d01d255aaaf2fb91c0a8c98a826b4bd4769d81c1
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones.png" tvg-id="M+ Liga de Campeones HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 720p *
@@ -27,12 +29,26 @@ acestream://2b51710cee513e8939785fa3e7980f32d4e0415f
 acestream://9db029dff6a9c637d1f670e78dbc1a479b9b406e
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 720p *
 acestream://47188da7d2e4beaee82cff174f223fdd23f78fa6
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 1080p **
-acestream://bb26037a253866d341778181eff5c8637240d615
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 720p **
+acestream://38f7b2044e549df2039ff26cefa6f9a60c854d5e
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 1080p **
 acestream://74ab4e4ec7e2da001f473ca40893b7307b8029c5
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 1080p **
+acestream://bb26037a253866d341778181eff5c8637240d615
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%203.png" tvg-id="M+ Liga de Campeones 3 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 3 720p **
 acestream://cfc371890bfb502737a26de5215e50929c52d0f9
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%203.png" tvg-id="M+ Liga de Campeones 3 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 3 1080p *
+acestream://320bee0fbdf2a168d47810236985a7c40b4f85c9
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%203.png" tvg-id="M+ Liga de Campeones 3 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 3 1080p **
+acestream://4416843c96b7f7a1bc55c476091a60fff0922bc7
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%203.png" tvg-id="M+ Liga de Campeones 3 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 3 1080p **
+acestream://85a8e0675bc27ddfd403b8f72953c606d07a8de8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%204.png" tvg-id="M+ Liga de Campeones 4" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 4 1080p *
+acestream://91ac4585368992720ec17ffa5b4389368c6dcac1
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%205.png" tvg-id="M+ Liga de Campeones 5" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 5 1080p **
+acestream://5620c0ce3dcbf14a6375cb2c2d681207f45eb97d
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%205.png" tvg-id="" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 7 1080p *
+acestream://f22268a7d4a279feee02243d93a65cca2825c8e1
 #EXTINF:-1 tvg-logo="https://i.ibb.co/hFYPWbpJ/plus.png" tvg-id="Movistar Plus+ HD" group-title="MOVISTAR", MOVISTAR PLUS 1080p **
 acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", M+ Deportes 720p *
@@ -43,6 +59,14 @@ acestream://2f3cfd199a49819cbd129689a840dc3d23ab93aa
 acestream://c6a824a81b36f6c3529826477caf2ad94b45776d
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" tvg-id="M+ Deportes HD" group-title="MOVISTAR DEPORTES", M+ Deportes 1080p **
 acestream://ebca4a63ce3bfda7b272964a1acc5227218184a4
+#EXTINF:-1 tvg-logo="https://i.ibb.co/jDg5qWD/deportes3.png" tvg-id="M+ Deportes 3" group-title="MOVISTAR DEPORTES", M+ Deportes 3 1080p *
+acestream://f4d9011721fad5098febbe4d7c078a582e176a01
+#EXTINF:-1 tvg-logo="https://i.ibb.co/WDN9NN9/deportes4.png" tvg-id="M+ Deportes 4" group-title="MOVISTAR DEPORTES", M+ Deportes 4 1080p *
+acestream://4abe06c5cce7cb3c6bef2c3bccaafefd3299794f
+#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/424-4244985_file-movistar-golf-svg-logo-movistar-golf-hd.png" tvg-id="M+ Golf HD" group-title="MOVISTAR DEPORTES", M+ Golf 720p *
+acestream://f60535a458b3c114283e2f433379144345beddd6
+#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/424-4244985_file-movistar-golf-svg-logo-movistar-golf-hd.png" tvg-id="M+ Golf HD" group-title="MOVISTAR DEPORTES", M+ Golf 1080p **
+acestream://8121478d3d3e563ad6b98018bc1c0aeb2f6166eb
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 720p **
 acestream://0e5d8c9724fa9163f49096b70484e315251eb785
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 1080p *
@@ -59,6 +83,8 @@ acestream://0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c
 acestream://8f59ce96e4c902ba2f5193af07546d7ff17fc3bc
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 720p **
 acestream://b0d1489c9f3239349665ad5ab423363f2b02e5ae
+#EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
+acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 1 1080p --> RAUL V2
 acestream://1b25b195b1b84d4b96830410657718e9e275ad49
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 2 1080p --> RAUL V2
@@ -107,8 +133,6 @@ acestream://16589aeca0df65612bd7bcd4e55c0a63f5750de2
 acestream://fd44b9accd1b210f7b06631296fc24bcf31f1cdc
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La Otra 720p   2 --> RAUL
 acestream://6556056fa6edcfacb788d9765b5d9a0d8d7829c9
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p  2 --> RAUL
-acestream://f22268a7d4a279feee02243d93a65cca2825c8e1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 7 1080p 1 --> RAUL
 acestream://95ced66c1268717c19c1e3e020e3b23b0f02e504
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", Sky Sport MotoGP 1080p   1 --> RAUL
@@ -169,8 +193,6 @@ acestream://ddca8f4457d66761c1695285959d096e9727accc
 acestream://5fa3083a4c9ab1841160c230b79df2a1b449bbb3
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 720p  1 --> RAUL
 acestream://b028202ff335911db3118bceac027df3e8ef6c32
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 4 1080p 1 --> RAUL
-acestream://91ac4585368992720ec17ffa5b4389368c6dcac1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA DAZN 720p 1 --> RAUL
 acestream://3bc122425f49648689cb8fd81de33cb19b848d20
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p   2 --> RAUL
@@ -191,8 +213,6 @@ acestream://14bedc2ff054ae16c0fae99cfeb9dcda21ac68a0
 acestream://3e430d14ef1cf1c147c7b06332081291e05a1431
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> RAUL
 acestream://5bed693c6a22de55f1061c509bba5e3aeb2ea2aa
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="LIGA DE CAMPEONES", Campeones 5 1080p  1 --> RAUL
-acestream://5620c0ce3dcbf14a6375cb2c2d681207f45eb97d
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  2 --> RAUL
 acestream://d58f619d860d29cd47720055b9bb842199971da1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="LA LIGA", SKY Sports Liga 1080p  1 --> RAUL
