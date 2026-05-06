@@ -47,8 +47,6 @@ acestream://590a1f4546e3a0d5d419b62b8177b44d6ce0339f
 acestream://646a1ed4ece843de1979f7888cbdd4d937506a28
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/deportes-5-por-movistar-plus-es.png" tvg-id="M+ Deportes 5" group-title="MOVISTAR DEPORTES", M+ Deportes 5 **
 acestream://7b361369a40046ad3011086f9d4ae2982fb4d5aa
-#EXTINF:-1 tvg-logo="https://www.movistarplus.es/recorte/n/caratula5/M2114916V1621463" tvg-id="M+ Deportes 6" group-title="MOVISTAR DEPORTES", M+ Deportes 6 1080p **
-acestream://765f6a743bcfde948418aaf0de6e66de6a9fbaa6
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 1080p **
 acestream://476b6f6583517bd75c15c4663bf45fab7c8da9cf
 #EXTINF:-1 tvg-logo="https://statics.goltelevision.com/shared/assets/logos/og-image2.jpg" tvg-id="" group-title="DEPORTES", Gol TV 1080p *
