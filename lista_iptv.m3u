@@ -25,10 +25,6 @@ http://127.0.0.1:6878/ace/getstream?id=e6cd9205e26b3b6680f607030c702e911272524a
 http://127.0.0.1:6878/ace/getstream?id=765f6a743bcfde948418aaf0de6e66de6a9fbaa6
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/deportes-8-por-movistar-plus-es.png" tvg-id="M+ Deportes 8" group-title="MOVISTAR DEPORTES", M+ Deportes 8 1080p *
 http://127.0.0.1:6878/ace/getstream?id=abe6834b6e2509d2ff5b5b04f7ecb1db6e81083a
-#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", M+ Vamos 720p **
-http://127.0.0.1:6878/ace/getstream?id=8686522bd5d0b123cbc94ad4a12f2d3a18492479
-#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 2" group-title="MOVISTAR DEPORTES", M+ VAMOS 2 720p *
-http://127.0.0.1:6878/ace/getstream?id=f51674b1dd1ab5a668fa97a0f13a490632f0d7ca
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
 http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
 #EXTINF:-1 tvg-logo="https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2017/09/25/li_59c8cfba1ff66.jpeg" tvg-id="" group-title="TDT", TELEMADRID 1080p *
