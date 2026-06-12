@@ -14,9 +14,9 @@ acestream://8522af51ae7189b12effabbb448dcb707195ce1a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 720p *
 acestream://27d11bbeb3026231d52de16b1fac48da7a099247
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p *
-acestream://895d08633bb22c2573281655cf3ca44de476cc73
-#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p *
 acestream://d719181097d256073844390b3e094fbcb1bceaa4
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p *
+acestream://895d08633bb22c2573281655cf3ca44de476cc73
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
 acestream://02be332ebead0484a5354fa25e97b6833b8b129e
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
@@ -53,8 +53,8 @@ acestream://7e4f6eb38e0d5ef52b7f8b96eb80c1d8c87dad16
 acestream://a9299052e9a16e5e2924e1fdd00b877c374f9e96
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos 3" group-title="MOVISTAR DEPORTES", M+ VAMOS 3 1080p *
 acestream://b46a524780cf0ac5e533491fe79389d6198acf2c
-#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 4K *
-acestream://da38a21a9509be8c03b0fdb539cb1485843330c3
+#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 4K **
+acestream://23c952c5b375715db822f2783803c6e28fab0e34
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE **
 acestream://979d3b873871a5a9a56d3eb481ca77b707e01102
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE **
@@ -69,8 +69,6 @@ acestream://1b25b195b1b84d4b96830410657718e9e275ad49
 acestream://ed6524f8f73c30cf102fde66f2cb520f4b5842e3
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
-#EXTINF:-1 tvg-logo="https://e01-elmundo.uecdn.es/television/programacion-tv/img/v2/programas/63/631907.png" tvg-id="" group-title="DEPORTES", TV5Monde Europe **
-acestream://132c96f09c26b6792fdf19751816788a1747c5f4
 #EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 1 *
 acestream://ccfde4bc75d14c79dd09af72434568a0e732d507
 #EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 1 **
