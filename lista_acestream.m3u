@@ -1,8 +1,6 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml" refresh="3600"
 #EXTVLCOPT:network-caching=1000
 
-#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 720p *
-acestream://02622fa2fab63847d88dc14fd9fa5c2fc35de8a8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 720p **
 acestream://6a494f8e736b962d94f63425ebe3df90723af0fa
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 1080p **
@@ -15,10 +13,6 @@ acestream://12404b00d2787995d639ccf71a80da5d39d153f9
 acestream://ccfde4bc75d14c79dd09af72434568a0e732d507
 #EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 1 **
 acestream://414222dc7b69a626f29eb964450dae44b3bc9b36
-#EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 2 *
-acestream://dac18df259f44258d81aa8f31cb343bb837f5ac7
-#EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 2 **
-acestream://63b1933154919d116f08e33ffcb31a23f9483989
 #EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 3 *
 acestream://f28f558a7699237cb4ec1e0075db4073ffc3a415
 #EXTINF:-1 tvg-logo="https://betbrothers.es/wp-content/uploads/2026/02/mundial-en-dazn.jpg" tvg-id="" group-title="MUNDIAL", Dazn Mundial 3 **
@@ -199,6 +193,8 @@ acestream://895d08633bb22c2573281655cf3ca44de476cc73
 acestream://fd53cfa7055fe458d4f5c0ff59a06cd43723be55
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> RAUL
 acestream://bcf9dc38f92e90a71b87bd54b3bac91b76d09a69
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La 1 720p  2 --> RAUL
+acestream://02622fa2fab63847d88dc14fd9fa5c2fc35de8a8
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  2 --> RAUL
 acestream://1fddc49dd11ae7bb16f2b94648a9b4f0efc80349
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 5 1 --> RAUL
