@@ -1,6 +1,8 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml" refresh="3600"
 #EXTVLCOPT:network-caching=1000
 
+#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 720p *
+http://127.0.0.1:6878/ace/getstream?id=02622fa2fab63847d88dc14fd9fa5c2fc35de8a8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 720p **
 http://127.0.0.1:6878/ace/getstream?id=6a494f8e736b962d94f63425ebe3df90723af0fa
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 1080p **
@@ -29,10 +31,6 @@ http://127.0.0.1:6878/ace/getstream?id=1b25b195b1b84d4b96830410657718e9e275ad49
 http://127.0.0.1:6878/ace/getstream?id=d07816dade862339446b6c2a16d131617a3a9389
 #EXTINF:-1 tvg-logo="https://images.hoy.cr/wp-content/uploads/2026/02/FOX.jpeg" tvg-id="" group-title="MUNDIAL", FOX ONE 4K **
 http://127.0.0.1:6878/ace/getstream?id=f1e6e441e398910e77eb51ff452dba0a733dd27d
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MUNDIAL", TyC Sports 1080p **
-http://127.0.0.1:6878/ace/getstream?id=bff90de77d1aef730fbfb5beb43aa6da27ac1e10
-#EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p *
-http://127.0.0.1:6878/ace/getstream?id=a4cbadd19442b800727be713270fa9c917cc8582
 #EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p **
 http://127.0.0.1:6878/ace/getstream?id=43c549e5781f5a923b76f8f29cde122b5be164eb
 #EXTINF:-1 tvg-logo="https://github.com/davidmuma/picons_dobleM/blob/master/icon/Onetoro.png?raw=true" tvg-id="" group-title="TOROS", Onetoro TV 1080p *
@@ -193,8 +191,6 @@ http://127.0.0.1:6878/ace/getstream?id=895d08633bb22c2573281655cf3ca44de476cc73
 http://127.0.0.1:6878/ace/getstream?id=fd53cfa7055fe458d4f5c0ff59a06cd43723be55
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FORMULA 1", DAZN F1 1080p  1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=bcf9dc38f92e90a71b87bd54b3bac91b76d09a69
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", La 1 720p  2 --> RAUL
-http://127.0.0.1:6878/ace/getstream?id=02622fa2fab63847d88dc14fd9fa5c2fc35de8a8
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=1fddc49dd11ae7bb16f2b94648a9b4f0efc80349
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOVISTAR DEPORTES", Deportes 5 1 --> RAUL
