@@ -11,8 +11,6 @@ acestream://3ebcfc00921a4a9307dec97e078f8dc12eee27e7
 acestream://c6180a86440004748e2abe34d6f31eed8a218a3a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/81wJ3GH/telecinco.png" tvg-id="Telecinco HD" group-title="TDT", Telecinco 1080p **
 acestream://3d376333ee90d6db3d413fc5764ef635882076f5
-#EXTINF:-1 tvg-logo="https://img.3cat.cat/multimedia/jpg/1/5/1697802708951.jpg" tvg-id="Esport 3" group-title="DEPORTES", Esport3 720p *
-acestream://739792a3225e5eb3056f4faa7b1137c7f161f23c
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
 #EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p **
@@ -135,6 +133,8 @@ acestream://b028202ff335911db3118bceac027df3e8ef6c32
 acestream://91ac4585368992720ec17ffa5b4389368c6dcac1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA DAZN 720p 1 --> RAUL
 acestream://3bc122425f49648689cb8fd81de33cb19b848d20
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p   2 --> RAUL
+acestream://739792a3225e5eb3056f4faa7b1137c7f161f23c
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p  2 --> RAUL
 acestream://ff03650163b9456d59ed5f262aa3ab2e19831e6d
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 1080p  2 --> RAUL
