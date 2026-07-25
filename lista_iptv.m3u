@@ -1,6 +1,10 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml" refresh="3600"
 #EXTVLCOPT:network-caching=1000
 
+#EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 1080p *
+http://127.0.0.1:6878/ace/getstream?id=dddff67edfa7061f643ec5ae0be110169850363d
+#EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 1080p **
+http://127.0.0.1:6878/ace/getstream?id=78124d96a1a4601e7910f50e36a16e35efcfb398
 #EXTINF:-1 tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" tvg-id="Eurosport 1 HD" group-title="EUROSPORT", Eurosport 1 720p **
 http://127.0.0.1:6878/ace/getstream?id=313213b3b99c0f7437f68c8ea5a7b2b6d7b8a153
 #EXTINF:-1 tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" tvg-id="Eurosport 1 HD" group-title="EUROSPORT", Eurosport 1 1080p **
@@ -8,11 +12,11 @@ http://127.0.0.1:6878/ace/getstream?id=8522af51ae7189b12effabbb448dcb707195ce1a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 720p **
 http://127.0.0.1:6878/ace/getstream?id=f16d68fa5ff64f3894a45062ca28e4e66f142c6a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
-http://127.0.0.1:6878/ace/getstream?id=f8b0eae8fda973cf426311541d1668aa592f0a8c
-#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
 http://127.0.0.1:6878/ace/getstream?id=02be332ebead0484a5354fa25e97b6833b8b129e
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
 http://127.0.0.1:6878/ace/getstream?id=0a81ba020d498aca1248e0591d8ffab99eb80bd4
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1080p **
+http://127.0.0.1:6878/ace/getstream?id=f8b0eae8fda973cf426311541d1668aa592f0a8c
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-id="M+ Liga de Campeones 2 HD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 1080p *
 http://127.0.0.1:6878/ace/getstream?id=8156912ae14f6174a19c8a4efcf36a06e847f632
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", M+ Deportes 2 720p *
@@ -45,10 +49,12 @@ http://127.0.0.1:6878/ace/getstream?id=37c7e8bbc2fb95d29a063bef2e569ad3858f8edd
 http://127.0.0.1:6878/ace/getstream?id=da38a21a9509be8c03b0fdb539cb1485843330c3
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 4K **
 http://127.0.0.1:6878/ace/getstream?id=23c952c5b375715db822f2783803c6e28fab0e34
+#EXTINF:-1 tvg-logo="https://img.3cat.cat/multimedia/jpg/1/5/1697802708951.jpg" tvg-id="Esport 3" group-title="DEPORTES", Esport3 720p *
+http://127.0.0.1:6878/ace/getstream?id=739792a3225e5eb3056f4faa7b1137c7f161f23c
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 http://127.0.0.1:6878/ace/getstream?id=77cf022557c56cdf8d8115f50e61f846ad72ee05
-#EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p **
-http://127.0.0.1:6878/ace/getstream?id=43c549e5781f5a923b76f8f29cde122b5be164eb
+#EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p *
+http://127.0.0.1:6878/ace/getstream?id=a4cbadd19442b800727be713270fa9c917cc8582
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 1 1080p --> RAUL V2
 http://127.0.0.1:6878/ace/getstream?id=1b25b195b1b84d4b96830410657718e9e275ad49
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="DEPORTES", Direct Sport 2 1080p --> RAUL V2
@@ -165,8 +171,6 @@ http://127.0.0.1:6878/ace/getstream?id=b028202ff335911db3118bceac027df3e8ef6c32
 http://127.0.0.1:6878/ace/getstream?id=91ac4585368992720ec17ffa5b4389368c6dcac1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="NBA", NBA DAZN 720p 1 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=3bc122425f49648689cb8fd81de33cb19b848d20
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p   2 --> RAUL
-http://127.0.0.1:6878/ace/getstream?id=739792a3225e5eb3056f4faa7b1137c7f161f23c
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 720p  2 --> RAUL
 http://127.0.0.1:6878/ace/getstream?id=ff03650163b9456d59ed5f262aa3ab2e19831e6d
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="FUTBOL INT", Esport3 1080p  2 --> RAUL
