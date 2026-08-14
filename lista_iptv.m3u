@@ -71,6 +71,8 @@ http://127.0.0.1:6878/ace/getstream?id=37c7e8bbc2fb95d29a063bef2e569ad3858f8edd
 http://127.0.0.1:6878/ace/getstream?id=da38a21a9509be8c03b0fdb539cb1485843330c3
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 4K **
 http://127.0.0.1:6878/ace/getstream?id=23c952c5b375715db822f2783803c6e28fab0e34
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/refs/heads/master/icon/Real%20Madrid%20TV.png" tvg-id="" group-title="DEPORTES", Real Madrid TV 1080p *
+http://127.0.0.1:6878/ace/getstream?id=ac353757b626cedc6461d8eb73bfffa15fbb7be7
 #EXTINF:-1 tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/fjy5d31700902671.png" tvg-id="" group-title="DEPORTES", SPORT TV3 720p **
 http://127.0.0.1:6878/ace/getstream?id=ec2cbc782281624753f20fb0f9a6797651ddfc6c
 #EXTINF:-1 tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/fjy5d31700902671.png" tvg-id="" group-title="DEPORTES", SPORT TV3 1080p *
