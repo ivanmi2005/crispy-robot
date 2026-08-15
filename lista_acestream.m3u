@@ -33,12 +33,16 @@ acestream://e63fbcafbfc9bcb7e1cffa1d2eea97cc77f7a198
 acestream://589dfc625c0ddcd9960e40aaf8235ea58705f784
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LaLiga 720p *
 acestream://eb4975702ceadca7ed74f8707e17a9f55569dbb9
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LaLiga 720p **
+acestream://385abcf801b787eec6ed6624908758bb165c0a55
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LaLiga 1080p *
 acestream://cc108ae39f92c48f6c946763047bd1c9b7b7d889
-#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
-acestream://3ace1463a7cad979c3a4002b245487e9982e9f1a
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-laliga-es.png" tvg-id="DAZN LaLiga HD" group-title="LA LIGA", DAZN LaLiga 1080p **
+acestream://7f9857c45764ef2c7cdfb619b89db3056a57a51f
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
 acestream://f863873de9f7b2996dde19a0657dd89835af3007
+#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 720p *
+acestream://3ace1463a7cad979c3a4002b245487e9982e9f1a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 1080p **
 acestream://3ce95bc9d6fc63676d828bb2cfc7a1f1854fd259
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LaLiga 1080p **
@@ -99,12 +103,10 @@ acestream://9707e15881a29adc795ebdc12862289860edd4ef
 acestream://da38a21a9509be8c03b0fdb539cb1485843330c3
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", La 1 TVE 4K **
 acestream://5e04167606d69c896ba5919d2560eeef18342ff8
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExzu7xibD1sz89l8PlnxvB8oUMOOhDLKywQ&s" tvg-id="DE | Rally TV" group-title="DEPORTES", RALLY TV **
+acestream://12404b00d2787995d639ccf71a80da5d39d153f9
 #EXTINF:-1 tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/fjy5d31700902671.png" tvg-id="" group-title="DEPORTES", SPORT TV3 720p **
 acestream://ec2cbc782281624753f20fb0f9a6797651ddfc6c
-#EXTINF:-1 tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/fjy5d31700902671.png" tvg-id="" group-title="DEPORTES", SPORT TV3 1080p *
-acestream://13d84366dcb9607c15cd9a78b5a3921046ac65b6
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f3/Sport_TV7_%282024%29.png" tvg-id="" group-title="DEPORTES", Sport TV7 1080p *
-acestream://e6b9ccd80ee0027e887d0a27b07e8f032de25b27
 #EXTINF:-1 tvg-logo="https://img2.rtve.es/n/15966755" tvg-id="Teledeporte" group-title="DEPORTES", Teledeporte 1080p **
 acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05
 #EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" tvg-id="" group-title="TENNIS", Tennis Channel 1080p *
@@ -131,8 +133,6 @@ acestream://4ee16a7f854219fa2974ef1468e6b2f8574189dd
 acestream://0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", RALLY TV --> RAUL
 acestream://b6ca8e022947548af61d76660b6b6f799a778d31
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="MOTOR", RALLY TV --> RAUL
-acestream://12404b00d2787995d639ccf71a80da5d39d153f9
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", CUATRO 1080p  1 --> RAUL
 acestream://72fe18250142433fe1d921fd76d99f3f1d2e2c00
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="TDT", TVE La 1  1 --> RAUL
