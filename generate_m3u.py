@@ -1,6 +1,6 @@
 """
 Generador standalone de M3U — usado por GitHub Actions y localmente.
-Lee config.json + raul_channels.json, descarga fuentes IPFS y genera
+Lee config.json + turco_channels.json, descarga fuentes IPFS y genera
 los ficheros M3U en la carpeta output/.
 """
 import json
@@ -17,7 +17,7 @@ except ImportError:
 
 BASE = Path(__file__).parent
 CONFIG_FILE = BASE / "config.json"
-RAUL_FILE = BASE / "raul_channels.json"
+TURCO_FILE = BASE / "turco_channels.json"
 OUTPUT_DIR = BASE / "output"
 
 
@@ -94,7 +94,7 @@ def build_m3u(entries: list[dict], fmt: str, epg_url: str) -> str:
 
 def main():
     cfg = load_json(CONFIG_FILE)
-    raul = load_json(RAUL_FILE)
+    turco = load_json(TURCO_FILE)
 
     seen: set[str] = set()
     all_entries: list[dict] = []
@@ -115,13 +115,13 @@ def main():
                 all_entries.append(entry)
         print(f"       {len(all_entries)} canales acumulados")
 
-    print(f"\nAñadiendo {len([c for c in raul if c.get('enabled', True)])} canales RAUL…")
-    for ch in raul:
+    print(f"\nAñadiendo {len([c for c in turco if c.get('enabled', True)])} canales TURCO…")
+    for ch in turco:
         if not ch.get("enabled", True):
             continue
         entry = {
             "hash": ch["hash"],
-            "name": f"{ch['name']} --> RAUL {ch.get('variant', '')}".strip(),
+            "name": f"{ch['name']} --> TURCO {ch.get('variant', '')}".strip(),
             "tvg_logo": ch.get("logo", ""),
             "tvg_id": ch.get("tvg_id", ""),
             "group": ch.get("group", "OTROS"),
