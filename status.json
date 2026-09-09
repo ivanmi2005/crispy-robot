@@ -1,9 +1,21 @@
 {
   "ok": true,
-  "generated_at": "2026-09-09T18:43:45.385976+00:00",
+  "generated_at": "2026-09-09T18:48:54.941979+00:00",
   "total_unique": 355,
   "total_found": 401,
   "total_duplicates": 46,
+  "sort_order": [
+    "ELCANO",
+    "SPORTTV",
+    "NEWLOOP",
+    "RESTO"
+  ],
+  "provider_counts": {
+    "elcano": 54,
+    "sporttv": 147,
+    "newloop": 65,
+    "resto": 89
+  },
   "sources": [
     {
       "label": "Fuente 1",
