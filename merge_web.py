@@ -120,6 +120,25 @@ def unique_in_order(values: Iterable[str]) -> list[str]:
     return result
 
 
+def provider_priority(entry: Entry) -> int:
+    """ELCANO primero, después SPORTTV, NEWLOOP y finalmente el resto."""
+    text = " ".join(entry.metadata_lines).upper()
+    compact = re.sub(r"[^A-Z0-9]+", "", text)
+
+    if "ELCANO" in compact:
+        return 0
+    if "SPORTTV" in compact:
+        return 1
+    if "NEWLOOP" in compact:
+        return 2
+    return 3
+
+
+def sort_by_provider(entries: list[Entry]) -> list[Entry]:
+    # sort() es estable: conserva el orden original dentro de cada proveedor.
+    return sorted(entries, key=provider_priority)
+
+
 def build_m3u(entries: list[Entry], header: str, groups: list[str], mode: str) -> str:
     lines = [header, "#EXTVLCOPT:network-caching=1000", ""]
     if groups:
@@ -171,6 +190,22 @@ def main() -> int:
         })
         print(f"{label}: {len(entries)} encontradas, {added} añadidas, {duplicates} duplicadas")
 
+    merged = sort_by_provider(merged)
+
+    provider_counts = {
+        "elcano": sum(provider_priority(entry) == 0 for entry in merged),
+        "sporttv": sum(provider_priority(entry) == 1 for entry in merged),
+        "newloop": sum(provider_priority(entry) == 2 for entry in merged),
+        "resto": sum(provider_priority(entry) == 3 for entry in merged),
+    }
+    print(
+        "Orden aplicado: "
+        f"ELCANO {provider_counts['elcano']} → "
+        f"SPORTTV {provider_counts['sporttv']} → "
+        f"NEWLOOP {provider_counts['newloop']} → "
+        f"RESTO {provider_counts['resto']}"
+    )
+
     header = first_header or '#EXTM3U refresh="3600"'
     groups = unique_in_order(all_groups)
     PUBLISHED_DIR.mkdir(parents=True, exist_ok=True)
@@ -190,6 +225,8 @@ def main() -> int:
         "total_unique": len(merged),
         "total_found": sum(item["found"] for item in source_stats),
         "total_duplicates": sum(item["duplicates"] for item in source_stats),
+        "sort_order": ["ELCANO", "SPORTTV", "NEWLOOP", "RESTO"],
+        "provider_counts": provider_counts,
         "sources": source_stats,
         "outputs": {
             "acestream": f"published/{ace_name}",
