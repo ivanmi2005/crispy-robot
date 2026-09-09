@@ -1,44 +1,40 @@
-name: Generar listas M3U
+name: Publicar web M3U
 
 on:
-  # Al hacer push (solo si cambian estos ficheros)
   push:
     paths:
-      - "raul_channels.json"
-      - "config.json"
-      - "generate_m3u.py"
-  # Cada 2 horas (para recoger cambios de las fuentes IPFS)
-  schedule:
-    - cron: "0 */2 * * *"
-  # Ejecución manual desde GitHub Actions
+      - "web/**"
+      - "published/**"
+      - ".github/workflows/generate.yml"
   workflow_dispatch:
 
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
-  generate:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Necesario para publicar en gh-pages
+      contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Instalar dependencias
-        run: pip install requests
-
-      - name: Generar listas M3U
-        run: python generate_m3u.py
+      - name: Preparar contenido público
+        run: |
+          mkdir -p output
+          cp web/index.html output/index.html
+          if [ -d published ]; then
+            cp published/* output/ 2>/dev/null || true
+          fi
+          touch output/.nojekyll
 
       - name: Publicar en GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
-          commit_message: "M3U actualizado — ${{ github.run_id }}"
-          # Permite acceso CORS desde cualquier app
+          commit_message: "web: actualizar M3U Fusion"
           enable_jekyll: false
