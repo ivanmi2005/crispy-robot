@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "generated_at": "2026-09-09T18:39:17.621461+00:00",
+  "total_unique": 355,
+  "total_found": 401,
+  "total_duplicates": 46,
+  "sources": [
+    {
+      "label": "lista_fuera_iptv.m3u",
+      "type": "url",
+      "found": 355,
+      "added": 355,
+      "duplicates": 0
+    },
+    {
+      "label": "hashes_acestream.m3u",
+      "type": "url",
+      "found": 46,
+      "added": 0,
+      "duplicates": 46
+    }
+  ],
+  "outputs": {
+    "acestream": "published/lista_acestream_unificada.m3u",
+    "local": "published/lista_local_unificada.m3u"
+  },
+  "request_id": "initial-2026-09-09"
+}
