@@ -1,0 +1,48 @@
+name: Fusionar listas desde la web
+
+on:
+  push:
+    paths:
+      - "merge_request.json"
+      - "merge_web.py"
+      - ".github/workflows/merge-web.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: merge-web
+  cancel-in-progress: true
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Fusionar fuentes
+        run: python merge_web.py
+
+      - name: Publicar archivos estables
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add published/
+          if git diff --cached --quiet; then
+            echo "No hay cambios que publicar"
+          else
+            git commit -m "m3u: actualizar listas unificadas"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
