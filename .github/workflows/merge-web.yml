@@ -35,14 +35,30 @@ jobs:
       - name: Fusionar fuentes
         run: python merge_web.py
 
-      - name: Publicar archivos estables
+      - name: Guardar listas estables en main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add published/
           if git diff --cached --quiet; then
-            echo "No hay cambios que publicar"
+            echo "No hay cambios que publicar en main"
           else
             git commit -m "m3u: actualizar listas unificadas"
             git push origin HEAD:${GITHUB_REF_NAME}
           fi
+
+      - name: Preparar GitHub Pages
+        run: |
+          rm -rf output
+          mkdir -p output
+          cp web/index.html output/index.html
+          cp published/* output/
+          touch output/.nojekyll
+
+      - name: Publicar web y listas en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          commit_message: "web: publicar listas unificadas"
+          enable_jekyll: false
