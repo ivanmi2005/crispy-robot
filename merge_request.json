@@ -5,13 +5,13 @@
     {
       "label": "Fuente 1",
       "type": "url",
-      "url": "https://tokyo.elcano-ipfs.workers.dev/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_fuera_iptv.m3u",
+      "url": "https://tokyo.elcano-ipfs.workers.dev/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/9af7081513f51d2514c90a30/data/listas/lista_fuera_iptv.m3u",
       "enabled": true
     },
     {
       "label": "Fuente 2",
       "type": "url",
-      "url": "https://tokyo.elcano-ipfs.workers.dev/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
+      "url": "https://tokyo.elcano-ipfs.workers.dev/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/3a2478cec1dde904636540ec/hashes_acestream.m3u",
       "enabled": true
     }
   ],
