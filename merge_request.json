@@ -1,17 +1,17 @@
 {
-  "request_id": "1792005170832-269ea83e-6336-428d-9212-942a95e8c42d",
-  "requested_at": "2026-10-14T19:12:50.832Z",
+  "request_id": "1793563702595-19deafc2-78b9-4c4c-b1c1-6afb575363f6",
+  "requested_at": "2026-11-01T20:08:22.595Z",
   "sources": [
     {
-      "label": "Fuente 1",
-      "type": "url",
-      "url": "https://tokyo.elcano-ipfs.workers.dev/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_fuera_iptv.m3u",
+      "label": "lista_fuera_iptv.m3u",
+      "type": "file",
+      "path": "web_sources/source_1.m3u",
       "enabled": true
     },
     {
-      "label": "Fuente 2",
-      "type": "url",
-      "url": "https://tokyo.elcano-ipfs.workers.dev/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
+      "label": "hashes_acestream.m3u",
+      "type": "file",
+      "path": "web_sources/source_2.m3u",
       "enabled": true
     }
   ],
