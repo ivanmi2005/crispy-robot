@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-10-14T19:13:06.740473+00:00",
-  "total_unique": 305,
-  "total_found": 346,
-  "total_duplicates": 41,
+  "generated_at": "2026-11-01T20:08:36.887396+00:00",
+  "total_unique": 555,
+  "total_found": 567,
+  "total_duplicates": 12,
   "sort_order": [
     "ELCANO",
     "SPORTTV",
@@ -11,30 +11,30 @@
     "RESTO"
   ],
   "provider_counts": {
-    "elcano": 44,
-    "sporttv": 147,
-    "newloop": 21,
-    "resto": 93
+    "elcano": 128,
+    "sporttv": 151,
+    "newloop": 65,
+    "resto": 211
   },
   "sources": [
     {
-      "label": "Fuente 1",
-      "type": "url",
-      "found": 301,
-      "added": 301,
+      "label": "lista_fuera_iptv.m3u",
+      "type": "file",
+      "found": 429,
+      "added": 429,
       "duplicates": 0
     },
     {
-      "label": "Fuente 2",
-      "type": "url",
-      "found": 45,
-      "added": 4,
-      "duplicates": 41
+      "label": "hashes_acestream.m3u",
+      "type": "file",
+      "found": 138,
+      "added": 126,
+      "duplicates": 12
     }
   ],
   "outputs": {
     "acestream": "published/lista_acestream_unificada.m3u",
     "local": "published/lista_local_unificada.m3u"
   },
-  "request_id": "1792005170832-269ea83e-6336-428d-9212-942a95e8c42d"
+  "request_id": "1793563702595-19deafc2-78b9-4c4c-b1c1-6afb575363f6"
 }
