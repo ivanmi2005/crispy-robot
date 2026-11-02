@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 BASE_DIR = Path(__file__).parent
 CONFIG_FILE = BASE_DIR / "config.json"
-RAUL_FILE = BASE_DIR / "raul_channels.json"
+TURCO_FILE = BASE_DIR / "turco_channels.json"
 SETTINGS_FILE = BASE_DIR / "settings.json"
 
 # Simple in-memory cache: {source_id: (timestamp, content)}
@@ -39,12 +39,12 @@ def save_settings(s: dict):
     SETTINGS_FILE.write_text(json.dumps(s, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def load_raul() -> list:
-    return json.loads(RAUL_FILE.read_text(encoding="utf-8"))
+def load_turco() -> list:
+    return json.loads(TURCO_FILE.read_text(encoding="utf-8"))
 
 
-def save_raul(channels: list):
-    RAUL_FILE.write_text(json.dumps(channels, indent=2, ensure_ascii=False), encoding="utf-8")
+def save_turco(channels: list):
+    TURCO_FILE.write_text(json.dumps(channels, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def fetch_source(source: dict, cache_minutes: int) -> str | None:
@@ -111,7 +111,7 @@ def parse_m3u_entries(text: str) -> list[dict]:
     return entries
 
 
-def raul_to_entry(ch: dict) -> dict:
+def turco_to_entry(ch: dict) -> dict:
     label = f"{ch['name']} --> RAUL {ch.get('variant', '')}"
     return {
         "hash": ch["hash"],
@@ -152,7 +152,7 @@ def build_m3u(entries: list[dict], fmt: str, epg_url: str) -> str:
     return "\n".join(lines)
 
 
-def get_merged_entries(cfg: dict, include_raul: bool = True) -> list[dict]:
+def get_merged_entries(cfg: dict, include_turco: bool = True) -> list[dict]:
     """Fetch all enabled sources and merge. Deduplicates by hash."""
     seen_hashes: set[str] = set()
     all_entries: list[dict] = []
@@ -168,11 +168,11 @@ def get_merged_entries(cfg: dict, include_raul: bool = True) -> list[dict]:
                 seen_hashes.add(entry["hash"])
                 all_entries.append(entry)
 
-    if include_raul:
-        for ch in load_raul():
+    if include_turco:
+        for ch in load_turco():
             if not ch.get("enabled", True):
                 continue
-            entry = raul_to_entry(ch)
+            entry = turco_to_entry(ch)
             if entry["hash"] not in seen_hashes:
                 seen_hashes.add(entry["hash"])
                 all_entries.append(entry)
@@ -203,15 +203,15 @@ def api_toggle_source(source_id):
     return jsonify({"error": "not found"}), 404
 
 
-@app.route("/api/raul", methods=["GET"])
-def api_raul_list():
-    return jsonify(load_raul())
+@app.route("/api/turco", methods=["GET"])
+def api_turco_list():
+    return jsonify(load_turco())
 
 
-@app.route("/api/raul", methods=["POST"])
-def api_raul_add():
+@app.route("/api/turco", methods=["POST"])
+def api_turco_add():
     data = request.get_json()
-    channels = load_raul()
+    channels = load_turco()
     new_ch = {
         "id": f"raul_{uuid.uuid4().hex[:8]}",
         "name": data.get("name", "").strip(),
@@ -225,39 +225,68 @@ def api_raul_add():
     if not new_ch["name"] or not new_ch["hash"]:
         return jsonify({"error": "name and hash are required"}), 400
     channels.append(new_ch)
-    save_raul(channels)
+    save_turco(channels)
     return jsonify(new_ch), 201
 
 
-@app.route("/api/raul/<ch_id>", methods=["PUT"])
-def api_raul_update(ch_id):
+@app.route("/api/turco/<ch_id>", methods=["PUT"])
+def api_turco_update(ch_id):
     data = request.get_json()
-    channels = load_raul()
+    channels = load_turco()
     for ch in channels:
         if ch["id"] == ch_id:
             for field in ("name", "hash", "group", "logo", "tvg_id", "variant", "enabled"):
                 if field in data:
                     ch[field] = data[field]
-            save_raul(channels)
+            save_turco(channels)
             return jsonify(ch)
     return jsonify({"error": "not found"}), 404
 
 
-@app.route("/api/raul/<ch_id>", methods=["DELETE"])
-def api_raul_delete(ch_id):
-    channels = load_raul()
+@app.route("/api/turco/<ch_id>", methods=["DELETE"])
+def api_turco_delete(ch_id):
+    channels = load_turco()
     channels = [c for c in channels if c["id"] != ch_id]
-    save_raul(channels)
+    save_turco(channels)
     return jsonify({"ok": True})
 
 
-@app.route("/api/raul/bulk", methods=["POST"])
-def api_raul_bulk():
+@app.route("/api/turco/upload-m3u", methods=["POST"])
+def api_turco_upload_m3u():
+    """Replace the TURCO list with channels parsed from an uploaded M3U/M3U8 file."""
+    if "file" not in request.files:
+        return jsonify({"error": "No se recibió ningún archivo"}), 400
+    f = request.files["file"]
+    if not f.filename:
+        return jsonify({"error": "Nombre de archivo vacío"}), 400
+    text = f.read().decode("utf-8", errors="replace")
+    entries = parse_m3u_entries(text)
+    if not entries:
+        return jsonify({"error": "No se encontraron canales Acestream en el archivo"}), 400
+    new_channels = [
+        {
+            "id": f"turco_{uuid.uuid4().hex[:8]}",
+            "name": e["name"],
+            "hash": e["hash"],
+            "group": e["group"] or "OTROS",
+            "logo": e.get("tvg_logo", ""),
+            "tvg_id": e.get("tvg_id", ""),
+            "variant": "",
+            "enabled": True,
+        }
+        for e in entries
+    ]
+    save_turco(new_channels)
+    return jsonify({"ok": True, "imported": len(new_channels)})
+
+
+@app.route("/api/turco/bulk", methods=["POST"])
+def api_turco_bulk():
     """Parse Discord-style paste and add multiple channels at once."""
     data = request.get_json()
     text = data.get("text", "")
     group = data.get("group", "OTROS")
-    channels = load_raul()
+    channels = load_turco()
     existing_hashes = {c["hash"] for c in channels}
 
     added = []
@@ -294,7 +323,7 @@ def api_raul_bulk():
                 continue
         i += 1
 
-    save_raul(channels)
+    save_turco(channels)
     return jsonify({"added": len(added), "channels": added})
 
 
@@ -339,12 +368,12 @@ def api_clear_cache():
     return jsonify({"ok": True})
 
 
-@app.route("/api/raul/reorder", methods=["POST"])
-def api_raul_reorder():
+@app.route("/api/turco/reorder", methods=["POST"])
+def api_turco_reorder():
     """Save new order. Body: {"order": ["id1", "id2", ...]}"""
     data = request.get_json()
     new_order = data.get("order", [])
-    channels = load_raul()
+    channels = load_turco()
     id_map = {ch["id"]: ch for ch in channels}
     reordered = [id_map[cid] for cid in new_order if cid in id_map]
     # Append any not included in the order list
@@ -352,24 +381,24 @@ def api_raul_reorder():
     for ch in channels:
         if ch["id"] not in ordered_ids:
             reordered.append(ch)
-    save_raul(reordered)
+    save_turco(reordered)
     return jsonify({"ok": True, "count": len(reordered)})
 
 
-@app.route("/api/raul/batch-delete", methods=["POST"])
-def api_raul_batch_delete():
+@app.route("/api/turco/batch-delete", methods=["POST"])
+def api_turco_batch_delete():
     data = request.get_json()
     ids_to_delete = set(data.get("ids", []))
-    channels = load_raul()
+    channels = load_turco()
     channels = [c for c in channels if c["id"] not in ids_to_delete]
-    save_raul(channels)
+    save_turco(channels)
     return jsonify({"ok": True, "deleted": len(ids_to_delete)})
 
 
-@app.route("/api/raul/duplicates")
-def api_raul_duplicates():
+@app.route("/api/turco/duplicates")
+def api_turco_duplicates():
     """Find channels within RAUL that share the same hash."""
-    channels = load_raul()
+    channels = load_turco()
     hash_map: dict = {}
     for ch in channels:
         hash_map.setdefault(ch["hash"], []).append(ch)
@@ -377,12 +406,12 @@ def api_raul_duplicates():
     return jsonify({"duplicates": dupes, "total": len(dupes)})
 
 
-@app.route("/api/raul/duplicates/vs-sources")
-def api_raul_vs_sources():
-    """Find RAUL channels whose hash already exists in the IPFS sources."""
+@app.route("/api/turco/duplicates/vs-sources")
+def api_turco_vs_sources():
+    """Find TURCO channels whose hash already exists in the IPFS sources."""
     cfg = load_config()
-    raul = load_raul()
-    raul_map = {ch["hash"]: ch for ch in raul}
+    turco = load_turco()
+    turco_map = {ch["hash"]: ch for ch in turco}
 
     matches = []
     seen: set[str] = set()
@@ -394,10 +423,10 @@ def api_raul_vs_sources():
             continue
         for entry in parse_m3u_entries(content):
             h = entry["hash"]
-            if h in raul_map and h not in seen:
+            if h in turco_map and h not in seen:
                 seen.add(h)
                 matches.append({
-                    "raul": raul_map[h],
+                    "turco": turco_map[h],
                     "source": {**entry, "source_name": source["name"]},
                 })
     return jsonify({"matches": matches, "total": len(matches)})
@@ -489,9 +518,9 @@ def api_publish_github():
     headers = _gh_headers(token)
     base_url = f"https://api.github.com/repos/{owner}/{repo}/contents"
 
-    # Files to push: raul_channels.json + config.json
+    # Files to push: turco_channels.json + config.json
     files = {
-        "raul_channels.json": RAUL_FILE.read_bytes(),
+        "turco_channels.json": TURCO_FILE.read_bytes(),
         "config.json":        CONFIG_FILE.read_bytes(),
     }
 
@@ -563,10 +592,10 @@ def api_github_status():
 
 # ── Cloudflare Worker deploy ──────────────────────────────────────────────────
 
-def _build_worker_script(cfg: dict, raul: list, gh_owner: str, gh_repo: str, gh_branch: str) -> str:
-    """Build the Worker JS that fetches raul_channels.json from GitHub raw."""
+def _build_worker_script(cfg: dict, turco: list, gh_owner: str, gh_repo: str, gh_branch: str) -> str:
+    """Build the Worker JS that fetches turco_channels.json from GitHub raw."""
     sources = [s for s in cfg["sources"] if s.get("enabled")]
-    raul_raw_url = f"https://raw.githubusercontent.com/{gh_owner}/{gh_repo}/{gh_branch}/raul_channels.json"
+    raul_raw_url = f"https://raw.githubusercontent.com/{gh_owner}/{gh_repo}/{gh_branch}/turco_channels.json"
 
     sources_json = json.dumps(
         [{"id": s["id"], "name": s["name"], "url": s["url"], "format": s["format"]} for s in sources],
@@ -575,12 +604,12 @@ def _build_worker_script(cfg: dict, raul: list, gh_owner: str, gh_repo: str, gh_
     epg_url = cfg["epg_url"]
 
     return f"""// M3U Manager — Cloudflare Worker
-// Los canales RAUL se leen en tiempo real desde GitHub.
+// Los canales TURCO se leen en tiempo real desde GitHub.
 // Para actualizar: solo haz push a GitHub, sin tocar este Worker.
 
 const EPG_URL = "{epg_url}";
 const SOURCES = {sources_json};
-const RAUL_URL = "{raul_raw_url}";
+const TURCO_URL = "{raul_raw_url}";
 const CACHE_TTL = 1800; // 30 min
 
 addEventListener("fetch", event => {{
@@ -612,10 +641,10 @@ async function getMergedEntries(ctx) {{
   const seen = new Set();
   const all = [];
 
-  // Fetch IPFS sources + raul channels en paralelo
-  const [sourceResults, raulChannels] = await Promise.all([
+  // Fetch IPFS sources + turco channels en paralelo
+  const [sourceResults, turcoChannels] = await Promise.all([
     Promise.allSettled(SOURCES.map(s => fetchCached(s.url, s.id, ctx))),
-    fetchRaul(ctx),
+    fetchTurco(ctx),
   ]);
 
   for (const result of sourceResults) {{
@@ -626,11 +655,11 @@ async function getMergedEntries(ctx) {{
     }}
   }}
 
-  for (const ch of raulChannels) {{
+  for (const ch of turcoChannels) {{
     if (!ch.enabled) continue;
     const entry = {{
       hash: ch.hash,
-      name: (ch.name + " --> RAUL " + (ch.variant || "")).trim(),
+      name: (ch.name + " --> TURCO " + (ch.variant || "")).trim(),
       tvg_logo: ch.logo || "",
       tvg_id: ch.tvg_id || "",
       group: ch.group || "OTROS",
@@ -641,9 +670,9 @@ async function getMergedEntries(ctx) {{
   return all;
 }}
 
-async function fetchRaul(ctx) {{
+async function fetchTurco(ctx) {{
   try {{
-    const r = await fetchCachedRaw(RAUL_URL, "raul_channels", ctx, 300);
+    const r = await fetchCachedRaw(TURCO_URL, "turco_channels", ctx, 300);
     return r ? JSON.parse(r) : [];
   }} catch (e) {{
     return [];
@@ -754,8 +783,8 @@ def api_publish_worker():
     gh_branch = gh.get("branch", "main")
 
     cfg  = load_config()
-    raul = load_raul()
-    script = _build_worker_script(cfg, raul, gh_owner, gh_repo, gh_branch)
+    turco = load_turco()
+    script = _build_worker_script(cfg, turco, gh_owner, gh_repo, gh_branch)
 
     url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/workers/scripts/{worker}"
     headers = {
@@ -786,8 +815,8 @@ def api_worker_script():
     gh_repo   = gh.get("repo",  "m3u-manager")
     gh_branch = gh.get("branch", "main")
     cfg  = load_config()
-    raul = load_raul()
-    script = _build_worker_script(cfg, raul, gh_owner, gh_repo, gh_branch)
+    turco = load_turco()
+    script = _build_worker_script(cfg, turco, gh_owner, gh_repo, gh_branch)
     return Response(script, mimetype="text/plain")
 
 
