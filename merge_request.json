@@ -1,17 +1,17 @@
 {
-  "request_id": "1793563702595-19deafc2-78b9-4c4c-b1c1-6afb575363f6",
-  "requested_at": "2026-11-01T20:08:22.595Z",
+  "request_id": "1795375895213-f6f2b6db-3b84-48b7-8ac1-b04746453f86",
+  "requested_at": "2026-11-22T19:31:35.213Z",
   "sources": [
     {
-      "label": "lista_fuera_iptv.m3u",
-      "type": "file",
-      "path": "web_sources/source_1.m3u",
+      "label": "Lista 1",
+      "type": "url",
+      "url": "https://ipfs2.bytokyo.dpdns.org/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
       "enabled": true
     },
     {
-      "label": "hashes_acestream.m3u",
-      "type": "file",
-      "path": "web_sources/source_2.m3u",
+      "label": "Lista 2",
+      "type": "url",
+      "url": "https://ipfs2.bytokyo.dpdns.org/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
       "enabled": true
     }
   ],
