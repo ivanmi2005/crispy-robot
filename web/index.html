@@ -62,7 +62,14 @@
     textarea:focus,input[type=password]:focus{border-color:#3d7bad #a4c9e3 #b7d9ed #b5cfe7}
     textarea{resize:vertical;min-height:150px;line-height:1.35}
     textarea.url{min-height:0;resize:none;overflow:hidden;word-break:break-all}
-    textarea.drag{background:#e5f3fb;border-color:#3d7bad}
+    .drop{display:grid;place-items:center;gap:6px;text-align:center;min-height:150px;padding:14px;border:1px dashed #9aa8b8;border-radius:3px;background:linear-gradient(#fbfdff,#eef4fa);color:var(--muted);font-size:13px;cursor:pointer;transition:background .2s,border-color .2s}
+    .drop:hover{border-color:#3c7fb1;background:linear-gradient(#f5fbff,#e1f0fb)}
+    .drop.drag{border-style:solid;border-color:#3d7bad;background:#d9effc}
+    .drop svg{width:40px;height:40px}
+    .drop b{color:#000;font-weight:600}
+    .file-row{display:flex;gap:6px;margin-top:8px}
+    .file-row .field{user-select:text;color:var(--muted)}
+    .file-row .field.has{color:#000}
     .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;color:var(--muted);font-size:13px}
     .hidden{display:none!important}
     .token-row{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;flex-wrap:wrap}
@@ -171,7 +178,7 @@ const fmtN=v=>v==null?'—':Number(v).toLocaleString('es-ES');
 
 /* ---------- Listas de origen ---------- */
 let saved=[];try{saved=JSON.parse(store.get('crispySources')||'[]')}catch{}
-const state=[0,1].map(i=>({mode:saved[i]?.mode==='text'?'text':'url',url:saved[i]?.url||DEFAULT_URLS[i],fileName:null,loadedText:null}));
+const state=[0,1].map(i=>({mode:['url','text','file'].includes(saved[i]?.mode)?saved[i].mode:'url',url:saved[i]?.url||DEFAULT_URLS[i],file:null,fileText:''}));
 function saveSources(){store.set('crispySources',JSON.stringify(state.map(s=>({mode:s.mode,url:s.url}))))}
 function countIds(text){const ids=new Set();for(const m of text.matchAll(/(?<![0-9a-f])([0-9a-f]{40})(?![0-9a-f])/gi))ids.add(m[1].toLowerCase());return ids.size}
 function autosize(el){el.style.height='auto';el.style.height=el.scrollHeight+2+'px'}
@@ -179,12 +186,20 @@ function autosize(el){el.style.height='auto';el.style.height=el.scrollHeight+2+'
 $('#sources').innerHTML=state.map((s,i)=>`
   <fieldset data-i="${i}">
     <legend>Lista ${i+1}</legend>
-    <div class="tabs" role="tablist"><button data-mode="url" role="tab">Enlace</button><button data-mode="text" role="tab">Texto</button></div>
+    <div class="tabs" role="tablist"><button data-mode="url" role="tab">Enlace</button><button data-mode="text" role="tab">Texto</button><button data-mode="file" role="tab">Archivo</button></div>
     <div class="panel">
       <div data-panel="url"><textarea class="url" rows="1" spellcheck="false" placeholder="https://…/lista.m3u"></textarea></div>
       <div data-panel="text">
         <textarea class="list" spellcheck="false" placeholder="Pega aquí el contenido de la lista"></textarea>
-        <div class="row"><span data-count>0 canales</span><button class="btn" data-open>Abrir archivo…</button></div>
+        <div class="row"><span data-count>0 canales</span></div>
+      </div>
+      <div data-panel="file">
+        <div class="drop" data-drop>
+          <svg viewBox="0 0 48 48"><path d="M10 4h20l10 10v30H10z" fill="#fff" stroke="#6a85a6" stroke-width="2"/><path d="M30 4v10h10" fill="#dbe8f5" stroke="#6a85a6" stroke-width="2"/><rect x="15" y="22" width="20" height="3" fill="#8fb4dc"/><rect x="15" y="28" width="20" height="3" fill="#8fb4dc"/><rect x="15" y="34" width="13" height="3" fill="#8fb4dc"/></svg>
+          <div><b>Arrastra aquí el archivo</b><br>o haz clic para elegirlo</div>
+        </div>
+        <div class="file-row"><div class="field" data-fname>Ningún archivo seleccionado</div><button class="btn" data-open>Examinar…</button></div>
+        <div class="row"><span data-fcount></span></div>
         <input type="file" accept=".m3u,.m3u8,.txt,text/plain" hidden>
       </div>
     </div>
@@ -192,20 +207,22 @@ $('#sources').innerHTML=state.map((s,i)=>`
 
 document.querySelectorAll('[data-i]').forEach(box=>{
   const s=state[+box.dataset.i];
-  const url=box.querySelector('textarea.url'),ta=box.querySelector('textarea.list'),file=box.querySelector('input[type=file]'),count=box.querySelector('[data-count]');
+  const url=box.querySelector('textarea.url'),ta=box.querySelector('textarea.list'),file=box.querySelector('input[type=file]'),count=box.querySelector('[data-count]'),drop=box.querySelector('[data-drop]'),fname=box.querySelector('[data-fname]'),fcount=box.querySelector('[data-fcount]');
   const setMode=m=>{s.mode=m;box.querySelectorAll('.tabs button').forEach(b=>{b.classList.toggle('active',b.dataset.mode===m);b.setAttribute('aria-selected',b.dataset.mode===m)});box.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('hidden',p.dataset.panel!==m));if(m==='url')autosize(url);saveSources()};
-  const updateCount=()=>{const n=countIds(ta.value);count.textContent=`${fmtN(n)} canal${n===1?'':'es'}${s.fileName&&ta.value===s.loadedText?` — ${s.fileName}`:''}`};
-  const loadFile=async f=>{if(!f)return;s.fileName=f.name;s.loadedText=ta.value=await f.text();updateCount()};
+  const canales=n=>`${fmtN(n)} canal${n===1?'':'es'}`;
+  const updateCount=()=>{count.textContent=canales(countIds(ta.value))};
+  const loadFile=async f=>{if(!f)return;s.file=f;s.fileText=await f.text();fname.textContent=`${f.name} (${Math.max(1,Math.round(f.size/1024))} KB)`;fname.classList.add('has');fcount.textContent=canales(countIds(s.fileText))};
   url.value=s.url;
   url.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()});
   url.addEventListener('input',()=>{url.value=url.value.replace(/\s+/g,'');s.url=url.value;autosize(url);saveSources()});
   box.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
   ta.addEventListener('input',updateCount);
   box.querySelector('[data-open]').addEventListener('click',()=>file.click());
+  drop.addEventListener('click',()=>file.click());
   file.addEventListener('change',()=>{loadFile(file.files[0]);file.value=''});
-  ta.addEventListener('dragover',e=>{e.preventDefault();ta.classList.add('drag')});
-  ta.addEventListener('dragleave',()=>ta.classList.remove('drag'));
-  ta.addEventListener('drop',e=>{e.preventDefault();ta.classList.remove('drag');loadFile(e.dataTransfer.files[0])});
+  drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});
+  drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+  drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');loadFile(e.dataTransfer.files[0])});
   s.textarea=ta;s.urlEl=url;setMode(s.mode);
 });
 window.addEventListener('resize',()=>state.forEach(s=>autosize(s.urlEl)));
@@ -278,12 +295,13 @@ async function publish(){
         if(!/^https?:\/\//i.test(s.url))throw new Error(`El enlace de la lista ${i+1} no es válido.`);
         sources.push({label:`Lista ${i+1}`,type:'url',url:s.url,enabled:true});
       }else{
-        const text=s.textarea.value;
+        if(s.mode==='file'&&!s.file)throw new Error(`Elige el archivo de la lista ${i+1}.`);
+        const text=s.mode==='file'?s.fileText:s.textarea.value;
         if(!countIds(text))throw new Error(`La lista ${i+1} no tiene canales.`);
         if(new TextEncoder().encode(text).length>MAX_BYTES)throw new Error(`La lista ${i+1} es demasiado grande. Usa su enlace.`);
         const path=`web_sources/source_${i+1}.m3u`;
         await upsert(path,text.endsWith('\n')?text:text+'\n',`web: actualizar fuente ${i+1}`);
-        sources.push({label:s.fileName&&text===s.loadedText?s.fileName:`Texto ${i+1}`,type:'file',path,enabled:true});
+        sources.push({label:s.mode==='file'?s.file.name:`Texto ${i+1}`,type:'file',path,enabled:true});
       }
     }
     const requestId=`${Date.now()}-${crypto.randomUUID?.()||Math.random().toString(36).slice(2)}`;
