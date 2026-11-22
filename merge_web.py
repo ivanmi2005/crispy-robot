@@ -156,9 +156,67 @@ def provider_priority(entry: Entry) -> int:
     return 3
 
 
-def sort_by_provider(entries: list[Entry]) -> list[Entry]:
-    # sort() es estable: conserva el orden original dentro de cada proveedor.
-    return sorted(entries, key=provider_priority)
+def entry_name(entry: Entry) -> str:
+    """Nombre visible del canal, sin el «--> PROVEEDOR» del final."""
+    line = entry.metadata_lines[0]
+    if re.match(r'#EXTINF:[^,"\s]*\s*,', line):
+        name = line.split(",", 1)[1]
+    elif '",' in line:
+        name = line.rsplit('",', 1)[1]
+    else:
+        name = line.rsplit(",", 1)[-1]
+    return re.sub(r"\s*-->.*$", "", name).strip()
+
+
+def entry_group(entry: Entry) -> str:
+    match = re.search(r'group-title="([^"]*)"', entry.metadata_lines[0])
+    return match.group(1).strip() if match else ""
+
+
+QUALITY_WORDS = {"hd", "fhd", "uhd", "sd", "4k", "8k", "720p", "1080p", "1080i", "720", "1080", "50fps", "bar"}
+
+
+def channel_key(entry: Entry) -> str:
+    """Clave para juntar el mismo canal de distintos proveedores (ignora calidad y símbolos)."""
+    text = entry_name(entry).casefold().replace("la liga", "laliga")
+    text = re.sub(r"(?<=[^\W\d_])(?=\d)", " ", text)  # esport3 → esport 3
+    words = [w for w in re.sub(r"[^\w+]+", " ", text).split() if w not in QUALITY_WORDS]
+    key = " ".join(words)
+    key = {"dazn laliga": "dazn laliga 1"}.get(key, key)
+    return key.replace("laliga tv hypermotion", "hypermotion")
+
+
+def natural_key(text: str) -> list:
+    return [int(part) if part.isdigit() else part for part in re.split(r"(\d+)", text)]
+
+
+def group_titles(groups: list[str]) -> list[str]:
+    titles = []
+    for line in groups:
+        match = re.search(r'group-title="([^"]*)"', line)
+        if match and match.group(1).strip() not in titles:
+            titles.append(match.group(1).strip())
+    return titles
+
+
+def sort_by_channel(entries: list[Entry], group_order: list[str]) -> list[Entry]:
+    """Agrupa por categoría y canal; dentro de cada canal, ELCANO → SPORTTV → NEWLOOP → resto."""
+    by_channel: dict[str, list[Entry]] = {}
+    for entry in entries:
+        by_channel.setdefault(channel_key(entry), []).append(entry)
+
+    def order(item: tuple[str, list[Entry]]):
+        key, items = item
+        best = min(items, key=provider_priority)
+        group = entry_group(best)
+        group_pos = group_order.index(group) if group in group_order else len(group_order)
+        return (group_pos, group.casefold(), natural_key(key))
+
+    result: list[Entry] = []
+    for _, items in sorted(by_channel.items(), key=order):
+        # sorted() es estable: dentro de un mismo proveedor se conserva el orden original.
+        result.extend(sorted(items, key=provider_priority))
+    return result
 
 
 def build_m3u(entries: list[Entry], header: str, groups: list[str], mode: str) -> str:
@@ -214,7 +272,8 @@ def main() -> int:
         })
         print(f"{label}: {len(entries)} encontradas, {added} añadidas, {duplicates} duplicadas")
 
-    merged = sort_by_provider(merged)
+    groups = unique_in_order(all_groups)
+    merged = sort_by_channel(merged, group_titles(groups))
 
     provider_counts = {
         "elcano": sum(provider_priority(entry) == 0 for entry in merged),
@@ -223,7 +282,7 @@ def main() -> int:
         "resto": sum(provider_priority(entry) == 3 for entry in merged),
     }
     print(
-        "Orden aplicado: "
+        "Orden: categoría → canal → proveedor. Proveedores: "
         f"ELCANO {provider_counts['elcano']} → "
         f"SPORTTV {provider_counts['sporttv']} → "
         f"NEWLOOP {provider_counts['newloop']} → "
@@ -231,7 +290,6 @@ def main() -> int:
     )
 
     header = first_header or '#EXTM3U refresh="3600"'
-    groups = unique_in_order(all_groups)
     PUBLISHED_DIR.mkdir(parents=True, exist_ok=True)
     ace_name = config.get("outputs", {}).get("acestream", "lista_acestream_unificada.m3u")
     local_name = config.get("outputs", {}).get("local", "lista_local_unificada.m3u")
@@ -249,7 +307,7 @@ def main() -> int:
         "total_unique": len(merged),
         "total_found": sum(item["found"] for item in source_stats),
         "total_duplicates": sum(item["duplicates"] for item in source_stats),
-        "sort_order": ["ELCANO", "SPORTTV", "NEWLOOP", "RESTO"],
+        "sort_order": ["CATEGORIA", "CANAL", "ELCANO", "SPORTTV", "NEWLOOP", "RESTO"],
         "provider_counts": provider_counts,
         "sources": source_stats,
         "outputs": {
