@@ -46,6 +46,11 @@
     .out small{color:var(--muted)}
     .out-row{display:flex;gap:6px;align-items:stretch}
     .field{flex:1;min-width:0;border:1px solid;border-color:#abadb3 #dbdfe6 #e3e9ef #e2e3ea;background:#fff;padding:4px 6px;font-size:13px;word-break:break-all;user-select:all;color:#000;border-radius:2px}
+    .fixed{display:flex;flex-wrap:wrap;gap:8px 28px}
+    .fixed div{display:flex;align-items:center;gap:7px}
+    .fixed b{font-weight:600}
+    .fixed small{color:var(--muted)}
+    .check{width:16px;height:16px;border-radius:3px;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;background:linear-gradient(#5fd35f,#2a9d2a);border:1px solid #237a23}
     .sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
 
     /* ---------- Pestañas ---------- */
@@ -135,6 +140,14 @@
         <div id="outputs"></div>
       </fieldset>
       <div class="msg" id="message"></div>
+
+      <fieldset>
+        <legend>Listas fijas</legend>
+        <div class="fixed">
+          <div><span class="check">✓</span><b>SPORT TV</b><small data-fixed="SPORT TV (fija)"></small></div>
+          <div><span class="check">✓</span><b>NEW LOOP</b><small data-fixed="NEW LOOP (fija)"></small></div>
+        </div>
+      </fieldset>
 
       <div class="sources" id="sources"></div>
 
@@ -245,6 +258,7 @@ function renderOutputs(){
 function fmtDate(iso){const d=new Date(iso);return isNaN(d)?'':d.toLocaleString('es-ES',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})}
 function renderStatus(st){
   [['#unique',st.total_unique],['#found',st.total_found],['#dupes',st.total_duplicates]].forEach(([id,v])=>{const el=$(id),t=fmtN(v);if(el.textContent!==t){el.textContent=t;el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')}});
+  document.querySelectorAll('[data-fixed]').forEach(el=>{const src=(st.sources||[]).find(x=>x.label===el.dataset.fixed);el.textContent=src?`— ${fmtN(src.found)} canales`:''});
   if(st.ok){setState(`Actualizado: ${fmtDate(st.generated_at)}`);setMessage('')}
   else{setState('Error');setMessage(st.error||'El último proceso falló')}
 }
