@@ -182,8 +182,12 @@ def channel_key(entry: Entry) -> str:
     text = re.sub(r"(?<=[^\W\d_])(?=\d)", " ", text)  # esport3 → esport 3
     words = [w for w in re.sub(r"[^\w+]+", " ", text).split() if w not in QUALITY_WORDS]
     key = " ".join(words)
+    key = re.sub(r"^m\+ (deportes|golf|vamos)\b", r"movistar \1", key)  # mismo canal, otro nombre
     key = {"dazn laliga": "dazn laliga 1"}.get(key, key)
     return key.replace("laliga tv hypermotion", "hypermotion")
+
+
+BRAND_RE = re.compile(r"^(m\+|movistar|dazn)\s+(.*)$")
 
 
 def natural_key(text: str) -> list:
@@ -205,12 +209,38 @@ def sort_by_channel(entries: list[Entry], group_order: list[str]) -> list[Entry]
     for entry in entries:
         by_channel.setdefault(channel_key(entry), []).append(entry)
 
-    def order(item: tuple[str, list[Entry]]):
-        key, items = item
+    info = {}
+    for key, items in by_channel.items():
         best = min(items, key=provider_priority)
-        group = entry_group(best)
+        info[key] = (best, entry_group(best))
+
+    # Movistar y DAZN con el mismo tema y número (p. ej. «M+ LALIGA 2» y «DAZN LA LIGA 2»)
+    # se intercalan por número, con Movistar delante.
+    brand_of: dict[str, tuple[str, str, int, int]] = {}
+    brands_in: dict[tuple[str, str], set[int]] = {}
+    for key, (_, group) in info.items():
+        match = BRAND_RE.match(key)
+        if not match:
+            continue
+        rank = 0 if match.group(1) in ("m+", "movistar") else 1
+        rest = match.group(2)
+        number = re.search(r"(\d+)$", rest)
+        topic = rest[: number.start()].strip() if number else rest
+        brand_of[key] = (group, topic, int(number.group(1)) if number else 1, rank)
+        brands_in.setdefault((group, topic), set()).add(rank)
+
+    def sort_text(key: str) -> str:
+        if key in brand_of:
+            group, topic, number, rank = brand_of[key]
+            if brands_in[(group, topic)] == {0, 1}:
+                return f"{topic} {number} {rank}"
+        return key
+
+    def order(item: tuple[str, list[Entry]]):
+        key, _ = item
+        best, group = info[key]
         group_pos = group_order.index(group) if group in group_order else len(group_order)
-        return (group_pos, group.casefold(), natural_key(key))
+        return (group_pos, group.casefold(), natural_key(sort_text(key)))
 
     result: list[Entry] = []
     for _, items in sorted(by_channel.items(), key=order):
