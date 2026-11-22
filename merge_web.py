@@ -15,6 +15,11 @@ import requests
 BASE = Path(__file__).resolve().parent
 REQUEST_FILE = BASE / "merge_request.json"
 PUBLISHED_DIR = BASE / "published"
+# Listas que se incluyen siempre, además de las elegidas en la web.
+FIXED_SOURCES = [
+    {"label": "SPORT TV (fija)", "type": "file", "path": "fixed_sources/lista_sport_tv.m3u"},
+    {"label": "NEW LOOP (fija)", "type": "file", "path": "fixed_sources/lista_new_loop.m3u"},
+]
 ACE_RE = re.compile(r"acestream://([0-9a-fA-F]{40})(?:\b|$)", re.I)
 QUERY_RE = re.compile(r"[?&](?:id|content_id)=([0-9a-fA-F]{40})(?:&|$)", re.I)
 HASH_RE = re.compile(r"(?<![0-9a-fA-F])([0-9a-fA-F]{40})(?![0-9a-fA-F])")
@@ -174,6 +179,8 @@ def build_m3u(entries: list[Entry], header: str, groups: list[str], mode: str) -
 def main() -> int:
     config = json.loads(REQUEST_FILE.read_text(encoding="utf-8"))
     sources = [source for source in config.get("sources", []) if source.get("enabled", True)]
+    # Las fijas van primero: si un canal se repite, se conservan su nombre y logo.
+    sources = [source for source in FIXED_SOURCES if (BASE / source["path"]).exists()] + sources
     if not sources:
         raise ValueError("No hay fuentes activas en merge_request.json")
 

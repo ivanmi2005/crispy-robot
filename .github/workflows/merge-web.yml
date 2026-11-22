@@ -5,6 +5,7 @@ on:
     paths:
       - "merge_request.json"
       - "merge_web.py"
+      - "fixed_sources/**"
       - ".github/workflows/merge-web.yml"
   workflow_dispatch:
 
