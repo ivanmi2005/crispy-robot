@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-22T19:04:42.225836+00:00",
+  "generated_at": "2026-11-22T19:28:02.953678+00:00",
   "total_unique": 555,
-  "total_found": 567,
-  "total_duplicates": 12,
+  "total_found": 779,
+  "total_duplicates": 224,
   "sort_order": [
     "ELCANO",
     "SPORTTV",
@@ -18,11 +18,25 @@
   },
   "sources": [
     {
+      "label": "SPORT TV (fija)",
+      "type": "file",
+      "found": 147,
+      "added": 147,
+      "duplicates": 0
+    },
+    {
+      "label": "NEW LOOP (fija)",
+      "type": "file",
+      "found": 65,
+      "added": 65,
+      "duplicates": 0
+    },
+    {
       "label": "lista_fuera_iptv.m3u",
       "type": "file",
       "found": 429,
-      "added": 429,
-      "duplicates": 0
+      "added": 217,
+      "duplicates": 212
     },
     {
       "label": "hashes_acestream.m3u",
