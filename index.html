@@ -3,64 +3,275 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#090b10">
-  <title>M3U Fusion — crispy-robot</title>
+  <meta name="theme-color" content="#0b0d10">
+  <title>M3U Fusion</title>
   <style>
-    :root{color-scheme:dark;--bg:#090b10;--panel:#11151d;--panel2:#171c26;--line:#293140;--text:#f4f6fb;--muted:#929bad;--accent:#7c5cff;--accent2:#a28cff;--ok:#3ddc97;--warn:#f6c453;--bad:#ff667a;--radius:18px}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% -10%,#252047 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}main{width:min(920px,100%);margin:auto;padding:28px 16px 70px}header{padding:16px 2px 22px}.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:800}h1{font-size:clamp(2rem,8vw,4.2rem);line-height:.96;margin:10px 0 12px;letter-spacing:-.055em}header p{color:var(--muted);max-width:650px;font-size:1rem;line-height:1.55;margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(180deg,rgba(23,28,38,.95),rgba(17,21,29,.96));border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 18px 60px rgba(0,0,0,.22)}.card h2{font-size:1rem;margin:0 0 14px;display:flex;align-items:center;gap:8px}.number{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:rgba(124,92,255,.16);color:#c8bbff;font-size:.83rem}.tabs{display:flex;background:#0d1118;border:1px solid var(--line);padding:4px;border-radius:12px;margin-bottom:13px}.tabs button{flex:1;border:0;background:transparent;color:var(--muted);padding:9px;border-radius:9px;font-weight:750;cursor:pointer}.tabs button.active{background:var(--panel2);color:var(--text);box-shadow:0 1px 0 rgba(255,255,255,.05) inset}label{display:block;color:#bac1cf;font-size:.79rem;font-weight:700;margin-bottom:7px}input[type=url],input[type=password]{width:100%;border:1px solid var(--line);background:#0c1017;color:var(--text);border-radius:12px;padding:13px 14px;outline:none;font:inherit}input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,255,.14)}.drop{border:1px dashed #3a4559;background:#0d1118;border-radius:13px;padding:18px 14px;text-align:center;position:relative;color:var(--muted);min-height:104px;display:grid;place-items:center}.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}.drop strong{display:block;color:var(--text);margin-bottom:3px;font-size:.91rem}.drop small{font-size:.75rem;word-break:break-word}.hidden{display:none!important}.settings{margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}.token-note{color:var(--muted);font-size:.73rem;line-height:1.45;margin:8px 0 0}.token-note a{color:#b8a9ff}.save-row{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.78rem;white-space:nowrap;padding-bottom:13px}.save-row input{accent-color:var(--accent)}.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}button.primary{border:0;border-radius:13px;background:linear-gradient(135deg,var(--accent),#5a36e8);color:white;padding:14px 20px;font:inherit;font-weight:850;cursor:pointer;min-height:50px;flex:1;box-shadow:0 12px 32px rgba(91,54,232,.25)}button.primary:disabled{opacity:.5;cursor:not-allowed}.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:13px;padding:12px 16px;font-weight:750;cursor:pointer}.status{margin-top:14px;display:none}.status.show{display:block}.status-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.badge{font-size:.72rem;font-weight:850;border-radius:999px;padding:5px 9px;background:#252c38;color:#c5ccd8}.badge.ok{background:rgba(61,220,151,.13);color:var(--ok)}.badge.bad{background:rgba(255,102,122,.13);color:var(--bad)}.badge.wait{background:rgba(246,196,83,.13);color:var(--warn)}.message{color:var(--muted);line-height:1.5;font-size:.9rem;margin:10px 0 0}.message strong{color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.stat{background:#0d1118;border:1px solid var(--line);border-radius:12px;padding:12px}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.7rem;color:var(--muted)}.outputs{margin-top:14px;display:grid;gap:9px}.output{border:1px solid var(--line);background:#0d1118;border-radius:13px;padding:12px}.output-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:7px}.output strong{font-size:.84rem}.output a{display:block;color:#bcaeff;font-size:.76rem;word-break:break-all;text-decoration:none}.copy{border:0;background:#232938;color:#dbe0ea;border-radius:8px;padding:7px 9px;cursor:pointer;font-weight:750;font-size:.72rem}footer{text-align:center;color:#525b6d;font-size:.72rem;margin-top:24px}@media(max-width:680px){main{padding-top:18px}.grid{grid-template-columns:1fr}.settings{grid-template-columns:1fr}.save-row{padding:0}.stats{grid-template-columns:repeat(3,1fr)}h1{font-size:2.75rem}}
+    :root{
+      color-scheme:light dark;
+      --bg:#f4f5f7;--surface:#fff;--sunken:#eef0f3;--line:#dfe2e7;--text:#14171c;--muted:#6a7280;
+      --accent:#0f9d84;--accent-ink:#fff;--accent-soft:rgba(15,157,132,.12);
+      --ok:#0f9d84;--warn:#b7791f;--bad:#d64545;--r:14px;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    }
+    @media (prefers-color-scheme:dark){:root{
+      --bg:#0b0d10;--surface:#13161b;--sunken:#0e1014;--line:#242932;--text:#eceff3;--muted:#8a93a1;
+      --accent:#2dd4b0;--accent-ink:#04130f;--accent-soft:rgba(45,212,176,.12);
+      --ok:#2dd4b0;--warn:#f2c14e;--bad:#ff6b6b;
+    }}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    main{width:min(880px,100%);margin:0 auto;padding:20px 16px 56px;display:grid;gap:14px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 2px 4px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+    .logo{width:30px;height:30px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink)}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+    .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0;font-weight:700}
+    .pill{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--sunken);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+    .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+    .pill.ok{color:var(--ok)}.pill.wait{color:var(--warn)}.pill.bad{color:var(--bad)}
+    .pill.wait::before{animation:pulse 1s infinite alternate}
+    @keyframes pulse{to{opacity:.25}}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+    .stat{background:var(--sunken);border-radius:10px;padding:10px 12px}
+    .stat b{display:inline-block;font-size:1.4rem;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+    .stat span{display:block;font-size:.74rem;color:var(--muted)}
+    .outputs{display:grid;gap:8px}
+    .output{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 10px 10px 12px;min-width:0}
+    .output div{min-width:0;flex:1}
+    .output strong{display:block;font-size:.86rem}
+    .output a{display:block;font:.74rem var(--mono);color:var(--muted);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .output a:hover{color:var(--accent)}
+    .msg{margin:10px 0 0;font-size:.85rem;color:var(--muted)}.msg:empty{display:none}
+    .msg.bad{color:var(--bad)}
+    .sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .seg{display:inline-flex;background:var(--sunken);border:1px solid var(--line);border-radius:9px;padding:3px}
+    .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:.8rem;font-weight:700;padding:5px 12px;border-radius:7px;cursor:pointer}
+    .seg button.active{color:var(--text)}
+    input[type=url],input[type=password],textarea{width:100%;border:1px solid var(--line);background:var(--sunken);color:var(--text);border-radius:10px;padding:11px 12px;font:.82rem var(--mono);outline:none}
+    textarea{height:168px;resize:vertical;line-height:1.4}
+    input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    textarea.drag{border-style:dashed;border-color:var(--accent)}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:.76rem;color:var(--muted)}
+    .link{border:0;background:none;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;padding:0}
+    .hidden{display:none!important}
+    button.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:9px;padding:7px 11px;font:inherit;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap}
+    button.btn:hover{border-color:var(--accent)}
+    .icon{width:34px;height:34px;padding:0;display:grid;place-items:center}
+    .icon.spin svg{animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+    .primary{width:100%;border:0;border-radius:12px;background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:800;font-size:1rem;padding:15px;cursor:pointer}
+    .primary:disabled{opacity:.55;cursor:progress}
+    details summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;font-size:.86rem;font-weight:700}
+    details summary::-webkit-details-marker{display:none}
+    details summary::after{content:"▾";color:var(--muted)}details[open] summary::after{content:"▴"}
+    details[open] summary{margin-bottom:12px}
+    .token-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:.78rem;color:var(--muted)}
+    .token-row label{display:flex;align-items:center;gap:6px;cursor:pointer}
+    .token-row input{accent-color:var(--accent)}
+    .token-row a{color:var(--accent);margin-left:auto;font-weight:700;text-decoration:none}
+    /* ---------- Animaciones ---------- */
+    button{-webkit-tap-highlight-color:transparent;transition:transform .18s cubic-bezier(.2,.8,.2,1),background-color .2s,border-color .2s,color .2s,box-shadow .25s,opacity .2s}
+    button:active:not(:disabled){transform:scale(.95)}
+    button.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+    button.btn:active:not(:disabled){transform:scale(.94)}
+    button.btn.done{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
+    @keyframes pop{0%{transform:scale(.85)}100%{transform:scale(1)}}
+    .icon:hover svg{transform:rotate(-60deg)}.icon svg{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+    .seg{position:relative}.seg button{position:relative;z-index:1}
+    .seg button.active{box-shadow:none;background:transparent}
+    .seg::before{content:"";position:absolute;top:3px;bottom:3px;left:var(--x,3px);width:var(--w,0);background:var(--surface);border-radius:7px;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:left .28s cubic-bezier(.2,.8,.2,1),width .28s cubic-bezier(.2,.8,.2,1)}
+    .link{position:relative}.link::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .link:hover::after{transform:scaleX(1)}
+    .primary{position:relative;overflow:hidden;box-shadow:0 6px 20px var(--accent-soft)}
+    .primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 28px var(--accent-soft),0 0 0 4px var(--accent-soft)}
+    .primary:active:not(:disabled){transform:translateY(0) scale(.98)}
+    .primary:disabled{opacity:.85}
+    .primary.busy::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.35) 50%,transparent 80%);transform:translateX(-100%);animation:shimmer 1.2s infinite}
+    @keyframes shimmer{to{transform:translateX(100%)}}
+    .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+    @keyframes ripple{to{transform:scale(1);opacity:0}}
+    .primary.success{animation:success .6s}
+    @keyframes success{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+    .stat b{transition:color .3s}.stat b.bump{animation:bump .5s}
+    @keyframes bump{40%{transform:translateY(-3px);color:var(--accent)}}
+    details summary::after{transition:transform .25s}details[open] summary::after{content:"▾";transform:rotate(180deg)}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    @media(max-width:680px){.sources{grid-template-columns:1fr}.stat b{font-size:1.2rem}}
   </style>
 </head>
 <body>
 <main>
-  <header>
-    <div class="eyebrow">crispy-robot</div>
-    <h1>Fusiona dos listas.<br>Un solo enlace.</h1>
-    <p>Pega dos URLs o sube dos archivos M3U. GitHub elimina duplicados por ID de AceStream y mantiene dos salidas fijas: una <code>acestream://</code> y otra para el motor local.</p>
-  </header>
-  <section class="grid" id="sources"></section>
-  <section class="card settings">
-    <div>
-      <label for="token">Token de GitHub</label>
-      <input id="token" type="password" autocomplete="off" placeholder="github_pat_...">
-      <p class="token-note">Token fine-grained, limitado a <strong>ivanmi2005/crispy-robot</strong>, con permiso <strong>Contents: Read and write</strong>. Se usa directamente contra GitHub y nunca se mete en la lista. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noreferrer">Crear token</a>.</p>
-    </div>
-    <label class="save-row"><input id="remember" type="checkbox"> Guardarlo en este dispositivo</label>
-  </section>
-  <div class="actions">
-    <button class="primary" id="publish">Fusionar y publicar</button>
-    <button class="secondary" id="check">Comprobar último resultado</button>
+  <div class="top">
+    <div class="brand"><span class="logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M18 15l-3-3m3 3-3 3M6 21v-4"/></svg></span>M3U Fusion</div>
+    <span class="pill" id="badge">Cargando…</span>
   </div>
-  <section class="card status" id="status" aria-live="polite">
-    <div class="status-head"><h2 style="margin:0">Estado</h2><span class="badge" id="badge">Listo</span></div>
-    <p class="message" id="message"></p>
-    <div class="stats hidden" id="stats"><div class="stat"><b id="found">—</b><span>entradas leídas</span></div><div class="stat"><b id="unique">—</b><span>canales únicos</span></div><div class="stat"><b id="dupes">—</b><span>duplicados quitados</span></div></div>
-    <div class="outputs hidden" id="outputs"></div>
+
+  <section class="card" aria-live="polite">
+    <div class="card-head">
+      <h2 id="result-title">Último resultado</h2>
+      <button class="btn icon" id="refresh" title="Actualizar" aria-label="Actualizar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg></button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="unique">—</b><span>canales</span></div>
+      <div class="stat"><b id="found">—</b><span>leídos</span></div>
+      <div class="stat"><b id="dupes">—</b><span>duplicados</span></div>
+    </div>
+    <div class="outputs" id="outputs"></div>
+    <p class="msg" id="message"></p>
   </section>
-  <footer>Los dos nombres de archivo no cambian aunque actualices las fuentes cien veces.</footer>
+
+  <section class="sources" id="sources"></section>
+
+  <details class="card" id="token-box">
+    <summary>Token de GitHub</summary>
+    <input id="token" type="password" autocomplete="off" placeholder="github_pat_…" spellcheck="false">
+    <div class="token-row">
+      <label><input id="remember" type="checkbox" checked> Recordar</label>
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noreferrer">Crear token</a>
+    </div>
+  </details>
+
+  <button class="primary" id="publish">Fusionar y publicar</button>
 </main>
 <script>
 const OWNER='ivanmi2005',REPO='crispy-robot',BRANCH='main';
-const PAGES_BASE='https://ivanmi2005.github.io/crispy-robot';
+const PAGES_BASE=`https://${OWNER}.github.io/${REPO}`;
 const RAW_BASE=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
-const defaults=['https://tokyo.elcano-ipfs.workers.dev/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_fuera_iptv.m3u','https://tokyo.elcano-ipfs.workers.dev/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u'];
-const state=[{mode:'url',file:null},{mode:'url',file:null}],sourcesEl=document.querySelector('#sources');
-function sourceCard(index){const n=index+1;return `<article class="card" data-source="${index}"><h2><span class="number">${n}</span> Fuente ${n}</h2><div class="tabs"><button class="active" data-mode="url">Enlace</button><button data-mode="file">Archivo</button></div><div data-panel="url"><label for="url${n}">URL de la lista</label><input id="url${n}" type="url" value="${defaults[index]}" spellcheck="false"></div><div class="drop hidden" data-panel="file"><input type="file" accept=".m3u,.m3u8,text/plain"><div><strong>Seleccionar archivo M3U</strong><small data-file-name>No hay archivo elegido</small></div></div></article>`}
-sourcesEl.innerHTML=sourceCard(0)+sourceCard(1);
-document.querySelectorAll('[data-source]').forEach(card=>{const index=Number(card.dataset.source);card.querySelectorAll('.tabs button').forEach(button=>button.addEventListener('click',()=>{state[index].mode=button.dataset.mode;card.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b===button));card.querySelectorAll('[data-panel]').forEach(panel=>panel.classList.toggle('hidden',panel.dataset.panel!==button.dataset.mode))}));const fileInput=card.querySelector('input[type=file]');fileInput.addEventListener('change',()=>{state[index].file=fileInput.files?.[0]||null;card.querySelector('[data-file-name]').textContent=state[index].file?`${state[index].file.name} · ${Math.ceil(state[index].file.size/1024)} KB`:'No hay archivo elegido'})});
-const tokenEl=document.querySelector('#token'),rememberEl=document.querySelector('#remember'),savedToken=localStorage.getItem('crispyGithubToken');if(savedToken){tokenEl.value=savedToken;rememberEl.checked=true}
-function setStatus(kind,title,html){const section=document.querySelector('#status'),badge=document.querySelector('#badge');section.classList.add('show');badge.className=`badge ${kind}`;badge.textContent=title;document.querySelector('#message').innerHTML=html}
-function setBusy(busy){const b=document.querySelector('#publish');b.disabled=busy;b.textContent=busy?'Publicando…':'Fusionar y publicar'}
-function bytesToBase64(text){const bytes=new TextEncoder().encode(text);let binary='';const chunk=0x8000;for(let i=0;i<bytes.length;i+=chunk)binary+=String.fromCharCode(...bytes.subarray(i,i+chunk));return btoa(binary)}
-async function github(path,options={}){const token=tokenEl.value.trim();const response=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`,{...options,headers:{'Accept':'application/vnd.github+json','Authorization':`Bearer ${token}`,'X-GitHub-Api-Version':'2022-11-28',...(options.headers||{})}});if(!response.ok){let detail='';try{detail=(await response.json()).message||''}catch{}throw new Error(`GitHub ${response.status}${detail?`: ${detail}`:''}`)}return response.status===204?null:response.json()}
-async function currentSha(path){try{return(await github(`${path}?ref=${BRANCH}`)).sha}catch(error){if(error.message.includes('GitHub 404'))return null;throw error}}
-async function upsert(path,content,message){const sha=await currentSha(path),body={message,content:bytesToBase64(content),branch:BRANCH};if(sha)body.sha=sha;return github(path,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})}
-function outputLinks(){return[{name:'Versión acestream://',url:`${PAGES_BASE}/lista_acestream_unificada.m3u`,raw:`${RAW_BASE}/published/lista_acestream_unificada.m3u`},{name:'Versión 127.0.0.1',url:`${PAGES_BASE}/lista_local_unificada.m3u`,raw:`${RAW_BASE}/published/lista_local_unificada.m3u`}]}
-function showOutputs(){const box=document.querySelector('#outputs');box.innerHTML=outputLinks().map(item=>`<div class="output"><div class="output-top"><strong>${item.name}</strong><button class="copy" data-copy="${item.url}">Copiar</button></div><a href="${item.url}" target="_blank" rel="noreferrer">${item.url}</a><a href="${item.raw}" target="_blank" rel="noreferrer" style="margin-top:5px;color:#687287">Enlace RAW de respaldo</a></div>`).join('');box.classList.remove('hidden');box.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{await navigator.clipboard.writeText(button.dataset.copy);button.textContent='Copiado';setTimeout(()=>button.textContent='Copiar',1200)}))}
-function showStats(status){document.querySelector('#found').textContent=status.total_found??'—';document.querySelector('#unique').textContent=status.total_unique??'—';document.querySelector('#dupes').textContent=status.total_duplicates??'—';document.querySelector('#stats').classList.remove('hidden');showOutputs()}
-async function readPublicStatus(){const urls=[`${PAGES_BASE}/status.json?t=${Date.now()}`,`${RAW_BASE}/published/status.json?t=${Date.now()}`];for(const url of urls){try{const response=await fetch(url,{cache:'no-store'});if(response.ok)return await response.json()}catch{}}throw new Error('Todavía no hay un resultado publicado.')}
-async function poll(requestId){const started=Date.now();while(Date.now()-started<150000){await new Promise(r=>setTimeout(r,4500));try{const status=await readPublicStatus();if(status.request_id===requestId){if(status.ok){setStatus('ok','Publicado',`Terminado: <strong>${status.total_unique} canales únicos</strong>. Los enlaces de abajo seguirán siendo los mismos en futuras actualizaciones.`);showStats(status);return}throw new Error(status.error||'Falló el procesado')}}catch(error){if(error.message?.includes('Falló'))throw error}}setStatus('wait','Procesando','La solicitud ya está en GitHub. Puedes cerrar esta página: el proceso continuará y los enlaces permanentes se actualizarán al terminar.');showOutputs()}
-async function publish(){if(!tokenEl.value.trim())return setStatus('bad','Falta token','Introduce un token de GitHub con permiso de escritura en <strong>crispy-robot</strong>.');if(rememberEl.checked)localStorage.setItem('crispyGithubToken',tokenEl.value.trim());else localStorage.removeItem('crispyGithubToken');const sources=[];setBusy(true);document.querySelector('#stats').classList.add('hidden');document.querySelector('#outputs').classList.add('hidden');try{setStatus('wait','Subiendo','Preparando las dos fuentes y enviando la solicitud a GitHub…');for(let i=0;i<2;i++){if(state[i].mode==='url'){const url=document.querySelector(`#url${i+1}`).value.trim();if(!/^https?:\/\//i.test(url))throw new Error(`La URL de la fuente ${i+1} no es válida.`);sources.push({label:`Fuente ${i+1}`,type:'url',url,enabled:true})}else{const file=state[i].file;if(!file)throw new Error(`Selecciona el archivo de la fuente ${i+1}.`);if(file.size>950000)throw new Error(`El archivo ${file.name} supera 950 KB. Usa su URL en su lugar.`);const path=`web_sources/source_${i+1}.m3u`;await upsert(path,await file.text(),`web: actualizar fuente ${i+1}`);sources.push({label:file.name,type:'file',path,enabled:true})}}const requestId=`${Date.now()}-${crypto.randomUUID?.()||Math.random().toString(36).slice(2)}`,request={request_id:requestId,requested_at:new Date().toISOString(),sources,outputs:{acestream:'lista_acestream_unificada.m3u',local:'lista_local_unificada.m3u'}};await upsert('merge_request.json',JSON.stringify(request,null,2)+'\n','web: fusionar y publicar listas M3U');setStatus('wait','Procesando','Solicitud enviada. GitHub está descargando, fusionando y quitando duplicados…');showOutputs();await poll(requestId)}catch(error){setStatus('bad','Error',String(error.message||error))}finally{setBusy(false)}}
-document.querySelector('#publish').addEventListener('click',publish);document.querySelector('#check').addEventListener('click',async()=>{try{const status=await readPublicStatus();if(!status.ok)throw new Error(status.error||'El último proceso falló');setStatus('ok','Último resultado',`Última generación: <strong>${new Date(status.generated_at).toLocaleString('es-ES')}</strong>.`);showStats(status)}catch(error){setStatus('bad','Sin resultado',error.message)}});
+const MAX_BYTES=950000;
+const DEFAULT_URLS=['https://tokyo.elcano-ipfs.workers.dev/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_fuera_iptv.m3u','https://tokyo.elcano-ipfs.workers.dev/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u'];
+const OUTPUTS=[
+  {name:'acestream://',file:'lista_acestream_unificada.m3u'},
+  {name:'Motor local (127.0.0.1)',file:'lista_local_unificada.m3u'}
+];
+const $=s=>document.querySelector(s);
+const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
+
+/* ---------- Fuentes ---------- */
+function moveSeg(card){const seg=card.querySelector('.seg'),a=seg.querySelector('.active');if(!a)return;seg.style.setProperty('--x',a.offsetLeft+'px');seg.style.setProperty('--w',a.offsetWidth+'px')}
+window.addEventListener('resize',()=>document.querySelectorAll('[data-i]').forEach(moveSeg));
+let saved=[];try{saved=JSON.parse(store.get('crispySources')||'[]')}catch{}
+const state=[0,1].map(i=>({mode:saved[i]?.mode==='text'?'text':'url',url:saved[i]?.url||DEFAULT_URLS[i],fileName:null,loadedText:null}));
+function saveSources(){store.set('crispySources',JSON.stringify(state.map(s=>({mode:s.mode,url:s.url}))))}
+function countIds(text){const ids=new Set();for(const m of text.matchAll(/(?<![0-9a-f])([0-9a-f]{40})(?![0-9a-f])/gi))ids.add(m[1].toLowerCase());return ids.size}
+
+$('#sources').innerHTML=state.map((s,i)=>`
+  <article class="card" data-i="${i}">
+    <div class="card-head"><h2>Fuente ${i+1}</h2>
+      <div class="seg"><button data-mode="url">URL</button><button data-mode="text">Texto</button></div></div>
+    <div data-panel="url"><input type="url" spellcheck="false" placeholder="https://…/lista.m3u"></div>
+    <div data-panel="text">
+      <textarea spellcheck="false" placeholder="Pega aquí la lista M3U, enlaces acestream:// o hashes"></textarea>
+      <div class="row"><span data-count>0 canales</span><button class="link" data-open>Abrir archivo</button></div>
+      <input type="file" accept=".m3u,.m3u8,.txt,text/plain" hidden>
+    </div>
+  </article>`).join('');
+
+document.querySelectorAll('[data-i]').forEach(card=>{
+  const i=+card.dataset.i,s=state[i];
+  const url=card.querySelector('input[type=url]'),ta=card.querySelector('textarea'),file=card.querySelector('input[type=file]'),count=card.querySelector('[data-count]');
+  const setMode=m=>{s.mode=m;card.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));card.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('hidden',p.dataset.panel!==m));moveSeg(card);saveSources()};
+  const updateCount=()=>{const n=countIds(ta.value);count.textContent=`${n} canal${n===1?'':'es'}${s.fileName&&ta.value===s.loadedText?` · ${s.fileName}`:''}`};
+  const loadFile=async f=>{if(!f)return;s.fileName=f.name;s.loadedText=ta.value=await f.text();updateCount()};
+  url.value=s.url;url.addEventListener('input',()=>{s.url=url.value.trim();saveSources()});
+  card.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+  ta.addEventListener('input',updateCount);
+  card.querySelector('[data-open]').addEventListener('click',()=>file.click());
+  file.addEventListener('change',()=>{loadFile(file.files[0]);file.value=''});
+  ta.addEventListener('dragover',e=>{e.preventDefault();ta.classList.add('drag')});
+  ta.addEventListener('dragleave',()=>ta.classList.remove('drag'));
+  ta.addEventListener('drop',e=>{e.preventDefault();ta.classList.remove('drag');loadFile(e.dataTransfer.files[0])});
+  s.textarea=ta;setMode(s.mode);
+});
+
+/* ---------- Token ---------- */
+const tokenEl=$('#token'),rememberEl=$('#remember');
+const savedToken=store.get('crispyGithubToken');
+if(savedToken)tokenEl.value=savedToken;else $('#token-box').open=true;
+
+/* ---------- Resultado ---------- */
+function setBadge(kind,text){const b=$('#badge');b.className=`pill ${kind}`;b.textContent=text}
+function setMessage(text,bad=false){const m=$('#message');m.textContent=text||'';m.className=`msg${bad?' bad':''}`}
+function renderOutputs(){
+  $('#outputs').innerHTML=OUTPUTS.map(o=>{const url=`${PAGES_BASE}/${o.file}`;return `<div class="output"><div><strong>${o.name}</strong><a href="${url}" target="_blank" rel="noreferrer">${url}</a></div><button class="btn" data-copy="${url}">Copiar</button></div>`}).join('');
+  $('#outputs').querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓ Copiado';b.classList.add('done')}catch{b.textContent='Error'}setTimeout(()=>{b.textContent='Copiar';b.classList.remove('done')},1400)}));
+}
+function fmtDate(iso){const d=new Date(iso);return isNaN(d)?'':d.toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}
+function renderStatus(st){
+  const n=v=>v==null?'—':Number(v).toLocaleString('es-ES');
+  [['#unique',st.total_unique],['#found',st.total_found],['#dupes',st.total_duplicates]].forEach(([id,v])=>{const el=$(id),t=n(v);if(el.textContent!==t){el.textContent=t;el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')}});
+  if(st.ok){setBadge('ok',fmtDate(st.generated_at));setMessage('')}
+  else{setBadge('bad','Error');setMessage(st.error||'El último proceso falló',true)}
+}
+async function fetchStatus(){
+  const t=Date.now(),urls=[`${RAW_BASE}/published/status.json?t=${t}`,`${PAGES_BASE}/status.json?t=${t}`];
+  const results=(await Promise.allSettled(urls.map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()))))
+    .filter(r=>r.status==='fulfilled').map(r=>r.value);
+  if(!results.length)throw new Error('Todavía no hay resultados publicados.');
+  return results.sort((a,b)=>new Date(b.generated_at)-new Date(a.generated_at))[0];
+}
+async function loadStatus(){
+  const btn=$('#refresh');btn.classList.add('spin');
+  try{renderStatus(await fetchStatus())}catch(e){setBadge('bad','Sin datos');setMessage(e.message,true)}
+  finally{btn.classList.remove('spin')}
+}
+
+/* ---------- GitHub ---------- */
+function toBase64(text){const bytes=new TextEncoder().encode(text);let bin='';for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode(...bytes.subarray(i,i+0x8000));return btoa(bin)}
+async function github(path,options={}){
+  const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`,{...options,headers:{'Accept':'application/vnd.github+json','Authorization':`Bearer ${tokenEl.value.trim()}`,'X-GitHub-Api-Version':'2022-11-28',...(options.headers||{})}});
+  if(!r.ok){let d='';try{d=(await r.json()).message||''}catch{}throw new Error(`GitHub ${r.status}${d?`: ${d}`:''}`)}
+  return r.status===204?null:r.json();
+}
+async function currentSha(path){try{return(await github(`${path}?ref=${BRANCH}`)).sha}catch(e){if(e.message.startsWith('GitHub 404'))return null;throw e}}
+async function upsert(path,content,message){const sha=await currentSha(path),body={message,content:toBase64(content),branch:BRANCH};if(sha)body.sha=sha;return github(path,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})}
+
+async function poll(requestId){
+  const start=Date.now();
+  while(Date.now()-start<180000){
+    await new Promise(r=>setTimeout(r,4000));
+    try{const st=await fetchStatus();if(st.request_id===requestId||(!st.ok&&new Date(st.generated_at)>start)){renderStatus(st);return st.ok}}catch{}
+  }
+  setBadge('wait','En curso');setMessage('GitHub sigue procesando. Puedes cerrar la página: los enlaces se actualizarán solos.');
+  return false;
+}
+
+async function publish(){
+  const token=tokenEl.value.trim();
+  if(!token){$('#token-box').open=true;tokenEl.focus();setBadge('bad','Falta token');return}
+  store.set('crispyGithubToken',rememberEl.checked?token:null);
+  const btn=$('#publish');btn.disabled=true;btn.classList.add('busy');btn.textContent='Publicando…';
+  setBadge('wait','Subiendo');setMessage('');
+  try{
+    const sources=[];
+    for(let i=0;i<2;i++){
+      const s=state[i];
+      if(s.mode==='url'){
+        if(!/^https?:\/\//i.test(s.url))throw new Error(`La URL de la fuente ${i+1} no es válida.`);
+        sources.push({label:`Fuente ${i+1}`,type:'url',url:s.url,enabled:true});
+      }else{
+        const text=s.textarea.value;
+        if(!countIds(text))throw new Error(`La fuente ${i+1} no contiene canales AceStream.`);
+        if(new TextEncoder().encode(text).length>MAX_BYTES)throw new Error(`La fuente ${i+1} supera 950 KB. Usa su URL.`);
+        const path=`web_sources/source_${i+1}.m3u`;
+        await upsert(path,text.endsWith('\n')?text:text+'\n',`web: actualizar fuente ${i+1}`);
+        sources.push({label:s.fileName&&text===s.loadedText?s.fileName:`Texto ${i+1}`,type:'file',path,enabled:true});
+      }
+    }
+    const requestId=`${Date.now()}-${crypto.randomUUID?.()||Math.random().toString(36).slice(2)}`;
+    const request={request_id:requestId,requested_at:new Date().toISOString(),sources,outputs:{acestream:OUTPUTS[0].file,local:OUTPUTS[1].file}};
+    await upsert('merge_request.json',JSON.stringify(request,null,2)+'\n','web: fusionar y publicar listas M3U');
+    setBadge('wait','Procesando');
+    if(await poll(requestId)){btn.classList.add('success');setTimeout(()=>btn.classList.remove('success'),700)}
+  }catch(e){setBadge('bad','Error');setMessage(String(e.message||e),true)}
+  finally{btn.disabled=false;btn.classList.remove('busy');btn.textContent='Fusionar y publicar'}
+}
+
+$('#publish').addEventListener('pointerdown',e=>{const b=e.currentTarget;if(b.disabled)return;const r=b.getBoundingClientRect(),size=Math.max(r.width,r.height)*2,dot=document.createElement('span');dot.className='ripple';dot.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px`;b.appendChild(dot);setTimeout(()=>dot.remove(),650)});
+$('#publish').addEventListener('click',publish);
+$('#refresh').addEventListener('click',loadStatus);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&!$('#publish').disabled)loadStatus()});
+renderOutputs();
+loadStatus();
 </script>
 </body>
 </html>
