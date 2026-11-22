@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-22T19:39:55.071783+00:00",
-  "total_unique": 359,
-  "total_found": 506,
-  "total_duplicates": 147,
+  "generated_at": "2026-11-22T19:42:39.746116+00:00",
+  "total_unique": 357,
+  "total_found": 502,
+  "total_duplicates": 145,
   "sort_order": [
     "CATEGORIA",
     "CANAL",
@@ -16,7 +16,7 @@
     "elcano": 0,
     "sporttv": 151,
     "newloop": 65,
-    "resto": 143
+    "resto": 141
   },
   "sources": [
     {
@@ -36,16 +36,16 @@
     {
       "label": "Lista 1",
       "type": "url",
-      "found": 147,
-      "added": 147,
+      "found": 145,
+      "added": 145,
       "duplicates": 0
     },
     {
       "label": "Lista 2",
       "type": "url",
-      "found": 147,
+      "found": 145,
       "added": 0,
-      "duplicates": 147
+      "duplicates": 145
     }
   ],
   "outputs": {
