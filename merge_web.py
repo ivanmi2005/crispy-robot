@@ -17,6 +17,7 @@ REQUEST_FILE = BASE / "merge_request.json"
 PUBLISHED_DIR = BASE / "published"
 ACE_RE = re.compile(r"acestream://([0-9a-fA-F]{40})(?:\b|$)", re.I)
 QUERY_RE = re.compile(r"[?&](?:id|content_id)=([0-9a-fA-F]{40})(?:&|$)", re.I)
+HASH_RE = re.compile(r"(?<![0-9a-fA-F])([0-9a-fA-F]{40})(?![0-9a-fA-F])")
 
 
 @dataclass(slots=True)
@@ -62,6 +63,19 @@ def extract_ace_id(line: str) -> str | None:
     return match.group(1).lower() if match else None
 
 
+def bare_entry(line: str) -> Entry | None:
+    """Admite texto pegado sin #EXTINF: enlaces sueltos, hashes o «Nombre acestream://id»."""
+    ace_id = extract_ace_id(line)
+    if not ace_id:
+        match = HASH_RE.search(line)
+        ace_id = match.group(1).lower() if match else None
+    if not ace_id:
+        return None
+    name = re.sub(r"(?:acestream://|https?://\S*?[?&](?:id|content_id)=)?[0-9a-fA-F]{40}\S*", "", line)
+    name = name.strip(" \t,;:|-–—") or f"AceStream {ace_id[:8]}"
+    return Entry(ace_id=ace_id, metadata_lines=[f"#EXTINF:-1,{name}"])
+
+
 def parse_m3u(text: str) -> tuple[str | None, list[str], list[Entry]]:
     header = None
     groups: list[str] = []
@@ -82,6 +96,9 @@ def parse_m3u(text: str) -> tuple[str | None, list[str], list[Entry]]:
             i += 1
             continue
         if not line.startswith("#EXTINF"):
+            bare = None if line.startswith("#") else bare_entry(line)
+            if bare:
+                entries.append(bare)
             i += 1
             continue
 
