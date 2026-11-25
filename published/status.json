@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-22T19:42:39.746116+00:00",
-  "total_unique": 357,
-  "total_found": 502,
-  "total_duplicates": 145,
+  "generated_at": "2026-11-25T19:49:11.381369+00:00",
+  "total_unique": 303,
+  "total_found": 394,
+  "total_duplicates": 91,
   "sort_order": [
     "CATEGORIA",
     "CANAL",
@@ -14,9 +14,9 @@
   ],
   "provider_counts": {
     "elcano": 0,
-    "sporttv": 151,
+    "sporttv": 147,
     "newloop": 65,
-    "resto": 141
+    "resto": 91
   },
   "sources": [
     {
@@ -36,21 +36,21 @@
     {
       "label": "Lista 1",
       "type": "url",
-      "found": 145,
-      "added": 145,
+      "found": 91,
+      "added": 91,
       "duplicates": 0
     },
     {
       "label": "Lista 2",
       "type": "url",
-      "found": 145,
+      "found": 91,
       "added": 0,
-      "duplicates": 145
+      "duplicates": 91
     }
   ],
   "outputs": {
     "acestream": "published/lista_acestream_unificada.m3u",
     "local": "published/lista_local_unificada.m3u"
   },
-  "request_id": "1795375895213-f6f2b6db-3b84-48b7-8ac1-b04746453f86"
+  "request_id": "1795636135343-b48dd17b-dc31-48d9-909f-14a42d209709"
 }
