@@ -1,6 +1,6 @@
 {
-  "request_id": "1795636135343-b48dd17b-dc31-48d9-909f-14a42d209709",
-  "requested_at": "2026-11-25T19:48:55.343Z",
+  "request_id": "1795706483546-c8c6d08b-1cbc-4839-92e0-278336865ea0",
+  "requested_at": "2026-11-26T15:21:23.546Z",
   "sources": [
     {
       "label": "Lista 1",
@@ -9,9 +9,9 @@
       "enabled": true
     },
     {
-      "label": "Lista 2",
-      "type": "url",
-      "url": "https://ipfs2.bytokyo.dpdns.org/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
+      "label": "Texto 2",
+      "type": "file",
+      "path": "web_sources/source_2.m3u",
       "enabled": true
     }
   ],
