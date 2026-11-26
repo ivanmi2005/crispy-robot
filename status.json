@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-25T19:49:11.381369+00:00",
-  "total_unique": 303,
-  "total_found": 394,
-  "total_duplicates": 91,
+  "generated_at": "2026-11-26T15:21:45.956187+00:00",
+  "total_unique": 356,
+  "total_found": 500,
+  "total_duplicates": 144,
   "sort_order": [
     "CATEGORIA",
     "CANAL",
@@ -16,7 +16,7 @@
     "elcano": 0,
     "sporttv": 147,
     "newloop": 65,
-    "resto": 91
+    "resto": 144
   },
   "sources": [
     {
@@ -36,21 +36,21 @@
     {
       "label": "Lista 1",
       "type": "url",
-      "found": 91,
-      "added": 91,
+      "found": 144,
+      "added": 144,
       "duplicates": 0
     },
     {
-      "label": "Lista 2",
-      "type": "url",
-      "found": 91,
+      "label": "Texto 2",
+      "type": "file",
+      "found": 144,
       "added": 0,
-      "duplicates": 91
+      "duplicates": 144
     }
   ],
   "outputs": {
     "acestream": "published/lista_acestream_unificada.m3u",
     "local": "published/lista_local_unificada.m3u"
   },
-  "request_id": "1795636135343-b48dd17b-dc31-48d9-909f-14a42d209709"
+  "request_id": "1795706483546-c8c6d08b-1cbc-4839-92e0-278336865ea0"
 }
